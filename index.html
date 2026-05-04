@@ -625,6 +625,61 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 .faq-a a{color:var(--teal);border-bottom-color:rgba(13,126,110,.3)}
 .faq-a strong{color:var(--ink)}
 
+
+
+/* ── LIFECYCLE / MINDMAP ── */
+#lifecycle{padding:80px 0;background:var(--paper);overflow:hidden;position:relative}
+.lifecycle-note{
+  background:var(--white);border:1px solid var(--fog);border-left:4px solid var(--teal);
+  border-radius:var(--r);padding:16px 18px;margin-bottom:28px;
+  font-size:14px;line-height:1.7;color:var(--slate);
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+.lifecycle-note strong{color:var(--ink)}
+.lifecycle-note em{color:var(--ink2)}
+.mindmap-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+.mindmap{
+  position:relative;min-height:760px;background:var(--cream);border:1px solid var(--fog);
+  border-radius:18px;padding:24px;box-shadow:0 4px 24px rgba(0,0,0,.06);
+}
+.mindmap-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:240px;height:240px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  box-shadow:0 16px 40px rgba(10,22,40,.18);padding:24px;z-index:2;
+}
+.mindmap-center .mm-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin-bottom:10px;font-weight:700}
+.mindmap-center .mm-title{font-family:var(--serif);font-size:28px;line-height:1.15;margin-bottom:10px}
+.mindmap-center .mm-sub{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.72)}
+.mm-node{
+  position:absolute;width:240px;background:var(--white);border:1px solid var(--fog);border-radius:14px;
+  padding:16px 16px 14px;box-shadow:0 8px 22px rgba(0,0,0,.06);z-index:3;
+}
+.mm-node::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;border-radius:14px 14px 0 0;background:var(--teal)}
+.mm-node.agent::before{background:var(--coral)}
+.mm-node .step{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--teal3);color:var(--teal);font-size:12px;font-weight:800;margin-bottom:10px}
+.mm-node.agent .step{background:var(--coralL);color:var(--coral)}
+.mm-node h3{font-size:15px;line-height:1.35;color:var(--ink);margin-bottom:6px}
+.mm-node p{font-size:12.8px;line-height:1.6;color:var(--slate);margin-bottom:10px}
+.mm-tags{display:flex;flex-wrap:wrap;gap:6px}
+.mm-tag{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.04em;background:#eef4fb;color:var(--ink2)}
+.mm-tag.ai6{background:var(--gold3);color:#7a5a00}
+.mm-tag.agent{background:var(--coralL);color:#8a2f1a}
+.mindmap-lines{position:absolute;inset:0;z-index:1;pointer-events:none}
+.mindmap-lines line{stroke:rgba(90,115,153,.45);stroke-width:2;stroke-dasharray:4 6}
+.lifecycle-side{display:flex;flex-direction:column;gap:16px}
+.life-card{
+  background:var(--white);border:1px solid var(--fog);border-radius:var(--r);padding:18px 18px 16px;
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+.life-card h3{font-family:var(--serif);font-size:24px;line-height:1.2;margin-bottom:10px;color:var(--ink)}
+.life-card p{font-size:13.5px;line-height:1.7;color:var(--slate);margin-bottom:10px}
+.life-list{list-style:none;margin:0;padding:0}
+.life-list li{padding:9px 0 9px 28px;position:relative;border-bottom:1px solid #edf1f6;font-size:13px;line-height:1.55;color:var(--slate)}
+.life-list li:last-child{border-bottom:none}
+.life-list li::before{content:'•';position:absolute;left:10px;top:8px;font-size:20px;color:var(--teal)}
+.life-mini{font-size:11.5px;color:var(--mist);line-height:1.6;margin-top:8px}
+
 /* ── RESOURCES ── */
 #resources{
   padding:80px 0;
@@ -693,6 +748,8 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   .agent-layout{grid-template-columns:1fr}
   .agent-risk-strip{grid-template-columns:1fr 1fr}
   .agent-grid{grid-template-columns:1fr 1fr}
+  .mindmap-wrap{grid-template-columns:1fr}
+  .mindmap{min-height:1180px}
   .history-timeline{grid-template-columns:1fr}
   .exp-inner{grid-template-columns:1fr}
   #p8-detail.show,#a6-detail.show{grid-template-columns:1fr}
@@ -703,6 +760,10 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   .res-grid{grid-template-columns:1fr}
   .agent-risk-strip{grid-template-columns:1fr}
   .agent-grid{grid-template-columns:1fr}
+  .mindmap{min-height:auto;padding:18px;display:grid;grid-template-columns:1fr;gap:14px}
+  .mindmap-center{position:relative;top:auto;left:auto;transform:none;width:100%;height:auto;border-radius:14px;padding:20px;margin-bottom:6px}
+  .mindmap-lines{display:none}
+  .mm-node{position:relative;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;width:100%}
   .hero-numbers{gap:28px}
   .hn .n{font-size:40px}
   .section-wrap{padding:0 20px}
@@ -714,6 +775,114 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   #p8-detail.show,#a6-detail.show{display:grid!important}
   a[href]::after{content:' ('attr(href)')';font-size:9px;color:#888}
 }
+
+
+/* ── LIFECYCLE TRAIN / BUBBLE ROUTE ── */
+#lifecycle{padding:80px 0;background:var(--paper);overflow:hidden;position:relative}
+.life-note{
+  background:var(--white);border:1px solid var(--fog);border-left:4px solid var(--teal);
+  border-radius:var(--r);padding:16px 18px;margin-bottom:28px;
+  font-size:14px;line-height:1.7;color:var(--slate);
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+.life-note strong{color:var(--ink)}
+.life-train-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.8fr);gap:22px;align-items:start}
+.train-board{
+  position:relative;background:var(--cream);border:1px solid var(--fog);border-radius:18px;
+  padding:24px;box-shadow:0 4px 24px rgba(0,0,0,.06);overflow:hidden;
+}
+.train-board::before{
+  content:'';position:absolute;inset:-80px auto auto -90px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(13,126,110,.12),transparent 65%);pointer-events:none;
+}
+.train-board::after{
+  content:'';position:absolute;right:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,160,23,.14),transparent 65%);pointer-events:none;
+}
+.train-hero{
+  position:relative;z-index:1;background:var(--ink);border-radius:16px;padding:22px 24px;color:#fff;
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:22px;
+  box-shadow:0 14px 34px rgba(10,22,40,.16);
+}
+.train-icon{
+  width:70px;height:70px;border-radius:22px;background:rgba(212,160,23,.14);border:1px solid rgba(212,160,23,.26);
+  display:flex;align-items:center;justify-content:center;font-size:34px;
+}
+.train-hero .kicker{display:inline-flex;width:max-content;padding:4px 10px;border-radius:999px;background:rgba(212,160,23,.16);color:var(--gold2);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.train-hero h3{font-family:var(--serif);font-size:30px;line-height:1.12;margin:0 0 6px}
+.train-hero p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.68);margin:0;max-width:640px}
+.route-lane{position:relative;z-index:1;margin-top:10px}
+.route-track{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative;
+}
+.route-track.top{margin-bottom:46px}
+.route-track.bottom{margin-top:0}
+.route-track::before{
+  content:'';position:absolute;left:10%;right:10%;top:39px;height:6px;border-radius:999px;
+  background:repeating-linear-gradient(90deg,var(--teal) 0 18px,transparent 18px 26px);
+  opacity:.28;z-index:0;
+}
+.route-track.bottom::before{background:repeating-linear-gradient(90deg,var(--coral) 0 18px,transparent 18px 26px)}
+.route-turn{
+  width:56px;height:56px;border:6px solid rgba(90,115,153,.18);border-left:none;border-bottom:none;border-radius:0 34px 0 0;
+  margin:-30px auto -16px;position:relative;z-index:0;
+}
+.route-turn::after{content:'↓';position:absolute;right:-15px;bottom:-22px;color:var(--slate);font-size:20px;opacity:.5}
+.station{
+  position:relative;background:var(--white);border:1px solid #d8e4f0;border-radius:14px;
+  padding:52px 14px 14px;min-height:186px;box-shadow:0 8px 22px rgba(0,0,0,.055);z-index:1;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.station:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.09);border-color:var(--teal)}
+.station.agent{border-color:#efc7bd;background:linear-gradient(180deg,#fff,#fff8f6)}
+.station.agent:hover{border-color:var(--coral)}
+.station-bubble{
+  position:absolute;top:14px;left:14px;width:42px;height:42px;border-radius:50%;
+  background:var(--teal3);color:var(--teal);display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;border:3px solid var(--white);box-shadow:0 0 0 2px rgba(13,126,110,.14);
+}
+.station.agent .station-bubble{background:var(--coralL);color:var(--coral);box-shadow:0 0 0 2px rgba(200,75,47,.14)}
+.station h4{font-size:14px;line-height:1.32;color:var(--ink);margin-bottom:7px}
+.station p{font-size:12.5px;line-height:1.55;color:var(--slate);margin-bottom:11px}
+.station-tags{display:flex;flex-wrap:wrap;gap:6px}
+.station-tag{display:inline-flex;padding:3px 8px;border-radius:999px;font-size:10.3px;font-weight:800;background:#eef4fb;color:var(--ink2)}
+.station-tag.ai6{background:var(--gold3);color:#7a5a00}
+.station-tag.agent{background:var(--coralL);color:#8a2f1a}
+.station-arrow{position:absolute;top:26px;right:-14px;color:var(--slate);opacity:.55;font-weight:800;font-size:18px;z-index:2}
+.station:nth-child(4) .station-arrow{display:none}
+.bubble-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative;z-index:1}
+.play-bubble{
+  background:var(--white);border:1px solid var(--fog);border-radius:999px;padding:9px 12px;
+  font-size:12px;font-weight:700;color:var(--ink2);box-shadow:0 4px 14px rgba(0,0,0,.045);
+}
+.play-bubble.agent{background:var(--coralL);border-color:#efc7bd;color:#8a2f1a}
+.play-bubble.ai6{background:var(--gold3);border-color:#f1d983;color:#7a5a00}
+.life-side{display:flex;flex-direction:column;gap:16px}
+.life-card{
+  background:var(--white);border:1px solid var(--fog);border-radius:var(--r);padding:18px 18px 16px;
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+}
+.life-card h3{font-family:var(--serif);font-size:24px;line-height:1.2;margin-bottom:10px;color:var(--ink)}
+.life-card p{font-size:13.5px;line-height:1.7;color:var(--slate);margin-bottom:10px}
+.life-list{list-style:none;margin:0;padding:0}
+.life-list li{padding:9px 0 9px 28px;position:relative;border-bottom:1px solid #edf1f6;font-size:13px;line-height:1.55;color:var(--slate)}
+.life-list li:last-child{border-bottom:none}
+.life-list li::before{content:'•';position:absolute;left:10px;top:8px;font-size:20px;color:var(--teal)}
+.life-list.agent li::before{color:var(--coral)}
+.life-mini{font-size:11.5px;color:var(--mist);line-height:1.6;margin-top:8px}
+@media(max-width:1000px){
+  .life-train-layout{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .train-board{padding:16px}
+  .train-hero{grid-template-columns:1fr;padding:18px}
+  .train-icon{width:58px;height:58px;border-radius:18px;font-size:28px}
+  .route-track,.route-track.bottom{display:block;margin:0}
+  .route-track::before,.route-turn,.station-arrow{display:none}
+  .station{min-height:auto;margin-bottom:12px;padding-top:52px}
+  .station:last-child{margin-bottom:0}
+}
+
 </style>
 </head>
 <body>
@@ -730,6 +899,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
     <a href="#agents">AI Agents</a>
+    <a href="#lifecycle">Lifecycle</a>
     <a href="#mapping">Mapping</a>
     <a href="#faq">FAQ</a>
     <a href="#resources" class="nav-cta btn">Resources →</a>
@@ -955,6 +1125,134 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   </div>
 </section>
 
+
+
+<hr class="divider">
+
+
+
+<hr class="divider">
+
+<!-- LIFECYCLE / TRAIN ROUTE -->
+<section id="lifecycle">
+  <div class="section-wrap">
+    <div class="section-label">Use Case & Agent Lifecycle</div>
+    <h2 class="section-title">The AI lifecycle as a <span class="light">train journey</span></h2>
+    <p class="section-intro">A cleaner, easier way to show the flow from idea to retirement. Each station is a gate the use case or agent should pass before it moves further.</p>
+
+    <div class="life-note">
+      <strong>How to read this:</strong> start at Station 1 and follow the route. The coral stations are extra-important for <em>agentic AI</em>, because agents can use tools, call systems and take actions.
+    </div>
+
+    <div class="life-train-layout">
+      <div class="train-board">
+        <div class="train-hero">
+          <div class="train-icon">🚆</div>
+          <div>
+            <div class="kicker">AI delivery route</div>
+            <h3>Idea → Control → Test → Run → Retire</h3>
+            <p>Do not jump straight from a clever idea to production. A safe AI or agent rollout needs purpose, accountability, risk checks, controlled access, testing, monitoring and a planned exit.</p>
+          </div>
+        </div>
+
+        <div class="route-lane" aria-label="AI lifecycle train route">
+          <div class="route-track top">
+            <div class="station">
+              <div class="station-bubble">1</div><span class="station-arrow">→</span>
+              <h4>Choose the use case</h4>
+              <p>Define the outcome, users, value and boundary. Confirm AI or an agent is actually needed.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P2</span><span class="station-tag">Discover</span></div>
+            </div>
+            <div class="station">
+              <div class="station-bubble">2</div><span class="station-arrow">→</span>
+              <h4>Name the owner</h4>
+              <p>Assign accountability before build starts. Record who approves, operates and reviews it.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P1</span><span class="station-tag">P8</span></div>
+            </div>
+            <div class="station">
+              <div class="station-bubble">3</div><span class="station-arrow">→</span>
+              <h4>Assess impact and risk</h4>
+              <p>Check privacy, fairness, safety, security, legal impact and possible harm.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P2/P3</span><span class="station-tag">Risk</span></div>
+            </div>
+            <div class="station agent">
+              <div class="station-bubble">4</div>
+              <h4>Control data and tools</h4>
+              <p>Limit data, APIs, memory and actions. Use least privilege and clear system boundaries.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P3</span><span class="station-tag agent">Agent</span></div>
+            </div>
+          </div>
+
+          <div class="route-turn"></div>
+
+          <div class="route-track bottom">
+            <div class="station agent">
+              <div class="station-bubble">5</div><span class="station-arrow">→</span>
+              <h4>Test hard</h4>
+              <p>Test edge cases, unsafe outputs, prompt injection, tool misuse and override paths.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P5</span><span class="station-tag agent">Red team</span></div>
+            </div>
+            <div class="station agent">
+              <div class="station-bubble">6</div><span class="station-arrow">→</span>
+              <h4>Approve and release</h4>
+              <p>Go live only with a register entry, human control, rollback and user-facing guidance.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P4/P6</span><span class="station-tag agent">Human control</span></div>
+            </div>
+            <div class="station">
+              <div class="station-bubble">7</div><span class="station-arrow">→</span>
+              <h4>Monitor and improve</h4>
+              <p>Track logs, quality, drift, incidents, complaints, tool use and business value.</p>
+              <div class="station-tags"><span class="station-tag ai6">AI6 P5</span><span class="station-tag">Operate</span></div>
+            </div>
+            <div class="station">
+              <div class="station-bubble">8</div>
+              <h4>Retire or redesign</h4>
+              <p>Remove access, archive records and decommission if value drops or risk changes.</p>
+              <div class="station-tags"><span class="station-tag">Retire</span><span class="station-tag">Records</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bubble-row" aria-label="Key lifecycle controls">
+          <span class="play-bubble">🎯 Purpose</span>
+          <span class="play-bubble ai6">👤 Owner</span>
+          <span class="play-bubble">⚖️ Risk</span>
+          <span class="play-bubble agent">🔐 Least privilege</span>
+          <span class="play-bubble agent">🧪 Agent testing</span>
+          <span class="play-bubble ai6">🧑‍⚖️ Human control</span>
+          <span class="play-bubble">📈 Monitoring</span>
+          <span class="play-bubble">🗄️ Retire</span>
+        </div>
+      </div>
+
+      <div class="life-side">
+        <div class="life-card">
+          <h3>Why this works better</h3>
+          <p>It shows governance as a journey, not a wall of controls. The reader can follow the train from idea to retirement.</p>
+          <ul class="life-list">
+            <li><strong>Station 1–3:</strong> prove value, ownership and risk.</li>
+            <li><strong>Station 4–6:</strong> control access, test hard and approve safely.</li>
+            <li><strong>Station 7–8:</strong> monitor, improve, retire or redesign.</li>
+          </ul>
+        </div>
+
+        <div class="life-card">
+          <h3>Agent-specific gates</h3>
+          <p>For agents, the riskiest part is not the chat response. It is what the agent can access and do.</p>
+          <ul class="life-list agent">
+            <li>Can it call tools, APIs or workflows?</li>
+            <li>Does it have more access than it needs?</li>
+            <li>Are tool calls, memory and actions logged?</li>
+            <li>Can a human pause, override or shut it down?</li>
+            <li>Is there a rollback path if it acts incorrectly?</li>
+          </ul>
+          <div class="life-mini">Original visual design. Summary wording is source-linked in the page footer and avoids copying source text.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THREE NUMBERS -->
 <section id="numbers">
   <div class="section-wrap">
@@ -1098,6 +1396,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
     <a href="#agents">AI Agents</a>
+    <a href="#lifecycle">Lifecycle</a>
     <a href="#mapping">Mapping</a>
     <a href="#faq">FAQ</a>
     <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">DISR</a>
