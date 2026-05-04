@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Australia's AI governance decoded: the 8 Ethics Principles (why) and the 6 AI Essential Practices (how) — interactive, fact-based, publish-ready.">
-<meta property="og:title" content="🇦🇺 Australia AI: 8 Principles vs 6 Practices — The Complete Guide">
-<meta property="og:description" content="Understand how Australia's foundational AI Ethics Principles connect to the practical AI6 framework. Interactive, verified, free.">
+<meta name="description" content="Independent source-linked navigator for Australia's AI Ethics Principles, 6 AI Essential Practices, and the 1 May 2026 agentic AI security update — combined in one practical view.">
+<meta property="og:title" content="🇦🇺 Australia AI Navigator: 8 Principles, 6 Practices & Agentic AI">
+<meta property="og:description" content="Understand how Australia's foundational AI Ethics Principles connect to the AI6 framework and May 2026 agentic AI security guidance. Interactive, verified, free.">
 <meta name="theme-color" content="#0a1628">
-<title>🇦🇺 Australia AI: 8 Principles & 6 Practices</title>
+<title>🇦🇺 Australia AI Navigator: 8 Principles, 6 Practices & Agentic AI</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
 
@@ -215,7 +215,7 @@ h2.section-title .light{color:var(--slate);font-style:italic}
 /* ── HISTORY BAND ── */
 #history{padding:80px 0;background:var(--paper)}
 .history-timeline{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
   margin:48px 0;
   border-radius:var(--r);overflow:hidden;
   box-shadow:0 4px 24px rgba(0,0,0,.08);
@@ -239,6 +239,7 @@ h2.section-title .light{color:var(--slate);font-style:italic}
 .ht-item.t-principles::before{background:var(--teal)}
 .ht-item.t-vaiss::before{background:var(--slate)}
 .ht-item.t-ai6::before{background:var(--gold)}
+.ht-item.t-agent::before{background:var(--coral)}
 
 /* ── PRINCIPLES SECTION ── */
 #principles{padding:80px 0;background:var(--cream)}
@@ -420,6 +421,119 @@ h2.section-title .light{color:var(--slate);font-style:italic}
 .ad-sources{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);font-size:12px;color:rgba(255,255,255,.3)}
 .ad-sources a{color:rgba(255,255,255,.45);border-bottom-color:rgba(255,255,255,.15)}
 
+
+/* ── AGENTIC AI SECTION ── */
+#agents{padding:80px 0;background:var(--cream);overflow:hidden;position:relative}
+#agents::before{
+  content:'';position:absolute;top:-220px;left:-220px;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,75,47,.10),transparent 70%);
+  pointer-events:none;
+}
+.agent-alert{
+  background:var(--ink);
+  color:rgba(255,255,255,.72);
+  border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.08);
+  border-top:3px solid var(--coral);
+  padding:22px 24px;
+  margin:0 0 28px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:16px;
+  box-shadow:0 10px 30px rgba(10,22,40,.12);
+}
+.agent-alert .aa-icon{font-size:28px;line-height:1}
+.agent-alert strong{color:#fff}
+.agent-alert p{font-size:14px;line-height:1.7;margin-bottom:10px}
+.agent-alert p:last-child{margin-bottom:0}
+.agent-alert a{color:var(--gold2);border-bottom-color:rgba(240,192,64,.35)}
+.agent-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0}
+.agent-panel{
+  background:var(--white);
+  border:1px solid var(--fog);
+  border-radius:var(--r);
+  padding:26px 24px;
+  box-shadow:0 4px 18px rgba(0,0,0,.04);
+}
+.agent-panel h3{font-family:var(--serif);font-size:24px;line-height:1.2;margin-bottom:10px;color:var(--ink)}
+.agent-panel p{font-size:14px;line-height:1.7;color:var(--slate);margin-bottom:14px}
+.agent-mini-list{list-style:none;margin-top:12px}
+.agent-mini-list li{
+  padding:9px 0 9px 30px;
+  position:relative;
+  border-bottom:1px solid var(--fog);
+  font-size:13.5px;color:var(--ink2);line-height:1.55;
+}
+.agent-mini-list li:last-child{border-bottom:none}
+.agent-mini-list li::before{
+  content:'✓';position:absolute;left:0;top:9px;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--teal3);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;
+}
+.agent-risk-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  border-radius:var(--r);overflow:hidden;margin:28px 0;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+}
+.agent-risk{
+  background:var(--ink2);color:#fff;padding:20px 18px;
+}
+.agent-risk .ar-icon{font-size:22px;margin-bottom:10px}
+.agent-risk .ar-title{font-size:13px;font-weight:700;margin-bottom:6px;color:#fff}
+.agent-risk .ar-desc{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55}
+.agent-risk:nth-child(2){background:var(--ink3)}
+.agent-risk:nth-child(3){background:#253d5e}
+.agent-risk:nth-child(4){background:#2b3148}
+.agent-subhead{
+  font-family:var(--serif);font-size:28px;line-height:1.2;color:var(--ink);
+  margin:46px 0 12px;
+}
+.agent-subtext{font-size:14.5px;color:var(--slate);line-height:1.75;max-width:720px;margin-bottom:22px}
+.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.agent-card{
+  background:var(--white);
+  border:1px solid var(--fog);
+  border-radius:var(--r);
+  padding:24px 20px;
+  position:relative;
+  overflow:hidden;
+  transition:all .2s;
+}
+.agent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--coral)}
+.agent-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(200,75,47,.12);border-color:#efb8ab}
+.agent-card .ag-icon{font-size:24px;margin-bottom:12px}
+.agent-card .ag-title{font-size:15px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:8px}
+.agent-card .ag-desc{font-size:13px;color:var(--slate);line-height:1.6;margin-bottom:14px}
+.agent-card .ag-map{display:flex;flex-wrap:wrap;gap:6px}
+.agent-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 9px;border-radius:16px;
+  background:var(--coralL);color:#8a2f1a;
+  font-size:11px;font-weight:700;
+}
+.agent-chip.ai6{background:var(--gold3);color:#7a5a00}
+.agent-map-wrap{overflow-x:auto;border-radius:var(--r);box-shadow:0 4px 24px rgba(0,0,0,.08);margin-top:18px}
+.agent-map-table{width:100%;border-collapse:collapse;min-width:760px}
+.agent-map-table th{
+  background:var(--ink);color:#fff;padding:12px 16px;text-align:left;
+  font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
+}
+.agent-map-table td{padding:14px 16px;border-bottom:1px solid var(--fog);background:var(--white);font-size:13.5px;color:var(--ink2);vertical-align:top;line-height:1.55}
+.agent-map-table tr:last-child td{border-bottom:none}
+.agent-map-table td:first-child{font-weight:700;color:var(--ink)}
+.agent-source-note{
+  margin-top:22px;
+  padding:14px 18px;
+  background:var(--paper);
+  border:1px solid var(--fog);
+  border-radius:var(--r2);
+  font-size:12.5px;color:var(--slate);line-height:1.65;
+}
+.agent-source-note strong{color:var(--ink)}
+
 /* ── MAPPING SECTION ── */
 #mapping{padding:80px 0;background:var(--paper)}
 .map-note{
@@ -576,6 +690,9 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   .num3-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
   .num3-item:last-child{border-bottom:none}
   .res-grid{grid-template-columns:1fr 1fr}
+  .agent-layout{grid-template-columns:1fr}
+  .agent-risk-strip{grid-template-columns:1fr 1fr}
+  .agent-grid{grid-template-columns:1fr 1fr}
   .history-timeline{grid-template-columns:1fr}
   .exp-inner{grid-template-columns:1fr}
   #p8-detail.show,#a6-detail.show{grid-template-columns:1fr}
@@ -584,6 +701,8 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   .p8-grid{grid-template-columns:1fr 1fr}
   .a6-grid{grid-template-columns:1fr}
   .res-grid{grid-template-columns:1fr}
+  .agent-risk-strip{grid-template-columns:1fr}
+  .agent-grid{grid-template-columns:1fr}
   .hero-numbers{gap:28px}
   .hn .n{font-size:40px}
   .section-wrap{padding:0 20px}
@@ -610,6 +729,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     <a href="#explainer">The Framework</a>
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
+    <a href="#agents">AI Agents</a>
     <a href="#mapping">Mapping</a>
     <a href="#faq">FAQ</a>
     <a href="#resources" class="nav-cta btn">Resources →</a>
@@ -623,15 +743,15 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="dot"></span>
-      Official Australian Government Guidance · Verified May 2026
+      Independent source-linked navigator · Includes 1 May 2026 Agentic AI update
     </div>
     <h1>
       <em>Australia's AI Governance</em><br>
-      <span class="accent">8 Principles.</span> 6 Practices.<br>One Framework.
+      <span class="accent">8 Principles.</span> 6 Practices.<br>One Navigator.
     </h1>
     <p class="hero-sub">
       The most common confusion in Australian AI governance — decoded.
-      Understand what each number means, why both exist, and how they work together.
+      Understand what each layer means, how they fit together, and how the 1 May 2026 agentic AI update strengthens safe adoption.
     </p>
     <div class="hero-numbers">
       <div class="hn"><span class="n">8</span><span class="l">Ethics Principles</span></div>
@@ -642,6 +762,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     </div>
     <div class="hero-cta">
       <a class="btn btn-gold" href="#explainer">Understand the difference →</a>
+      <a class="btn btn-ghost" href="#agents">Agentic AI update</a>
       <a class="btn btn-ghost" href="#mapping">See the mapping</a>
     </div>
   </div>
@@ -657,27 +778,27 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     <div class="exp-text">
       <div class="section-label">The Core Distinction</div>
       <h2>Why & How.<br>Two different questions.</h2>
-      <p>Australia's AI governance answers two fundamentally different questions. The <strong>8 Ethics Principles</strong> answer <em>why</em> — they are the foundational values that AI must uphold, published in 2019 and still the bedrock of everything.</p>
-      <p>The <strong>6 AI Essential Practices (AI6)</strong> answer <em>how</em> — they are the operational playbook for implementing those values, released in October 2025 to replace the old 10-guardrail VAISS.</p>
-      <p>They are <strong>complementary, not competing</strong>. AI6 was explicitly built <em>on top of</em> the 8 principles. Every practice maps back to one or more principles.</p>
+      <p>Australian AI guidance commonly answers two different questions. The <strong>8 Ethics Principles</strong> answer <em>why</em> — they describe the responsible AI values published in 2019.</p>
+      <p>The <strong>6 AI Essential Practices (AI6)</strong> answer <em>how</em> — they provide practical steps for responsible AI governance and adoption, published in October 2025 as an update to VAISS.</p>
+      <p>They are <strong>complementary, not competing</strong>. AI6 maintains alignment with the 8 principles, so the page shows them together instead of treating them as separate documents.</p>
     </div>
     <div class="exp-diagram">
       <div class="exp-stack">
         <div class="exp-layer">
           <div class="el-num">8</div>
           <div class="el-head">AI Ethics Principles</div>
-          <div class="el-sub">The <em>why</em> — foundational values (2019, still current) · Source: DISR</div>
+          <div class="el-sub">The <em>why</em> — responsible AI values (2019) · Source: DISR</div>
         </div>
         <div class="exp-arrow">↓ built upon ↓</div>
         <div class="exp-layer">
           <div class="el-num">6</div>
           <div class="el-head">AI Essential Practices (AI6)</div>
-          <div class="el-sub">The <em>how</em> — operational guidance (October 2025) · Source: NAIC</div>
+          <div class="el-sub">The <em>how</em> — practical adoption guidance (October 2025) · Source: NAIC</div>
         </div>
       </div>
       <div style="margin-top:16px;padding:14px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px">
         <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">What happened to the 10 guardrails?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.6">The <strong style="color:rgba(255,255,255,.7)">Voluntary AI Safety Standard (VAISS)</strong> had 10 guardrails (2024). NAIC condensed and strengthened them into 6 practices in October 2025. All 10 are still present — repackaged inside the 6. If your org was aligned to VAISS, you're not starting over.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.6">The <strong style="color:rgba(255,255,255,.7)">Voluntary AI Safety Standard (VAISS)</strong> had 10 guardrails (2024). NAIC condensed 10 guardrails into 6 essential practices in October 2025. Use the 6-practice structure as the simpler current view, while checking the source documents for exact wording.</div>
       </div>
     </div>
   </div>
@@ -692,20 +813,26 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
       <div class="ht-item t-principles">
         <div class="ht-year">2019</div>
         <div class="ht-event">Australia's 8 AI Ethics Principles published</div>
-        <div class="ht-desc">DISR publishes the foundational values. These have never been rescinded or replaced — they underpin all subsequent guidance.</div>
+        <div class="ht-desc">DISR publishes the foundational values. They remain a key public reference point for responsible AI in Australia.</div>
         <div class="ht-tag"><span class="tag tag-teal">Still current · Foundational</span></div>
       </div>
       <div class="ht-item t-vaiss">
         <div class="ht-year">2024</div>
         <div class="ht-event">Voluntary AI Safety Standard — 10 Guardrails</div>
-        <div class="ht-desc">NAIC releases the VAISS with 10 specific guardrails based on the 8 principles. Adopted by many organisations as a governance baseline.</div>
+        <div class="ht-desc">NAIC released VAISS with 10 guardrails based on the 8 principles.</div>
         <div class="ht-tag"><span class="tag tag-navy">Superseded Oct 2025</span></div>
       </div>
       <div class="ht-item t-ai6">
         <div class="ht-year">2025</div>
         <div class="ht-event">AI6 — 6 Essential Practices released</div>
-        <div class="ht-desc">NAIC replaces VAISS on 21 October 2025. The 10 guardrails are consolidated into 6 practices with two implementation levels: Foundations and Implementation Practices.</div>
-        <div class="ht-tag"><span class="tag tag-gold">Current · De facto standard</span></div>
+        <div class="ht-desc">NAIC published Guidance for AI Adoption on 21 October 2025. It condenses the previous 10 guardrails into 6 practices with Foundations and Implementation Practices versions.</div>
+        <div class="ht-tag"><span class="tag tag-gold">Current source · AI6</span></div>
+      </div>
+      <div class="ht-item t-agent">
+        <div class="ht-year">2026</div>
+        <div class="ht-event">Agentic AI security guidance published</div>
+        <div class="ht-desc">ASD's ACSC and international partners published agentic AI adoption guidance on 1 May 2026. In this page it is treated as a practical security layer for autonomous, tool-using AI agents.</div>
+        <div class="ht-tag"><span class="tag tag-coral">Current · Agentic AI</span></div>
       </div>
     </div>
   </div>
@@ -718,7 +845,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   <div class="section-wrap">
     <div class="section-label">Layer 1 — The Why</div>
     <h2 class="section-title">The <span class="accent" style="color:var(--teal)">8</span> AI Ethics Principles</h2>
-    <p class="section-intro">Foundational values for all AI in Australia. Published 2019. Source: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">industry.gov.au</a> — click any card to explore.</p>
+    <p class="section-intro">Responsible AI values published in 2019. Source: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">industry.gov.au</a> — click any card to explore.</p>
 
     <div class="p8-grid" id="p8-grid">
       <!-- Cards injected by JS -->
@@ -735,13 +862,96 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   <div class="section-wrap">
     <div class="section-label">Layer 2 — The How</div>
     <h2 class="section-title">The <span class="accent" style="color:var(--gold2)">6</span> Essential Practices <span class="light">(AI6)</span></h2>
-    <p class="section-intro">Operational guidance released October 2025 by NAIC. Source: <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" style="color:rgba(255,255,255,.5);border-bottom-color:rgba(255,255,255,.2)">industry.gov.au/publications/guidance-for-ai-adoption</a> — click any card to see enterprise steps.</p>
+    <p class="section-intro">Practical responsible AI adoption guidance published October 2025 by NAIC. Source: <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" style="color:rgba(255,255,255,.5);border-bottom-color:rgba(255,255,255,.2)">industry.gov.au/publications/guidance-for-ai-adoption</a> — click any card to see enterprise steps.</p>
 
     <div class="a6-grid" id="a6-grid">
       <!-- Cards injected by JS -->
     </div>
 
     <div id="a6-detail"></div>
+  </div>
+</section>
+
+
+<!-- AGENTIC AI UPDATE -->
+<section id="agents">
+  <div class="section-wrap">
+    <div class="section-label">May 2026 Update — Agentic AI</div>
+    <h2 class="section-title">Agentic AI is the <span style="color:var(--coral)">new risk layer</span></h2>
+    <p class="section-intro">This is not presented here as a separate governance framework. It is a security and control lens for AI systems that can reason, plan, use tools, access data, call APIs and act with some autonomy. Use it to strengthen the 8 Principles and AI6 practices already shown on this page.</p>
+
+    <div class="agent-alert">
+      <div class="aa-icon">🛑</div>
+      <div>
+        <p><strong>Source update · 1 May 2026:</strong> ASD's ACSC, CISA, NSA, the Canadian Centre for Cyber Security, NCSC-NZ and NCSC-UK published a joint source document called <a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" target="_blank" rel="noopener">Careful adoption of agentic AI services</a>.</p>
+        <p>The practical message for this navigator: start with low-risk and non-sensitive tasks, avoid broad access, and design for identity, least privilege, monitoring, auditability, human oversight and rollback.</p>
+      </div>
+    </div>
+
+    <div class="agent-layout">
+      <div class="agent-panel">
+        <span class="tag tag-navy">Normal GenAI</span>
+        <h3 style="margin-top:12px">Creates content for humans</h3>
+        <p>Standard generative AI mainly produces text, images, summaries, drafts or analysis. A human usually decides what to do next.</p>
+        <ul class="agent-mini-list">
+          <li>Lower autonomy by default</li>
+          <li>Usually limited to advisory output</li>
+          <li>Main risks: privacy, hallucination, bias, data leakage and weak review</li>
+        </ul>
+      </div>
+      <div class="agent-panel">
+        <span class="tag tag-coral">Agentic AI</span>
+        <h3 style="margin-top:12px">Can take action through tools</h3>
+        <p>Agentic AI builds on GenAI by integrating with software systems so it can reason, plan and take actions without continuous human intervention.</p>
+        <ul class="agent-mini-list">
+          <li>Higher autonomy and operational impact</li>
+          <li>Can call APIs, use tools, access memory and trigger workflows</li>
+          <li>Main risks: excessive privilege, prompt injection, tool misuse, cascading failure, weak accountability</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="agent-risk-strip">
+      <div class="agent-risk"><div class="ar-icon">🔐</div><div class="ar-title">Privilege risk</div><div class="ar-desc">Over-permissioned agents can act beyond intended scope or be misused as a trusted deputy.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧭</div><div class="ar-title">Behaviour risk</div><div class="ar-desc">Agents may misread goals, over-optimise, chain unsafe actions or behave unpredictably.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧩</div><div class="ar-title">Complexity risk</div><div class="ar-desc">Tools, memory, data sources, sub-agents and handoffs expand the attack surface.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧾</div><div class="ar-title">Accountability risk</div><div class="ar-desc">Long, distributed agent chains can make it hard to explain who or what caused an outcome.</div></div>
+    </div>
+
+    <h3 class="agent-subhead">Agent-safe adoption checklist</h3>
+    <p class="agent-subtext">Use this as the simple enterprise pattern: do not block innovation, but do not allow agents to become invisible privileged users. Every agent should have a named owner, bounded purpose, limited permissions, logging, monitoring, human approval points and rollback.</p>
+
+    <div class="agent-grid" id="agent-grid">
+      <!-- Agent controls injected by JS -->
+    </div>
+
+    <h3 class="agent-subhead">How this maps back to the existing framework</h3>
+    <p class="agent-subtext">This keeps your site message clean: the 8 Principles are still the values, AI6 is still the operating model, and the 1 May 2026 agentic AI guidance is the extra security pattern for autonomous tool-using systems.</p>
+
+    <div class="agent-map-wrap">
+      <table class="agent-map-table">
+        <thead>
+          <tr>
+            <th>Agentic AI control</th>
+            <th>AI6 alignment</th>
+            <th>Ethics principle alignment</th>
+            <th>Plain-English governance test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Named agent owner</td><td>Practice 1 — Decide who is accountable</td><td>P8 Accountability</td><td>Can we name the person accountable for this agent's actions?</td></tr>
+          <tr><td>Agent risk assessment</td><td>Practice 2 — Understand impacts</td><td>P1 Wellbeing, P3 Fairness, P4 Privacy/Security</td><td>Have we assessed who can be harmed and how?</td></tr>
+          <tr><td>Least privilege and JIT access</td><td>Practice 3 — Manage risks</td><td>P4 Privacy/Security, P8 Accountability</td><td>Can the agent only access what it needs, when it needs it?</td></tr>
+          <tr><td>Tool, memory and action logs</td><td>Practice 4 — Share essential information</td><td>P6 Transparency, P8 Accountability</td><td>Can we explain what the agent saw, used, decided and did?</td></tr>
+          <tr><td>Testing, red teaming and monitoring</td><td>Practice 5 — Test and monitor</td><td>P5 Reliability/Safety</td><td>Can we detect drift, misuse, unsafe actions or degraded performance?</td></tr>
+          <tr><td>Human approval for high-impact actions</td><td>Practice 6 — Maintain human control</td><td>P2 Human-centred values, P7 Contestability</td><td>Can a human stop, challenge, reverse or approve high-impact actions?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="agent-source-note">
+      <strong>Source anchor:</strong> ASD ACSC joint guidance, <em>Careful adoption of agentic AI services</em>, first published 1 May 2026. This section is a practical interpretation for enterprise governance and is not legal advice.
+    </div>
   </div>
 </section>
 
@@ -758,7 +968,7 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
       <div class="num3-item">
         <div class="num3-big">6</div>
         <div class="num3-label">Essential Practices (AI6)</div>
-        <div class="num3-desc">The operational playbook — <em>how</em> to implement responsible AI. Released October 2025. De facto enterprise standard.</div>
+        <div class="num3-desc">The practical playbook — <em>how</em> to implement responsible AI. Published October 2025 by NAIC.</div>
         <div class="num3-note">Source: NAIC · Replaces VAISS</div>
       </div>
       <div class="num3-item">
@@ -809,30 +1019,30 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     <div class="faq-list">
 
       <details class="faq-item">
-        <summary class="faq-q">Are the 8 Ethics Principles still legally relevant if AI6 replaced VAISS?</summary>
+        <summary class="faq-q">Are the 8 Ethics Principles still useful if AI6 updated VAISS?</summary>
         <div class="faq-a">
-          <strong>Yes — absolutely.</strong> The 8 Ethics Principles were never superseded. AI6 (released October 2025) explicitly builds upon them. Every AI6 practice maps back to one or more of the 8 principles. The DTA's AI Technical Standard (TSGUAI, July 2025), the Policy for Responsible Use of AI in Government v2.0, and the APS AI Plan 2025 all reference the 8 principles as the foundational layer. If you are assessed for AI governance compliance, you will be assessed against the 8 principles — AI6 is the mechanism for satisfying them.
+          <strong>Yes.</strong> The 8 Ethics Principles are still a useful values layer. The October 2025 Guidance for AI Adoption says the 6 practices maintain alignment with Australia’s AI Ethics Principles and international standards. This page shows both layers together so readers can move from values to practical controls without jumping between documents.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Is AI6 mandatory or voluntary?</summary>
+        <summary class="faq-q">How should I treat AI6?</summary>
         <div class="faq-a">
-          AI6 is currently <strong>voluntary</strong> — but it is the de facto enterprise standard. Law firm MinterEllison (November 2025) noted it "will likely become industry best practice." The ACCC, OAIC and sector regulators reference AI6 alignment when assessing whether an organisation acted responsibly. For government agencies, the mandatory Policy v2.0 and TSGUAI incorporate AI6 principles operationally. For the private sector, alignment with AI6 is the clearest way to demonstrate responsible AI governance to regulators, boards and auditors. Treat it as mandatory in practice.
+          For general business use, the Guidance for AI Adoption is presented as practical guidance for responsible AI adoption. Government agencies and regulated sectors may also have separate policy, privacy, cyber, procurement or sector-specific obligations. Use AI6 as a clear operating model, but check the source pages and your organisation’s legal/compliance requirements before treating it as a binding requirement.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">If my organisation was aligned to VAISS, do I need to start over?</summary>
+        <summary class="faq-q">If my organisation used VAISS, do I need to start over?</summary>
         <div class="faq-a">
-          <strong>No.</strong> NAIC published an official VAISS × AI6 crosswalk showing how all 10 guardrails map directly into the 6 practices. The 10 guardrails are retained as detailed control statements within the AI6 Implementation Practices document. Download it from <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank">industry.gov.au/publications/guidance-for-ai-adoption</a>. Your existing controls remain valid — you simply need to reframe them within the AI6 structure and fill any gaps (particularly around the TSGUAI lifecycle stages and the December 2026 Privacy Act automated decision-making obligations).
+          <strong>No, not from zero.</strong> The October 2025 update condensed the 10 VAISS guardrails into 6 essential practices. Use the 6-practice view to simplify your current register, controls and review process. Then check the source documents for any detailed control gaps, especially around risk, monitoring, transparency and human control.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">Which principle covers the Privacy Act APP 1.7 automated decision-making obligation?</summary>
         <div class="faq-a">
-          <strong>Principle 6 — Transparency & Explainability</strong> is the primary ethics anchor. People must understand when AI significantly impacts them. The incoming <strong>APP 1.7–1.9</strong> obligations (mandatory from <strong>10 December 2026</strong>) operationalise this principle by requiring all APP entities to disclose in their privacy policy: the types of personal information used in substantially automated decisions, and the nature of decisions that could significantly affect individual rights. This is also covered by AI6 <strong>Practice 4 — Share Essential Information</strong>. Begin privacy policy updates now — the obligation applies to all decisions made from that date, regardless of when the AI system was deployed.
+          <strong>Principle 6 — Transparency & Explainability</strong> is the primary ethics anchor. People must understand when AI significantly impacts them. The incoming <strong>APP 1.7–1.9</strong> privacy policy obligations (from <strong>10 December 2026</strong>) operationalise this principle by requiring all APP entities to disclose in their privacy policy: the types of personal information used in substantially automated decisions, and the nature of decisions that could significantly affect individual rights. This is also covered by AI6 <strong>Practice 4 — Share Essential Information</strong>. Begin privacy policy updates now — the obligation applies to all decisions made from that date, regardless of when the AI system was deployed.
         </div>
       </details>
 
@@ -844,16 +1054,24 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">Do the 8 Principles apply to AI systems built before they were published?</summary>
+        <summary class="faq-q">Should older AI systems be reviewed?</summary>
         <div class="faq-a">
-          The 8 Principles themselves are aspirational guidance, not retrospective law. However, the <strong>legal obligations</strong> that the principles connect to — Privacy Act APPs, Australian Consumer Law, anti-discrimination legislation — apply to all active AI systems regardless of when they were built. And from <strong>10 December 2026</strong>, the Privacy Act's APP 1.7 automated decision-making disclosure obligations apply to <em>all decisions made from that date</em>, even if the underlying AI system was deployed years earlier. In practice, you should assess all active AI systems against the 8 principles and AI6 practices, including legacy systems.
+          <strong>Yes.</strong> Even if a system was built earlier, active AI use should be reviewed against current governance, privacy, cyber and business risk expectations. For privacy, OAIC guidance says APP entities will have extra privacy policy obligations from 10 December 2026 where personal information is used by a computer program for decisions that could significantly affect an individual’s rights or interests.
+        </div>
+      </details>
+
+
+      <details class="faq-item">
+        <summary class="faq-q">Where does the 1 May 2026 agentic AI guidance fit?</summary>
+        <div class="faq-a">
+          It sits as a <strong>security and operational risk layer</strong> on top of the existing framework. The 8 Principles still explain the values, AI6 still explains the responsible AI operating model, and the ACSC agentic AI guidance explains what changes when an AI system can use tools, access data, call APIs, create sub-tasks or act without continuous human intervention. In practice, agentic AI needs stronger identity, least privilege, monitoring, logging, human approval points, safe defaults, isolation and rollback.
         </div>
       </details>
 
       <details class="faq-item">
-        <summary class="faq-q">How do the 8 Principles relate to the DTA AI Technical Standard (TSGUAI)?</summary>
+        <summary class="faq-q">How does this relate to the DTA AI Technical Standard?</summary>
         <div class="faq-a">
-          The TSGUAI (released July 2025) is the most detailed technical governance document for AI in Australia. Its 42 statements across 3 phases (Discover, Operate, Retire) and 8 stages are all grounded in the 8 Ethics Principles. Specifically: the Design stage requires an ethics workshop aligning AI to the principles; the Data stage requires bias management (Principle 3 — Fairness); the Monitoring stage requires continuous performance tracking (Principle 5 — Reliability & Safety); and the Decommission stage requires responsible retirement (Principle 1 — Wellbeing). The TSGUAI is the technical implementation layer sitting beneath AI6. Source: <a href="https://www.digital.gov.au/policy/ai/AI-technical-standard" target="_blank">digital.gov.au/policy/ai/AI-technical-standard</a>.
+          The DTA AI Technical Standard is a separate source for government AI delivery and technical governance. This page does not replace that standard. It simply helps readers understand the relationship between values, adoption practices and the newer agentic AI control lens. Source: <a href="https://www.digital.gov.au/policy/ai/AI-technical-standard" target="_blank">digital.gov.au/policy/ai/AI-technical-standard</a>.
         </div>
       </details>
 
@@ -864,9 +1082,9 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 <!-- RESOURCES -->
 <section id="resources">
   <div class="section-wrap">
-    <div class="section-label">Official Sources</div>
+    <div class="section-label">Source Links</div>
     <h2 class="section-title">Go to the source</h2>
-    <p class="section-intro">All links are verified official Australian Government publications.</p>
+    <p class="section-intro">Short links to the public source pages used to build this independent navigator.</p>
     <div class="res-grid" id="res-grid">
       <!-- Injected by JS -->
     </div>
@@ -879,23 +1097,31 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   <div class="ft-links">
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
+    <a href="#agents">AI Agents</a>
     <a href="#mapping">Mapping</a>
     <a href="#faq">FAQ</a>
     <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">DISR</a>
     <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank">AI6 (NAIC)</a>
+    <a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" target="_blank">Agentic AI</a>
     <a href="https://www.digital.gov.au/policy/ai" target="_blank">DTA</a>
     <a href="https://www.oaic.gov.au/" target="_blank">OAIC</a>
   </div>
   <div class="ft-copy">
-    Verified May 2026 · All facts sourced from official Australian Government publications<br>
-    Sources: DISR · NAIC · DTA · Finance · OAIC
+    Source-checked May 2026 · Independent plain-English summary with links to source pages<br>
+    Source bodies referenced: DISR · NAIC · ASD ACSC · DTA · Finance · OAIC
+  </div>
+
+  <div class="ft-disclaimer" style="margin-top:10px">
+    Source anchors: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank" rel="noopener">AI Ethics Principles</a> · <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" rel="noopener">Guidance for AI Adoption</a> · <a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" target="_blank" rel="noopener">Careful adoption of agentic AI services</a> · <a href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information" target="_blank" rel="noopener">OAIC APP 1</a>
   </div>
   <div class="ft-disclaimer">
-    Not legal advice. This guide is for informational purposes only. Always consult your legal team for specific AI governance and regulatory obligations applicable to your organisation.
+    Small source/disclaimer note: This is an independent consolidated navigator, not a government website or official policy document. It uses original short summaries and links to public source pages. Do not treat it as legal, procurement, security or compliance advice. Confirm requirements against the source documents and your organisation's obligations.
   </div>
 </footer>
 
 <script>
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+
 /* ── DATA ── */
 const P8 = [
   {
@@ -950,7 +1176,7 @@ const P8 = [
   {
     n:8, icon:'🏛️', title:'Accountability',
     short:'Accountable persons must be identifiable for every AI system.',
-    detail:'Those responsible for each phase of an AI system\'s lifecycle must be clearly identifiable and genuinely accountable for outcomes. Accountability must flow from board level to individual systems. Human oversight of AI systems must be enabled. This principle is the direct basis for the AI Accountable Official requirement in Policy v2.0 and the CAIO requirement in the APS AI Plan 2025.',
+    detail:'Those responsible for each phase of an AI system\'s lifecycle must be clearly identifiable and genuinely accountable for outcomes. Accountability should be traceable from organisational governance to individual systems. Human oversight of AI systems must be enabled.',
     practices:['Practice 1','Practice 4'],
     source:'https://www.industry.gov.au/publications/australias-ai-ethics-principles'
   }
@@ -964,7 +1190,7 @@ const A6 = [
     principles:[1,8],
     why:'Every AI use case must have clear, named owners. Accountability must flow from board/executive level down to individual systems and be embedded in governance structures, policies and supplier contracts.',
     steps:[
-      'Designate a senior AI Accountable Official (GM / SES level). APS agencies: mandatory CAIO by 31 July 2026.',
+      'Designate a senior accountable owner for AI governance and make ownership clear for each system.',
       'Map RACI for every AI system — who approved it, who operates it, who monitors it, who responds to incidents.',
       'Embed AI accountability in job descriptions, committee charters, supplier contracts, and the AI register.',
       'Clarify developer vs deployer responsibilities — AI6 explicitly distinguishes both roles.'
@@ -1006,7 +1232,7 @@ const A6 = [
     principles:[6,8],
     why:'Be open about how AI is used and what it means for people. Notify individuals when AI significantly affects their rights or interests. Maintain a live AI register. Be transparent with suppliers and partners.',
     steps:[
-      'Update privacy policies now for APP 1.7–1.9 automated decision-making disclosures (mandatory from 10 December 2026).',
+      'Prepare privacy policy updates for APP 1.7–1.9 automated decision-making disclosures from 10 December 2026.',
       'Maintain a live AI system register — purpose, data, risks, controls, owner, review date, risk classification.',
       'Provide plain-language explanations of AI systems for affected individuals and customers.',
       'Watch for ACCC "AI-washing" enforcement — unsubstantiated "AI-powered" claims risk Australian Consumer Law liability.'
@@ -1048,22 +1274,33 @@ const MAP = [
   {p:2,title:'Human-Centred Values',practices:['Practice 6'],obligation:'Human autonomy must be protected; AI must not infringe civil liberties; human override required'},
   {p:3,title:'Fairness',practices:['Practice 2','Practice 5'],obligation:'Bias testing required pre-deployment; demographic parity metrics in ongoing monitoring'},
   {p:4,title:'Privacy Protection & Security',practices:['Practice 2','Practice 3'],obligation:'APPs apply; PIA required for personal data; Essential Eight alignment for security'},
-  {p:5,title:'Reliability & Safety',practices:['Practice 5'],obligation:'Pre-deployment testing mandatory; continuous monitoring with defined KPIs and thresholds'},
+  {p:5,title:'Reliability & Safety',practices:['Practice 5'],obligation:'Pre-deployment testing and ongoing monitoring with defined KPIs and thresholds'},
   {p:6,title:'Transparency & Explainability',practices:['Practice 4'],obligation:'APP 1.7 disclosures by 10 Dec 2026; notify when AI significantly affects rights'},
   {p:7,title:'Contestability',practices:['Practice 6'],obligation:'Challenge and appeal pathways must be designed before deployment; Tranche 2 rights incoming'},
-  {p:8,title:'Accountability',practices:['Practice 1','Practice 4'],obligation:'Named Accountable Official required; developer and deployer responsibilities must be documented'},
+  {p:8,title:'Accountability',practices:['Practice 1','Practice 4'],obligation:'Named accountable owner and documented developer/deployer responsibilities'},
 ];
 
 const RESOURCES = [
+  {icon:'🤖',title:'Careful Adoption of Agentic AI Services',pub:'ASD ACSC · 1 May 2026',desc:'Joint guidance for agentic AI security: autonomy, privileges, identity, monitoring, human oversight and resilient deployment.',url:'https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services'},
   {icon:'📗',title:'Guidance for AI Adoption (AI6)',pub:'NAIC / DISR',desc:'The 6 Essential Practices with Foundations and Implementation Practices versions. Download both PDFs.',url:'https://www.industry.gov.au/publications/guidance-for-ai-adoption'},
-  {icon:'⚖️',title:"Australia's AI Ethics Principles",pub:'DISR',desc:'The 8 foundational values underpinning all Australian AI governance. Published 2019, still current.',url:'https://www.industry.gov.au/publications/australias-ai-ethics-principles'},
-  {icon:'📘',title:'AI Technical Standard (TSGUAI)',pub:'DTA · July 2025',desc:'42 statements across 3 phases and 8 stages. Mandatory for gov agencies; governs vendors delivering AI to government.',url:'https://www.digital.gov.au/policy/ai/AI-technical-standard'},
-  {icon:'🏛️',title:'Policy for Responsible Use of AI v2.0',pub:'DTA · December 2025',desc:'Mandatory for all non-corporate Commonwealth entities. Includes AI Accountable Official and AI Review Committee requirements.',url:'https://www.digital.gov.au/ai/ai-in-government-policy'},
-  {icon:'📅',title:'APS AI Plan 2025',pub:'Finance · DTA · APSC',desc:'CAIO by July 2026. Mandatory AI literacy training. GovAI platform. 220,000+ APS staff in scope.',url:'https://www.digital.gov.au/policy/ai/australian-public-service-ai-plan-2025'},
+  {icon:'⚖️',title:"Australia's AI Ethics Principles",pub:'DISR',desc:'The 8 responsible AI values published in 2019.',url:'https://www.industry.gov.au/publications/australias-ai-ethics-principles'},
+  {icon:'📘',title:'AI Technical Standard (TSGUAI)',pub:'DTA · July 2025',desc:'Technical governance source for Australian Government AI delivery. Check source for current scope and obligations.',url:'https://www.digital.gov.au/policy/ai/AI-technical-standard'},
+  {icon:'🏛️',title:'Policy for Responsible Use of AI v2.0',pub:'DTA · December 2025',desc:'Responsible AI policy source for Australian Government use of AI. Check source for current scope and obligations.',url:'https://www.digital.gov.au/ai/ai-in-government-policy'},
+  {icon:'📅',title:'APS AI Plan 2025',pub:'Finance · DTA · APSC',desc:'APS AI planning source covering capability, leadership and responsible use. Check source for current commitments and timing.',url:'https://www.digital.gov.au/policy/ai/australian-public-service-ai-plan-2025'},
   {icon:'🔒',title:'APP 1.7–1.9 — Automated Decisions',pub:'OAIC · Effective Dec 2026',desc:'New automated decision-making transparency obligations. Applies to all APP entities. Privacy policy update required.',url:'https://www.oaic.gov.au/privacy/australian-privacy-principles'},
   {icon:'🗺️',title:'National AI Plan 2025',pub:'DISR · December 2025',desc:'Three goals, nine actions. Whole-of-economy AI strategy. Confirms voluntary-first approach — no standalone AI Act.',url:'https://www.industry.gov.au/publications/national-ai-plan'},
   {icon:'🔗',title:'National AI Assurance Framework',pub:'Finance · June 2024',desc:'Agreed by all state and territory governments. Nationally consistent, principles-based AI assurance.',url:'https://www.finance.gov.au/government/public-data/data-and-digital-ministers-meeting/national-framework-assurance-artificial-intelligence-government'},
-  {icon:'🛡️',title:'Essential Eight (Cybersecurity)',pub:'ASD',desc:'Baseline cybersecurity controls that apply to AI systems. Maturity Level 2 minimum for higher-risk AI.',url:'https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight'},
+  {icon:'🛡️',title:'Essential Eight (Cybersecurity)',pub:'ASD',desc:'Baseline cybersecurity controls that apply to AI systems. Baseline cyber security controls relevant to AI systems.',url:'https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight'},
+];
+
+
+const AGENT_CONTROLS = [
+  {icon:'🎯', title:'Start with low-risk tasks', desc:'Use agents first where impact is low, data is non-sensitive and rollback is simple. Increase autonomy only after evidence shows it is safe.', ai6:['Practice 2','Practice 6'], p:['P1','P2']},
+  {icon:'🔐', title:'Limit identity and privilege', desc:'Treat every agent as a distinct identity. Apply least privilege, narrow scopes, approved tools only and just-in-time access for high-impact actions.', ai6:['Practice 1','Practice 3'], p:['P4','P8']},
+  {icon:'🧑‍⚖️', title:'Keep humans in control', desc:'Do not let the agent decide when human approval is needed. Add human approval for high-impact, irreversible or sensitive actions.', ai6:['Practice 6'], p:['P2','P7']},
+  {icon:'🧪', title:'Threat model and test', desc:'Test with realistic workflows, prompt injection attempts, adversarial cases, tool misuse scenarios and multi-step failure paths before production.', ai6:['Practice 5'], p:['P5']},
+  {icon:'📜', title:'Log every meaningful action', desc:'Capture prompts, tool calls, memory use, identity changes, decisions, approvals, denials and outputs in a usable audit trail.', ai6:['Practice 4','Practice 5'], p:['P6','P8']},
+  {icon:'🧯', title:'Design rollback and containment', desc:'Use safe defaults, segmentation, rate limits, kill switches, graceful degradation and clear incident response paths for agent failure or compromise.', ai6:['Practice 3','Practice 5'], p:['P4','P5']},
 ];
 
 /* ── RENDER P8 CARDS ── */
@@ -1083,7 +1320,7 @@ P8.forEach(p => {
   p8Grid.appendChild(d);
 });
 
-function showP8Detail(n) {
+function showP8Detail(n, shouldScroll = true) {
   const p = P8[n-1];
   const det = document.getElementById('p8-detail');
   document.querySelectorAll('.p8-card').forEach(c => c.classList.toggle('active', +c.dataset.id === n));
@@ -1103,7 +1340,7 @@ function showP8Detail(n) {
       <div class="pd-source">Source: <a href="${p.source}" target="_blank">industry.gov.au — Australia's AI Ethics Principles</a></div>
     </div>
   `;
-  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if (shouldScroll) det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 /* ── RENDER A6 CARDS ── */
@@ -1123,7 +1360,7 @@ A6.forEach(a => {
   a6Grid.appendChild(d);
 });
 
-function showA6Detail(n) {
+function showA6Detail(n, shouldScroll = true) {
   const a = A6[n-1];
   const det = document.getElementById('a6-detail');
   document.querySelectorAll('.a6-card').forEach(c => c.classList.toggle('active', +c.dataset.id === n));
@@ -1145,7 +1382,7 @@ function showA6Detail(n) {
       </div>
     </div>
   `;
-  det.scrollIntoView({behavior:'smooth',block:'nearest'});
+  if (shouldScroll) det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 /* ── RENDER MAPPING TABLE ── */
@@ -1159,6 +1396,26 @@ MAP.forEach(m => {
   `;
   tbody.appendChild(tr);
 });
+
+
+/* ── RENDER AGENT CONTROLS ── */
+const agentGrid = document.getElementById('agent-grid');
+if(agentGrid){
+  AGENT_CONTROLS.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'agent-card';
+    d.innerHTML = `
+      <div class="ag-icon">${c.icon}</div>
+      <div class="ag-title">${c.title}</div>
+      <div class="ag-desc">${c.desc}</div>
+      <div class="ag-map">
+        ${c.ai6.map(x=>`<span class="agent-chip ai6">${x}</span>`).join('')}
+        ${c.p.map(x=>`<span class="agent-chip">${x}</span>`).join('')}
+      </div>
+    `;
+    agentGrid.appendChild(d);
+  });
+}
 
 /* ── RENDER RESOURCES ── */
 const resGrid = document.getElementById('res-grid');
@@ -1199,9 +1456,12 @@ const obs = new IntersectionObserver(entries => {
 },{rootMargin:'-20% 0px -70% 0px'});
 sections.forEach(s => obs.observe(s));
 
-/* ── OPEN FIRST CARDS ── */
-showP8Detail(1);
-showA6Detail(1);
+/* ── OPEN FIRST CARDS WITHOUT AUTO-SCROLL ON PAGE LOAD ── */
+showP8Detail(1, false);
+showA6Detail(1, false);
+if (!window.location.hash) {
+  requestAnimationFrame(() => window.scrollTo({top:0,left:0,behavior:'auto'}));
+}
 </script>
 </body>
 </html>
