@@ -1598,6 +1598,32 @@ const exampleCases = {
     agent:['Start read-only where possible.','Use least privilege for tools and workflows.','Require human approval for high-impact account or HR actions.'],
     outcome:'Pilot with limited users, read-only knowledge access first, and manual approval for any workflow action.'
   },
+  sectriage: {
+    type:'Agentic AI / Security operations example',
+    title:'Multi-agent security triage and event correlation',
+    desc:'A set of bounded agents helps correlate security events, enrich findings, summarise evidence and recommend next actions for analysts. It may support both internal SOC workflows and externally reported events.',
+    risk:'Primary risk: agents may over-correlate weak signals, auto-close true positives, trigger SOAR playbooks without enough approval, or access sensitive logs and identities beyond their purpose.',
+    classify:'Agentic AI for cyber operations. Treat as medium-to-high risk because it can influence security response, handle sensitive telemetry and potentially trigger workflow automation.',
+    ai6:[
+      'One task per agent: separate enrichment, correlation, summarisation and playbook recommendation.',
+      'Define clear agent boundaries, owners, input sources, tool permissions and escalation paths.',
+      'Use least privilege for log sources, SOAR actions, identity lookups and ticket updates.',
+      'Monitor model behaviour, drift, false positives, false negatives and analyst override trends.'
+    ],
+    ethics:[
+      'Privacy and security: avoid unnecessary PII exposure and mask sensitive log fields where practical.',
+      'Reliability and safety: test against known incidents, benign noise and adversarial/prompt-injection style inputs.',
+      'Transparency and accountability: log what the agent saw, reasoned over, recommended and actioned.',
+      'Contestability: analysts must be able to challenge, reopen or override agent outcomes.'
+    ],
+    agent:[
+      'Low-confidence / likely false positive: allow auto-close only if rules are narrow, logged and reversible.',
+      'Medium finding: agent triages and prepares evidence; HITL gate required before approve/reject or SOAR playbook invocation.',
+      'High-severity finding: escalate to analyst or incident lead. No autonomous containment or material decision by the agent.',
+      'All workflow actions need tool-call logging, scoped permissions and a rollback path.'
+    ],
+    outcome:'Pilot with read-only enrichment first. Allow auto-close only for tightly defined low-risk false positives. Require human approval for medium findings and mandatory escalation for high-severity findings.'
+  },
   support: {
     type:'Generative AI example',
     title:'Customer support assistant',
@@ -2040,6 +2066,7 @@ document.querySelectorAll('.example-tab').forEach(btn=>{
 
     <div class="example-tabs" role="tablist" aria-label="AI governance example test cases">
       <button class="example-tab active" type="button" data-case="onboarding" role="tab" aria-selected="true">Employee onboarding agent</button>
+      <button class="example-tab" type="button" data-case="sectriage" role="tab" aria-selected="false">Security triage agents</button>
       <button class="example-tab" type="button" data-case="support" role="tab" aria-selected="false">Customer support assistant</button>
       <button class="example-tab" type="button" data-case="decision" role="tab" aria-selected="false">Automated decision support</button>
       <button class="example-tab" type="button" data-case="vendor" role="tab" aria-selected="false">Vendor AI tool</button>
