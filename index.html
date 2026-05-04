@@ -1354,6 +1354,164 @@ section[id]{scroll-margin-top:60px}
   .nav-links a:not(.nav-cta):not(.nav-pill){display:block!important}
 }
 
+
+/* ── EXAMPLES IN ACTION ── */
+.examples-guide{padding:82px 0;background:var(--paper)}
+.example-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:28px 0 18px;
+}
+.example-tab{
+  border:1px solid var(--fog);
+  background:#fff;
+  color:var(--ink2);
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  transition:all .18s;
+}
+.example-tab:hover,.example-tab:focus-visible{
+  border-color:var(--teal);
+  outline:none;
+  box-shadow:0 0 0 3px rgba(13,126,110,.12);
+}
+.example-tab.active{
+  background:var(--ink);
+  color:#fff;
+  border-color:var(--ink);
+}
+.example-shell{
+  background:linear-gradient(135deg,#fff,#f8fbfd);
+  border:1px solid var(--fog);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 16px 38px rgba(10,22,40,.08);
+}
+.example-hero-card{
+  background:linear-gradient(135deg,var(--ink),#10233c);
+  border-radius:16px;
+  padding:24px;
+  color:#fff;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+}
+.example-hero-card::after{
+  content:'';
+  position:absolute;
+  right:-80px;
+  top:-80px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(212,160,23,.22),transparent 65%);
+}
+.example-hero-card h3{
+  font-family:var(--serif);
+  font-size:32px;
+  font-weight:400;
+  line-height:1.15;
+  margin:12px 0 10px;
+}
+.example-hero-card p{
+  max-width:760px;
+  color:rgba(255,255,255,.68);
+  font-size:14.5px;
+  line-height:1.7;
+}
+.case-risk{
+  margin-top:16px;
+  max-width:880px;
+  background:rgba(255,255,255,.07);
+  border-left:3px solid var(--gold);
+  border-radius:10px;
+  padding:13px 15px;
+  color:rgba(255,255,255,.72);
+  font-size:13.5px;
+  line-height:1.6;
+}
+.example-action-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+.action-card{
+  background:#fff;
+  border:1px solid var(--fog);
+  border-radius:14px;
+  padding:18px;
+  min-height:210px;
+}
+.action-card h4{
+  color:var(--ink);
+  font-size:14px;
+  margin-bottom:9px;
+}
+.action-card p,.action-card li{
+  color:var(--slate);
+  font-size:12.8px;
+  line-height:1.58;
+}
+.action-card ul{padding-left:18px}
+.agent-card-lite{border-top:4px solid var(--coral)}
+.decision-strip{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-top:16px;
+  background:var(--cream);
+  border:1px solid #e7dcc9;
+  border-radius:14px;
+  padding:16px 18px;
+}
+.decision-strip strong{
+  display:block;
+  color:var(--ink);
+  font-size:13px;
+  margin-bottom:4px;
+}
+.decision-strip span{
+  color:var(--slate);
+  font-size:13px;
+  line-height:1.55;
+}
+.mini-example-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+.mini-example{
+  background:#fff;
+  border:1px solid var(--fog);
+  border-radius:13px;
+  padding:16px;
+}
+.mini-example b{
+  display:block;
+  color:var(--ink);
+  font-size:13px;
+  margin-bottom:7px;
+}
+.mini-example span{
+  display:block;
+  color:var(--slate);
+  font-size:12.5px;
+  line-height:1.55;
+}
+@media(max-width:1050px){
+  .example-action-grid,.mini-example-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .example-action-grid,.mini-example-grid{grid-template-columns:1fr}
+  .decision-strip{flex-direction:column;align-items:flex-start}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1426,6 +1584,77 @@ section[id]{scroll-margin-top:60px}
     }
   ]
 }
+
+/* ── EXAMPLE TEST CASES ── */
+const exampleCases = {
+  onboarding: {
+    type:'Agentic AI example',
+    title:'Employee onboarding agent',
+    desc:'An internal agent answers onboarding questions, searches HR/IT policy, and raises low-risk service requests for new starters.',
+    risk:'Primary risk: the agent may access more employee information or systems than needed, or trigger actions without enough human control.',
+    classify:'Agentic AI, internal-facing, medium risk if it can create tickets or call workflows.',
+    ai6:['Name HR and IT owners before build.','Record purpose, data sources and tool access.','Test answers against approved onboarding policies.'],
+    ethics:['Privacy and security: limit personal data access.','Transparency: tell users they are using an AI agent.','Accountability: define who handles errors and complaints.'],
+    agent:['Start read-only where possible.','Use least privilege for tools and workflows.','Require human approval for high-impact account or HR actions.'],
+    outcome:'Pilot with limited users, read-only knowledge access first, and manual approval for any workflow action.'
+  },
+  support: {
+    type:'Generative AI example',
+    title:'Customer support assistant',
+    desc:'A chatbot helps customers find product, service or policy information and drafts responses for service staff.',
+    risk:'Primary risk: wrong or misleading advice, poor escalation, privacy leakage, or customers not knowing AI is involved.',
+    classify:'Customer-facing generative AI. Usually medium risk, higher if it affects essential services or vulnerable users.',
+    ai6:['Assign business owner and support owner.','Define approved knowledge sources and escalation rules.','Monitor failure rate, complaints and handoff quality.'],
+    ethics:['Transparency: disclose AI use clearly.','Reliability and safety: test common and edge questions.','Contestability: provide human escalation.'],
+    agent:['Avoid autonomous refunds, account changes or commitments at first.','Log source documents and handoffs.','Use human approval for any binding customer action.'],
+    outcome:'Pilot as an assistant with clear disclaimers, human escalation and controlled knowledge sources.'
+  },
+  decision: {
+    type:'Decision-support example',
+    title:'Automated decision support',
+    desc:'AI helps assess eligibility, prioritise cases, score applications or recommend decisions that may affect people.',
+    risk:'Primary risk: unfair, unexplained or hard-to-challenge outcomes that affect rights, access, employment, finance or services.',
+    classify:'High-risk pattern where AI materially influences decisions about individuals. Treat as formal governance review before deployment.',
+    ai6:['Complete impact and privacy assessment.','Document decision logic, data used and human decision points.','Define monitoring thresholds and review cadence.'],
+    ethics:['Fairness: test for bias and exclusion.','Transparency: explain how AI is used.','Contestability: provide review and challenge pathway.'],
+    agent:['Avoid autonomous final decisions.','Block tool access that can directly approve, reject or change entitlements.','Require human sign-off and audit trail.'],
+    outcome:'Do not launch as fully automated. Use human-in-the-loop decision support with documented review and contestability.'
+  },
+  vendor: {
+    type:'Procurement / vendor example',
+    title:'Vendor AI tool',
+    desc:'A business team wants to buy a SaaS tool that includes AI features for summarisation, scoring, recommendations or workflow automation.',
+    risk:'Primary risk: unclear data handling, hidden AI features, weak auditability, supplier lock-in or unsupported compliance claims.',
+    classify:'Risk depends on data, sector, users and impact. Treat as medium until supplier evidence proves otherwise.',
+    ai6:['Identify deployer and supplier responsibilities.','Request documentation on data use, model behaviour, testing and monitoring.','Add contract clauses for security, audit, incidents and change notices.'],
+    ethics:['Accountability: define internal owner.','Privacy and security: check data processing and retention.','Transparency: know when AI is used and disclosed.'],
+    agent:['Disable autonomous actions by default.','Require evidence for tool permissions and logs.','Review admin roles, integrations and rollback options.'],
+    outcome:'Proceed only after vendor evidence, privacy/security review and internal owner sign-off.'
+  }
+};
+
+function renderExampleCase(key){
+  const c = exampleCases[key];
+  if(!c) return;
+  document.getElementById('caseType').textContent = c.type;
+  document.getElementById('caseTitle').textContent = c.title;
+  document.getElementById('caseDesc').textContent = c.desc;
+  document.getElementById('caseRisk').textContent = c.risk;
+  document.getElementById('caseClassify').textContent = c.classify;
+  document.getElementById('caseAI6').innerHTML = c.ai6.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseEthics').innerHTML = c.ethics.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseAgent').innerHTML = c.agent.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseOutcome').textContent = c.outcome;
+  document.querySelectorAll('.example-tab').forEach(b=>{
+    const active = b.dataset.case === key;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-selected', String(active));
+  });
+}
+document.querySelectorAll('.example-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>renderExampleCase(btn.dataset.case));
+});
+
 </script>
 </head>
 <body>
@@ -1453,7 +1682,7 @@ section[id]{scroll-margin-top:60px}
     <a href="#ai6">AI6</a>
     <a href="#agents">AI Agents</a>
     <a href="#lifecycle">Lifecycle</a>
-    <a href="#apply" class="nav-pill">Apply Guide</a>
+    <a href="#apply" class="nav-pill">Examples</a>
     <a href="#resources" class="nav-cta btn">Sources →</a>
   </div>
 </nav>
@@ -1498,7 +1727,7 @@ section[id]{scroll-margin-top:60px}
       </a>
     </div>
     <div class="hero-cta">
-      <a class="btn btn-gold" href="#apply">Start with a use case →</a>
+      <a class="btn btn-gold" href="#apply">See examples →</a>
       <a class="btn btn-ghost" href="#lifecycle">See lifecycle route</a>
       <a class="btn btn-ghost" href="#resources">Check sources</a>
     </div>
@@ -1802,34 +2031,85 @@ section[id]{scroll-margin-top:60px}
 </section>
 
 
-<!-- APPLY GUIDE -->
-<section id="apply" class="apply-guide">
+<!-- APPLY GUIDE / EXAMPLES -->
+<section id="apply" class="apply-guide examples-guide">
   <div class="section-wrap">
     <div class="section-label">Apply the Guide</div>
-    <h2 class="section-title">Use this pattern for any AI use case</h2>
-    <p class="section-intro">This is the practical adoption view. Start with a real business scenario, apply the guardrails, then decide whether it is safe to pilot, hold or redesign.</p>
+    <h2 class="section-title">A few practical test cases <span class="light">to make the guidance real</span></h2>
+    <p class="section-intro">Use these examples as patterns. They are not legal or compliance decisions — they show how to turn the 8 Principles, AI6 and agent controls into action.</p>
 
-    <div class="apply-scenario">
-      <div class="scenario-card">
-        <span class="tag tag-gold">Worked example</span>
-        <h3>AI-assisted employee onboarding agent</h3>
-        <p>An internal agent answers onboarding questions, checks policy documents, creates service requests and guides a new starter through common tasks.</p>
-        <div class="scenario-risk">Main risk: it may access more employee data or systems than needed, give outdated advice, or trigger actions without enough human control.</div>
+    <div class="example-tabs" role="tablist" aria-label="AI governance example test cases">
+      <button class="example-tab active" type="button" data-case="onboarding" role="tab" aria-selected="true">Employee onboarding agent</button>
+      <button class="example-tab" type="button" data-case="support" role="tab" aria-selected="false">Customer support assistant</button>
+      <button class="example-tab" type="button" data-case="decision" role="tab" aria-selected="false">Automated decision support</button>
+      <button class="example-tab" type="button" data-case="vendor" role="tab" aria-selected="false">Vendor AI tool</button>
+    </div>
+
+    <div class="example-shell">
+      <div class="example-hero-card">
+        <span class="tag tag-gold" id="caseType">Agentic AI example</span>
+        <h3 id="caseTitle">Employee onboarding agent</h3>
+        <p id="caseDesc">An internal agent answers onboarding questions, searches HR/IT policy, and raises low-risk service requests for new starters.</p>
+        <div class="case-risk" id="caseRisk">Primary risk: the agent may access more employee information or systems than needed, or trigger actions without enough human control.</div>
       </div>
-      <div class="scenario-steps">
-        <div class="step-card"><b>1. Purpose</b><span>Answer onboarding questions and raise low-risk requests only.</span></div>
-        <div class="step-card"><b>2. Owner</b><span>HR owns content. IT owns integration. Security approves access.</span></div>
-        <div class="step-card"><b>3. Data</b><span>Use approved policy sources. Do not expose sensitive HR records unless justified.</span></div>
-        <div class="step-card"><b>4. Agent access</b><span>Start read-only. Add write actions only after testing and approval.</span></div>
-        <div class="step-card"><b>5. Human control</b><span>Human approval for account, payroll, role or permission changes.</span></div>
-        <div class="step-card"><b>6. Monitoring</b><span>Log prompts, sources, tool calls, failures, escalations and user feedback.</span></div>
+
+      <div class="example-action-grid">
+        <div class="action-card">
+          <h4>1. Classify the use case</h4>
+          <p id="caseClassify">Agentic AI, internal-facing, medium risk if it can create tickets or call workflows.</p>
+        </div>
+        <div class="action-card">
+          <h4>2. Apply AI6</h4>
+          <ul id="caseAI6">
+            <li>Name HR and IT owners before build.</li>
+            <li>Record purpose, data sources and tool access.</li>
+            <li>Test answers against approved onboarding policies.</li>
+          </ul>
+        </div>
+        <div class="action-card">
+          <h4>3. Apply ethics principles</h4>
+          <ul id="caseEthics">
+            <li>Privacy and security: limit personal data access.</li>
+            <li>Transparency: tell users they are using an AI agent.</li>
+            <li>Accountability: define who handles errors and complaints.</li>
+          </ul>
+        </div>
+        <div class="action-card agent-card-lite">
+          <h4>4. Agent gate</h4>
+          <ul id="caseAgent">
+            <li>Start read-only where possible.</li>
+            <li>Use least privilege for tools and workflows.</li>
+            <li>Require human approval for high-impact account or HR actions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="decision-strip">
+        <div>
+          <strong>Decision outcome</strong>
+          <span id="caseOutcome">Pilot with limited users, read-only knowledge access first, and manual approval for any workflow action.</span>
+        </div>
+        <a class="btn btn-gold" href="#lifecycle">Check the lifecycle route →</a>
       </div>
     </div>
 
-    <div class="guardrail-grid">
-      <div class="guardrail-card"><h3>Minimum guardrails before pilot</h3><ul><li>Named owner and support path</li><li>Use case recorded in AI register</li><li>Risk and privacy check completed</li><li>Approved data sources only</li><li>Human review for high-impact actions</li></ul></div>
-      <div class="guardrail-card"><h3>Extra guardrails for agents</h3><ul><li>Least privilege and scoped tool access</li><li>No broad admin or sensitive system access</li><li>Tool-call logging and alerting</li><li>Prompt injection and misuse testing</li><li>Pause, rollback and shutdown process</li></ul></div>
-      <div class="guardrail-card"><h3>Decision gate</h3><ul><li><strong>Proceed:</strong> low risk, controls clear, owner named</li><li><strong>Pilot only:</strong> moderate risk, limited users, close monitoring</li><li><strong>Hold:</strong> unclear data, unclear owner or weak human control</li><li><strong>Reject/redesign:</strong> high impact with no contestability or rollback</li></ul></div>
+    <div class="mini-example-grid">
+      <div class="mini-example">
+        <b>Low-risk pattern</b>
+        <span>Internal summarisation of public or approved internal content. Main action: owner + source control + review.</span>
+      </div>
+      <div class="mini-example">
+        <b>Medium-risk pattern</b>
+        <span>Assistant that uses personal information or creates tickets. Main action: privacy check + testing + monitoring.</span>
+      </div>
+      <div class="mini-example">
+        <b>High-risk pattern</b>
+        <span>AI influencing rights, eligibility, employment, finance, health or access to services. Main action: formal review + human control + contestability.</span>
+      </div>
+      <div class="mini-example">
+        <b>Agentic pattern</b>
+        <span>AI that can use tools, call APIs or trigger workflows. Main action: least privilege + tool logging + rollback.</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1929,7 +2209,7 @@ section[id]{scroll-margin-top:60px}
     <a href="#ai6">6 Practices</a>
     <a href="#agents">AI Agents</a>
     <a href="#lifecycle">Lifecycle</a>
-    <a href="#apply">Apply Guide</a>
+    <a href="#apply">Examples</a>
     <a href="#faq">FAQ</a>
     <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">DISR</a>
     <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank">AI6 (NAIC)</a>
@@ -2322,6 +2602,77 @@ showA6Detail(1, false);
 if (!window.location.hash) {
   requestAnimationFrame(() => window.scrollTo({top:0,left:0,behavior:'auto'}));
 }
+
+/* ── EXAMPLE TEST CASES ── */
+const exampleCases = {
+  onboarding: {
+    type:'Agentic AI example',
+    title:'Employee onboarding agent',
+    desc:'An internal agent answers onboarding questions, searches HR/IT policy, and raises low-risk service requests for new starters.',
+    risk:'Primary risk: the agent may access more employee information or systems than needed, or trigger actions without enough human control.',
+    classify:'Agentic AI, internal-facing, medium risk if it can create tickets or call workflows.',
+    ai6:['Name HR and IT owners before build.','Record purpose, data sources and tool access.','Test answers against approved onboarding policies.'],
+    ethics:['Privacy and security: limit personal data access.','Transparency: tell users they are using an AI agent.','Accountability: define who handles errors and complaints.'],
+    agent:['Start read-only where possible.','Use least privilege for tools and workflows.','Require human approval for high-impact account or HR actions.'],
+    outcome:'Pilot with limited users, read-only knowledge access first, and manual approval for any workflow action.'
+  },
+  support: {
+    type:'Generative AI example',
+    title:'Customer support assistant',
+    desc:'A chatbot helps customers find product, service or policy information and drafts responses for service staff.',
+    risk:'Primary risk: wrong or misleading advice, poor escalation, privacy leakage, or customers not knowing AI is involved.',
+    classify:'Customer-facing generative AI. Usually medium risk, higher if it affects essential services or vulnerable users.',
+    ai6:['Assign business owner and support owner.','Define approved knowledge sources and escalation rules.','Monitor failure rate, complaints and handoff quality.'],
+    ethics:['Transparency: disclose AI use clearly.','Reliability and safety: test common and edge questions.','Contestability: provide human escalation.'],
+    agent:['Avoid autonomous refunds, account changes or commitments at first.','Log source documents and handoffs.','Use human approval for any binding customer action.'],
+    outcome:'Pilot as an assistant with clear disclaimers, human escalation and controlled knowledge sources.'
+  },
+  decision: {
+    type:'Decision-support example',
+    title:'Automated decision support',
+    desc:'AI helps assess eligibility, prioritise cases, score applications or recommend decisions that may affect people.',
+    risk:'Primary risk: unfair, unexplained or hard-to-challenge outcomes that affect rights, access, employment, finance or services.',
+    classify:'High-risk pattern where AI materially influences decisions about individuals. Treat as formal governance review before deployment.',
+    ai6:['Complete impact and privacy assessment.','Document decision logic, data used and human decision points.','Define monitoring thresholds and review cadence.'],
+    ethics:['Fairness: test for bias and exclusion.','Transparency: explain how AI is used.','Contestability: provide review and challenge pathway.'],
+    agent:['Avoid autonomous final decisions.','Block tool access that can directly approve, reject or change entitlements.','Require human sign-off and audit trail.'],
+    outcome:'Do not launch as fully automated. Use human-in-the-loop decision support with documented review and contestability.'
+  },
+  vendor: {
+    type:'Procurement / vendor example',
+    title:'Vendor AI tool',
+    desc:'A business team wants to buy a SaaS tool that includes AI features for summarisation, scoring, recommendations or workflow automation.',
+    risk:'Primary risk: unclear data handling, hidden AI features, weak auditability, supplier lock-in or unsupported compliance claims.',
+    classify:'Risk depends on data, sector, users and impact. Treat as medium until supplier evidence proves otherwise.',
+    ai6:['Identify deployer and supplier responsibilities.','Request documentation on data use, model behaviour, testing and monitoring.','Add contract clauses for security, audit, incidents and change notices.'],
+    ethics:['Accountability: define internal owner.','Privacy and security: check data processing and retention.','Transparency: know when AI is used and disclosed.'],
+    agent:['Disable autonomous actions by default.','Require evidence for tool permissions and logs.','Review admin roles, integrations and rollback options.'],
+    outcome:'Proceed only after vendor evidence, privacy/security review and internal owner sign-off.'
+  }
+};
+
+function renderExampleCase(key){
+  const c = exampleCases[key];
+  if(!c) return;
+  document.getElementById('caseType').textContent = c.type;
+  document.getElementById('caseTitle').textContent = c.title;
+  document.getElementById('caseDesc').textContent = c.desc;
+  document.getElementById('caseRisk').textContent = c.risk;
+  document.getElementById('caseClassify').textContent = c.classify;
+  document.getElementById('caseAI6').innerHTML = c.ai6.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseEthics').innerHTML = c.ethics.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseAgent').innerHTML = c.agent.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('caseOutcome').textContent = c.outcome;
+  document.querySelectorAll('.example-tab').forEach(b=>{
+    const active = b.dataset.case === key;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-selected', String(active));
+  });
+}
+document.querySelectorAll('.example-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>renderExampleCase(btn.dataset.case));
+});
+
 </script>
 </body>
 </html>
