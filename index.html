@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Independent source-linked navigator for Australia's AI Ethics Principles, 6 AI Essential Practices, and the 1 May 2026 agentic AI security update — combined in one practical view.">
+<meta name="description" content="Independent source-linked navigator for Australian AI governance, AI6 practices, agentic AI risk and practical adoption lifecycle.">
 <meta property="og:title" content="🇦🇺 Australia AI Navigator: 8 Principles, 6 Practices & Agentic AI">
 <meta property="og:description" content="Understand how Australia's foundational AI Ethics Principles connect to the AI6 framework and May 2026 agentic AI security guidance. Interactive, verified, free.">
 <meta name="theme-color" content="#0a1628">
@@ -87,7 +87,7 @@ body::before{
 /* ── HERO ── */
 #hero{
   position:relative;
-  min-height:100vh;
+  min-height:100svh;
   background:var(--ink);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:100px 24px 80px;
@@ -712,6 +712,62 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 .res-desc{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.55}
 .res-url{font-size:11px;color:rgba(255,255,255,.25);margin-top:10px;font-family:var(--mono)}
 
+
+
+/* ── COMPACT BRANDING + PRACTICAL ADD-ONS ── */
+.nav-mark{
+  width:22px;height:22px;border-radius:50%;object-fit:cover;
+  border:1px solid rgba(212,160,23,.38);
+  opacity:.88;box-shadow:0 2px 8px rgba(0,0,0,.22)
+}
+.nav-logo .au-mini{font-size:12px;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.82);font-family:var(--sans)}
+.nav-logo .brand-title{font-family:var(--serif);font-size:17px;color:#fff}
+
+.hero-layer-flow{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin:0 auto 44px;max-width:760px
+}
+.layer-card{
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;padding:18px 16px;position:relative;overflow:hidden
+}
+.layer-card::after{
+  content:'→';position:absolute;right:-2px;top:50%;transform:translate(50%,-50%);
+  color:rgba(212,160,23,.55);font-size:22px
+}
+.layer-card:last-child::after{display:none}
+.layer-card .num{font-family:var(--serif);font-size:42px;line-height:1;color:var(--gold);margin-bottom:4px}
+.layer-card .label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:5px}
+.layer-card .mini{font-size:12px;line-height:1.45;color:rgba(255,255,255,.42)}
+
+.quick-views{padding:76px 0;background:var(--cream)}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.quick-card{background:var(--white);border:1px solid var(--fog);border-radius:var(--r);padding:24px;box-shadow:0 4px 22px rgba(0,0,0,.055)}
+.quick-card h3{font-family:var(--serif);font-size:25px;color:var(--ink);line-height:1.2;margin-bottom:10px}
+.quick-card p{font-size:14px;line-height:1.7;color:var(--slate);margin-bottom:14px}
+.mini-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.mini-table th{background:var(--ink);color:#fff;text-align:left;padding:9px 10px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.mini-table td{border-bottom:1px solid #e7eef6;padding:9px 10px;color:var(--slate);vertical-align:top}
+.mini-table td:first-child{font-weight:700;color:var(--ink)}
+.mini-pill{display:inline-flex;padding:3px 8px;border-radius:999px;background:var(--gold3);color:#7a5a00;font-size:10.5px;font-weight:700;white-space:nowrap}
+
+.footer-brand{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:18px;color:rgba(255,255,255,.5);font-size:12px;line-height:1.5
+}
+.footer-brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(212,160,23,.35);opacity:.78}
+.footer-brand strong{color:rgba(240,192,64,.78);font-weight:700}
+
+@media(max-width:900px){
+  .hero-layer-flow,.quick-grid{grid-template-columns:1fr}
+  .layer-card::after{content:'↓';right:50%;top:auto;bottom:-18px;transform:translateX(50%)}
+}
+@media(max-width:600px){
+  .nav-mark{width:20px;height:20px}
+  .nav-logo .brand-title{font-size:15px}
+  .quick-card{padding:18px}
+}
+
 /* ── FOOTER ── */
 #footer{
   background:var(--ink);border-top:1px solid rgba(255,255,255,.06);
@@ -883,26 +939,522 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   .station:last-child{margin-bottom:0}
 }
 
+
+/* ── FINAL UX PASS ── */
+html{scroll-padding-top:60px}
+section[id]{scroll-margin-top:60px}
+#nav{height:60px;padding:0 28px}
+.nav-mark{width:34px!important;height:34px!important;opacity:.98!important;border:1px solid rgba(212,160,23,.55)!important;box-shadow:0 0 0 3px rgba(212,160,23,.06),0 6px 18px rgba(0,0,0,.28)!important}
+.nav-logo{gap:9px}
+.nav-logo .au-mini{font-size:12px}
+.nav-logo .brand-title{font-size:17px}
+.nav-links{gap:6px}
+.nav-links a{font-size:13px;padding:7px 10px}
+.nav-pill{background:rgba(212,160,23,.10);color:var(--gold2)!important;border:1px solid rgba(212,160,23,.22)!important}
+.hero-layer-flow{grid-template-columns:repeat(4,1fr);max-width:940px;gap:12px;margin-bottom:34px}
+.layer-card{display:block;text-align:left;text-decoration:none;border-bottom:none;transition:all .18s;padding:16px 16px 15px}
+.layer-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.075);border-color:rgba(212,160,23,.38);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.layer-card.apply{border-color:rgba(212,160,23,.32);background:rgba(212,160,23,.08)}
+.layer-card .num{font-size:36px}
+.layer-card .mini{min-height:34px}
+.one-screen{min-height:calc(100vh - 60px);display:flex;align-items:center;padding:70px 0!important}
+.wide-wrap{max-width:1180px}
+.compact-intro{margin-bottom:28px;max-width:760px}
+.guide-workbench{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:22px;align-items:stretch}
+.compact-grid{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:12px!important;margin-top:0!important}
+.p8-card,.a6-card{min-height:auto!important;padding:17px 18px!important;border-radius:12px!important}
+.p8-card .p8-num{font-size:28px!important;margin-bottom:4px!important}
+.p8-icon{display:none}
+.p8-title,.a6-title{font-size:13.5px!important}
+.p8-desc,.a6-sub{font-size:12px!important;margin-bottom:0!important}
+.p8-link,.a6-principles{display:none!important}
+.a6-num{width:34px!important;height:34px!important;font-size:18px!important;margin-bottom:10px!important}
+.detail-dock{display:block!important;margin-top:0!important;border-radius:14px!important;min-height:100%;padding:28px!important;box-shadow:0 16px 36px rgba(0,0,0,.13)}
+#p8-detail{background:var(--ink)!important;color:#fff!important}
+#a6-detail{background:rgba(255,255,255,.055)!important;border:1px solid rgba(255,255,255,.12)!important;color:#fff!important}
+#p8-detail.show,#a6-detail.show{display:block!important}
+.pd-left .pd-num,.ad-left .ad-num{font-size:58px!important;float:right;margin-left:14px}
+.pd-left .pd-title,.ad-left .ad-title{font-size:24px!important}
+.pd-right h4,.ad-right h4{margin-top:18px}
+.ad-steps li{padding:8px 0 8px 34px!important}
+.ad-steps li::before{top:8px!important}
+.train-pro{background:var(--white);border:1px solid var(--fog);border-radius:18px;padding:26px 26px 28px;box-shadow:0 12px 34px rgba(10,22,40,.08);position:relative;overflow:hidden}
+.train-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px;border-bottom:1px solid #e6eef7;padding-bottom:16px}
+.train-head strong{font-family:var(--serif);font-size:25px;color:var(--ink);font-weight:400}
+.train-badge{font-size:11px;font-weight:800;letter-spacing:.10em;text-transform:uppercase;color:#7a5a00;background:var(--gold3);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.station-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.station-pro{position:relative;background:linear-gradient(180deg,#fff,#f9fbfd);border:1px solid #dbe7f3;border-radius:14px;padding:18px 16px 15px;min-height:165px}
+.station-pro::after{content:'→';position:absolute;right:-13px;top:42px;color:var(--gold);font-weight:800;z-index:2}
+.station-pro:nth-child(4)::after{content:'↓';right:50%;top:auto;bottom:-22px;transform:translateX(50%)}
+.station-pro:nth-child(5)::after{content:'←';left:-13px;right:auto}
+.station-pro:nth-child(6)::after{content:'←';left:-13px;right:auto}
+.station-pro:nth-child(7)::after{content:'←';left:-13px;right:auto}
+.station-pro:nth-child(8)::after{display:none}
+.station-pro span{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--teal3);color:var(--teal);font-weight:800;margin-bottom:12px}
+.station-pro.agent span{background:var(--coralL);color:var(--coral)}
+.station-pro h4{font-size:15px;color:var(--ink);margin-bottom:7px}
+.station-pro p{font-size:12.5px;line-height:1.55;color:var(--slate);margin-bottom:10px}
+.station-pro small{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7a5a00;background:var(--gold3);border-radius:999px;padding:4px 8px}
+.apply-guide{padding:82px 0;background:var(--paper)}
+.apply-scenario{display:grid;grid-template-columns:.85fr 1.15fr;gap:18px;margin-top:30px}
+.scenario-card,.guardrail-card,.step-card{background:var(--white);border:1px solid var(--fog);border-radius:14px;box-shadow:0 8px 24px rgba(10,22,40,.06)}
+.scenario-card{padding:26px}
+.scenario-card h3{font-family:var(--serif);font-size:30px;color:var(--ink);line-height:1.15;margin:14px 0 12px}
+.scenario-card p{font-size:14px;line-height:1.7;color:var(--slate)}
+.scenario-risk{margin-top:18px;padding:14px;background:var(--coralL);color:#8a2f1a;border-radius:10px;font-size:13px;line-height:1.6}
+.scenario-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.step-card{padding:17px}
+.step-card b{display:block;color:var(--ink);font-size:14px;margin-bottom:6px}
+.step-card span{font-size:12.5px;line-height:1.55;color:var(--slate)}
+.guardrail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.guardrail-card{padding:22px}
+.guardrail-card h3{font-family:var(--serif);font-size:23px;color:var(--ink);margin-bottom:10px}
+.guardrail-card ul{padding-left:18px;color:var(--slate);font-size:13px;line-height:1.75}
+.footer-brand{margin-bottom:12px!important}
+.footer-brand img{width:30px!important;height:30px!important;opacity:.86!important}
+#footer{padding:26px 32px 28px!important}
+.ft-logo{font-size:17px!important;margin-bottom:12px!important}
+.ft-links{gap:18px!important;margin-bottom:14px!important}
+.ft-links a{font-size:12px!important}
+.ft-copy{font-size:11px!important}
+.ft-disclaimer{font-size:10.5px!important;max-width:720px!important;margin-top:9px!important}
+@media(max-width:1050px){
+  .hero-layer-flow{grid-template-columns:repeat(2,1fr)}
+  .guide-workbench{grid-template-columns:1fr}
+  .detail-dock{min-height:auto}
+  .station-grid{grid-template-columns:repeat(2,1fr)}
+  .station-pro::after{display:none!important}
+  .apply-scenario,.guardrail-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .nav-logo .brand-title{display:none}
+  .nav-links a:not(.nav-cta):not(.nav-pill){display:none}
+  .hero-layer-flow,.compact-grid,.scenario-steps{grid-template-columns:1fr!important}
+  .one-screen{display:block;min-height:auto;padding:64px 0!important}
+  .station-grid{grid-template-columns:1fr}
+}
+
+
+/* ── POLISHED LIFECYCLE TRAIN ROUTE ── */
+.lifecycle-polished{padding:82px 0;background:var(--paper)}
+.lifecycle-polished .section-intro{max-width:700px;margin-bottom:30px}
+.journey-board{
+  background:
+    radial-gradient(circle at 18% 0%, rgba(13,126,110,.16), transparent 32%),
+    radial-gradient(circle at 88% 6%, rgba(212,160,23,.18), transparent 34%),
+    linear-gradient(135deg, var(--ink) 0%, #10233c 52%, #0b182b 100%);
+  border:1px solid rgba(212,160,23,.22);
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 22px 55px rgba(10,22,40,.18);
+  overflow:hidden;
+  position:relative;
+}
+.journey-board::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(212,160,23,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,160,23,.045) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(90deg, rgba(0,0,0,.75), transparent 82%);
+  pointer-events:none;
+}
+.journey-head{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:center;
+  margin-bottom:28px;
+}
+.journey-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(212,160,23,.13);
+  border:1px solid rgba(212,160,23,.28);
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:13px;
+}
+.journey-head h3{
+  font-family:var(--serif);
+  color:#fff;
+  font-size:34px;
+  line-height:1.12;
+  font-weight:400;
+  margin-bottom:10px;
+  max-width:760px;
+}
+.journey-head p{
+  color:rgba(255,255,255,.56);
+  font-size:14.5px;
+  line-height:1.7;
+  max-width:720px;
+}
+.train-symbol{
+  width:118px;
+  height:118px;
+  border-radius:28px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.13);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold2);
+  box-shadow:inset 0 0 22px rgba(212,160,23,.08),0 14px 28px rgba(0,0,0,.22);
+}
+.train-light{
+  width:12px;height:12px;border-radius:50%;
+  background:var(--gold2);
+  box-shadow:0 0 16px rgba(240,192,64,.75);
+  margin-bottom:8px;
+}
+.train-body{font-family:var(--serif);font-size:42px;line-height:1;color:#fff}
+.train-wheels{font-size:13px;letter-spacing:8px;margin-left:8px;color:rgba(240,192,64,.75)}
+.phase-rail{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  margin:20px 0 28px;
+  padding:18px 0 8px;
+}
+.phase-rail::before{
+  content:'';
+  position:absolute;
+  top:38px;
+  left:8%;
+  right:8%;
+  height:3px;
+  background:linear-gradient(90deg, var(--teal2), var(--gold), var(--coral));
+  border-radius:999px;
+  box-shadow:0 0 18px rgba(212,160,23,.25);
+}
+.phase{
+  position:relative;
+  text-align:center;
+  color:rgba(255,255,255,.62);
+}
+.phase span{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  background:#16304f;
+  border:2px solid var(--teal2);
+  color:#fff;
+  font-weight:800;
+}
+.phase.agent span{border-color:var(--coral);background:#302238}
+.phase b{
+  display:block;
+  color:#fff;
+  font-size:13px;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  margin-bottom:3px;
+}
+.phase small{font-size:11.5px;color:rgba(255,255,255,.42)}
+.station-route{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.route-station{
+  background:rgba(255,255,255,.965);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:18px 18px 16px;
+  min-height:170px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.16);
+}
+.route-station::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:var(--teal2);
+}
+.route-station.agent::before{background:var(--coral)}
+.route-station::after{
+  content:'';
+  position:absolute;
+  width:28px;
+  height:3px;
+  right:-20px;
+  top:42px;
+  background:var(--gold);
+  border-radius:999px;
+}
+.route-station:nth-child(4)::after,
+.route-station:nth-child(8)::after{display:none}
+.station-no{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;height:34px;
+  border-radius:50%;
+  background:var(--teal3);
+  color:var(--teal);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+.route-station.agent .station-no{background:var(--coralL);color:var(--coral)}
+.route-station h4{
+  font-size:15px;
+  color:var(--ink);
+  margin-bottom:8px;
+  line-height:1.3;
+}
+.route-station p{
+  font-size:12.8px;
+  color:var(--slate);
+  line-height:1.58;
+  margin-bottom:13px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{
+  display:inline-flex;
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--gold3);
+  color:#7a5a00;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.route-note{
+  position:relative;
+  z-index:1;
+  margin-top:20px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.11);
+  border-left:3px solid var(--gold);
+  border-radius:12px;
+  padding:14px 16px;
+  color:rgba(255,255,255,.58);
+  font-size:13.5px;
+  line-height:1.65;
+}
+.route-note strong{color:var(--gold2)}
+@media(max-width:1000px){
+  .journey-head{grid-template-columns:1fr}
+  .train-symbol{display:none}
+  .phase-rail{grid-template-columns:1fr;gap:10px;padding:0}
+  .phase-rail::before{display:none}
+  .phase{text-align:left;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.045);border-radius:12px;padding:10px 12px}
+  .phase span{margin:0}
+  .station-route{grid-template-columns:repeat(2,1fr)}
+  .route-station::after{display:none}
+}
+@media(max-width:650px){
+  .journey-board{padding:20px}
+  .journey-head h3{font-size:26px}
+  .station-route{grid-template-columns:1fr}
+}
+
+
+/* ── ACCESSIBILITY + MOBILE NAV FINAL PATCH ── */
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+}
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after{
+  display:block;
+  width:18px;
+  height:2px;
+  background:currentColor;
+  border-radius:999px;
+  transition:transform .18s, opacity .18s;
+  content:'';
+}
+.nav-toggle span::before{transform:translateY(-6px)}
+.nav-toggle span::after{transform:translateY(4px)}
+.nav-toggle[aria-expanded="true"] span{background:transparent}
+.nav-toggle[aria-expanded="true"] span::before{transform:translateY(0) rotate(45deg);background:#fff}
+.nav-toggle[aria-expanded="true"] span::after{transform:translateY(-2px) rotate(-45deg);background:#fff}
+.p8-card:focus-visible,
+.a6-card:focus-visible,
+.layer-card:focus-visible,
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible,
+.btn:focus-visible{
+  outline:3px solid var(--gold2);
+  outline-offset:3px;
+}
+.p8-card[role="button"], .a6-card[role="button"]{user-select:none}
+.noscript-banner{
+  margin:64px auto 0;
+  max-width:920px;
+  background:#fff8dd;
+  color:#5d4300;
+  border:1px solid #f0d16a;
+  border-radius:12px;
+  padding:14px 18px;
+  font:14px/1.6 system-ui, sans-serif;
+}
+@media(max-width:900px){
+  #nav{padding:0 18px}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:60px;
+    left:0;
+    right:0;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:10px 18px 16px;
+    background:rgba(10,22,40,.98);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    box-shadow:0 18px 38px rgba(0,0,0,.28);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{
+    display:block!important;
+    padding:12px 14px;
+    border-radius:8px;
+    color:rgba(255,255,255,.82);
+  }
+  .nav-cta{margin-top:6px;text-align:center}
+}
+@media(max-width:700px){
+  .nav-links a:not(.nav-cta):not(.nav-pill){display:block!important}
+}
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the 8 Ethics Principles still useful if AI6 updated VAISS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The 8 Ethics Principles are still a useful values layer. The October 2025 Guidance for AI Adoption says the 6 practices maintain alignment with Australia’s AI Ethics Principles and international standards. This page shows both layers together so readers can move from values to practical controls without jumping between documents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should I treat AI6?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For general business use, the Guidance for AI Adoption is presented as practical guidance for responsible AI adoption. Government agencies and regulated sectors may also have separate policy, privacy, cyber, procurement or sector-specific obligations. Use AI6 as a clear operating model, but check the source pages and your organisation’s legal/compliance requirements before treating it as a binding requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "If my organisation used VAISS, do I need to start over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, not from zero. The October 2025 update condensed the 10 VAISS guardrails into 6 essential practices. Use the 6-practice view to simplify your current register, controls and review process. Then check the source documents for any detailed control gaps, especially around risk, monitoring, transparency and human control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which principle covers the Privacy Act APP 1.7 automated decision-making obligation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Principle 6 — Transparency & Explainability is the primary ethics anchor. People must understand when AI significantly impacts them. The incoming APP 1.7–1.9 privacy policy obligations (from 10 December 2026) operationalise this principle by requiring all APP entities to disclose in their privacy policy: the types of personal information used in substantially automated decisions, and the nature of decisions that could significantly affect individual rights. This is also covered by AI6 Practice 4 — Share Essential Information. Begin privacy policy updates now — the obligation applies to all decisions made from that date, regardless of when the AI system was deployed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Principle 7 (Contestability) require a formal appeal process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In practical terms, yes for high-risk use cases. Principle 7 states that a \"timely process\" must allow people to challenge AI use or outcomes when they are significantly affected. AI6 Practice 6 (Maintain Human Control) operationalises this by requiring challenge and appeal pathways to be designed before deployment. Privacy Act Tranche 2 reforms (expected post-2027) are expected to formalise a statutory right to request meaningful information about automated decisions. Don't wait — build contestability into your AI systems now as leading practice. Document the appeal pathway in your AI register."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should older AI systems be reviewed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Even if a system was built earlier, active AI use should be reviewed against current governance, privacy, cyber and business risk expectations. For privacy, OAIC guidance says APP entities will have extra privacy policy obligations from 10 December 2026 where personal information is used by a computer program for decisions that could significantly affect an individual’s rights or interests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the 1 May 2026 agentic AI guidance fit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It sits as a security and operational risk layer on top of the existing framework. The 8 Principles still explain the values, AI6 still explains the responsible AI operating model, and the ACSC agentic AI guidance explains what changes when an AI system can use tools, access data, call APIs, create sub-tasks or act without continuous human intervention. In practice, agentic AI needs stronger identity, least privilege, monitoring, logging, human approval points, safe defaults, isolation and rollback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this relate to the DTA AI Technical Standard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The DTA AI Technical Standard is a separate source for government AI delivery and technical governance. This page does not replace that standard. It simply helps readers understand the relationship between values, adoption practices and the newer agentic AI control lens. Source: digital.gov.au/policy/ai/AI-technical-standard."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <div id="scroll-progress"></div>
 
+<noscript>
+  <div class="noscript-banner">
+    <strong>JavaScript is disabled.</strong> This page still shows the main guidance, but interactive card details, mobile menu and dynamic sections work best with JavaScript enabled.
+  </div>
+</noscript>
+
+
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#hero">
-    <span class="flag">🇦🇺</span> Australia AI Guide
+  <a class="nav-logo" href="#hero" aria-label="Australia AI Guide home">
+    <img class="nav-mark" src="data:image/jpeg;base64,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" alt="AG logo">
+    <span class="au-mini">AU</span>
+    <span class="brand-title">Australia AI Guide</span>
   </a>
-  <div class="nav-links">
-    <a href="#explainer">The Framework</a>
-    <a href="#principles">8 Principles</a>
-    <a href="#ai6">6 Practices</a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false"><span aria-hidden="true"></span></button>
+  <div class="nav-links" id="primary-navigation">
+    <a href="#explainer">Framework</a>
+    <a href="#principles">Principles</a>
+    <a href="#ai6">AI6</a>
     <a href="#agents">AI Agents</a>
     <a href="#lifecycle">Lifecycle</a>
-    <a href="#mapping">Mapping</a>
-    <a href="#faq">FAQ</a>
-    <a href="#resources" class="nav-cta btn">Resources →</a>
+    <a href="#apply" class="nav-pill">Apply Guide</a>
+    <a href="#resources" class="nav-cta btn">Sources →</a>
   </div>
 </nav>
 
@@ -923,21 +1475,36 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
       The most common confusion in Australian AI governance — decoded.
       Understand what each layer means, how they fit together, and how the 1 May 2026 agentic AI update strengthens safe adoption.
     </p>
-    <div class="hero-numbers">
-      <div class="hn"><span class="n">8</span><span class="l">Ethics Principles</span></div>
-      <div class="hn" style="color:rgba(255,255,255,.15);font-size:36px;align-self:center">≠</div>
-      <div class="hn"><span class="n">6</span><span class="l">AI6 Practices</span></div>
-      <div class="hn" style="color:rgba(255,255,255,.15);font-size:36px;align-self:center">≠</div>
-      <div class="hn"><span class="n" style="color:var(--mist)">10</span><span class="l">Old VAISS (retired)</span></div>
+    <div class="hero-layer-flow">
+      <a class="layer-card" href="#principles">
+        <div class="num">8</div>
+        <div class="label">Ethics Principles</div>
+        <div class="mini">Values layer — what responsible AI should protect.</div>
+      </a>
+      <a class="layer-card" href="#ai6">
+        <div class="num">6</div>
+        <div class="label">AI6 Practices</div>
+        <div class="mini">Operating layer — who owns, tests and monitors AI.</div>
+      </a>
+      <a class="layer-card" href="#agents">
+        <div class="num" style="color:var(--mist)">2026</div>
+        <div class="label">Agentic AI</div>
+        <div class="mini">Security layer — controls for AI that can use tools.</div>
+      </a>
+      <a class="layer-card apply" href="#apply">
+        <div class="num">✓</div>
+        <div class="label">Apply the Guide</div>
+        <div class="mini">Use-case walkthrough — turn guidance into adoption steps.</div>
+      </a>
     </div>
     <div class="hero-cta">
-      <a class="btn btn-gold" href="#explainer">Understand the difference →</a>
-      <a class="btn btn-ghost" href="#agents">Agentic AI update</a>
-      <a class="btn btn-ghost" href="#mapping">See the mapping</a>
+      <a class="btn btn-gold" href="#apply">Start with a use case →</a>
+      <a class="btn btn-ghost" href="#lifecycle">See lifecycle route</a>
+      <a class="btn btn-ghost" href="#resources">Check sources</a>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
-    <span>scroll</span>
+    <span>Start with the framework</span>
     <span class="scroll-arrow"></span>
   </div>
 </section>
@@ -983,25 +1550,25 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
       <div class="ht-item t-principles">
         <div class="ht-year">2019</div>
         <div class="ht-event">Australia's 8 AI Ethics Principles published</div>
-        <div class="ht-desc">DISR publishes the foundational values. They remain a key public reference point for responsible AI in Australia.</div>
+        <div class="ht-desc">What changed for practitioners: responsible AI moved from “nice idea” to a common values baseline — fairness, privacy, transparency, safety and accountability became the language for reviews.</div>
         <div class="ht-tag"><span class="tag tag-teal">Still current · Foundational</span></div>
       </div>
       <div class="ht-item t-vaiss">
         <div class="ht-year">2024</div>
         <div class="ht-event">Voluntary AI Safety Standard — 10 Guardrails</div>
-        <div class="ht-desc">NAIC released VAISS with 10 guardrails based on the 8 principles.</div>
+        <div class="ht-desc">What changed for practitioners: organisations gained a more concrete checklist for AI governance, risk, transparency, testing and human oversight.</div>
         <div class="ht-tag"><span class="tag tag-navy">Superseded Oct 2025</span></div>
       </div>
       <div class="ht-item t-ai6">
         <div class="ht-year">2025</div>
         <div class="ht-event">AI6 — 6 Essential Practices released</div>
-        <div class="ht-desc">NAIC published Guidance for AI Adoption on 21 October 2025. It condenses the previous 10 guardrails into 6 practices with Foundations and Implementation Practices versions.</div>
+        <div class="ht-desc">What changed for practitioners: the old 10-guardrail view became a simpler 6-practice operating model for owners, risk teams, delivery teams and assurance reviewers.</div>
         <div class="ht-tag"><span class="tag tag-gold">Current source · AI6</span></div>
       </div>
       <div class="ht-item t-agent">
         <div class="ht-year">2026</div>
         <div class="ht-event">Agentic AI security guidance published</div>
-        <div class="ht-desc">ASD's ACSC and international partners published agentic AI adoption guidance on 1 May 2026. In this page it is treated as a practical security layer for autonomous, tool-using AI agents.</div>
+        <div class="ht-desc">What changed for practitioners: autonomous agents need tighter identity, access, tool control, monitoring, incident response and human approval than simple chat assistants.</div>
         <div class="ht-tag"><span class="tag tag-coral">Current · Agentic AI</span></div>
       </div>
     </div>
@@ -1011,34 +1578,48 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 <hr class="divider">
 
 <!-- 8 PRINCIPLES -->
-<section id="principles">
-  <div class="section-wrap">
+<section id="principles" class="one-screen">
+  <div class="section-wrap wide-wrap">
     <div class="section-label">Layer 1 — The Why</div>
     <h2 class="section-title">The <span class="accent" style="color:var(--teal)">8</span> AI Ethics Principles</h2>
-    <p class="section-intro">Responsible AI values published in 2019. Source: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">industry.gov.au</a> — click any card to explore.</p>
+    <p class="section-intro compact-intro">Click a principle. The detail opens beside the cards, so the full context stays visible on one screen.</p>
 
-    <div class="p8-grid" id="p8-grid">
-      <!-- Cards injected by JS -->
+    <div class="guide-workbench principle-workbench">
+      <div class="p8-grid compact-grid" id="p8-grid">
+        <div class="p8-card" data-id="1" role="button" tabindex="0" aria-label="Open details 1"><div class="p8-num">1</div><div class="p8-title">Human, Societal & Environmental Wellbeing</div><div class="p8-desc">Benefit people, society and environment.</div></div>
+        <div class="p8-card" data-id="2" role="button" tabindex="0" aria-label="Open details 2"><div class="p8-num">2</div><div class="p8-title">Human-Centred Values</div><div class="p8-desc">Respect rights, diversity and autonomy.</div></div>
+        <div class="p8-card" data-id="3" role="button" tabindex="0" aria-label="Open details 3"><div class="p8-num">3</div><div class="p8-title">Fairness</div><div class="p8-desc">Avoid unfair discrimination and exclusion.</div></div>
+        <div class="p8-card" data-id="4" role="button" tabindex="0" aria-label="Open details 4"><div class="p8-num">4</div><div class="p8-title">Privacy Protection & Security</div><div class="p8-desc">Protect data and secure the system.</div></div>
+        <div class="p8-card" data-id="5" role="button" tabindex="0" aria-label="Open details 5"><div class="p8-num">5</div><div class="p8-title">Reliability & Safety</div><div class="p8-desc">Test, monitor and manage safety risks.</div></div>
+        <div class="p8-card" data-id="6" role="button" tabindex="0" aria-label="Open details 6"><div class="p8-num">6</div><div class="p8-title">Transparency & Explainability</div><div class="p8-desc">Explain when and how AI affects people.</div></div>
+        <div class="p8-card" data-id="7" role="button" tabindex="0" aria-label="Open details 7"><div class="p8-num">7</div><div class="p8-title">Contestability</div><div class="p8-desc">Provide a way to challenge outcomes.</div></div>
+        <div class="p8-card" data-id="8" role="button" tabindex="0" aria-label="Open details 8"><div class="p8-num">8</div><div class="p8-title">Accountability</div><div class="p8-desc">Make accountable owners identifiable.</div></div>
+      </div>
+      <div id="p8-detail" class="detail-dock"></div>
     </div>
-
-    <div id="p8-detail"></div>
   </div>
 </section>
 
 <hr class="divider">
 
 <!-- AI6 PRACTICES -->
-<section id="ai6">
-  <div class="section-wrap">
+<section id="ai6" class="one-screen">
+  <div class="section-wrap wide-wrap">
     <div class="section-label">Layer 2 — The How</div>
     <h2 class="section-title">The <span class="accent" style="color:var(--gold2)">6</span> Essential Practices <span class="light">(AI6)</span></h2>
-    <p class="section-intro">Practical responsible AI adoption guidance published October 2025 by NAIC. Source: <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" style="color:rgba(255,255,255,.5);border-bottom-color:rgba(255,255,255,.2)">industry.gov.au/publications/guidance-for-ai-adoption</a> — click any card to see enterprise steps.</p>
+    <p class="section-intro compact-intro">Click a practice. The practical steps open beside the cards, so users can see the control and the explanation together.</p>
 
-    <div class="a6-grid" id="a6-grid">
-      <!-- Cards injected by JS -->
+    <div class="guide-workbench ai6-workbench">
+      <div class="a6-grid compact-grid" id="a6-grid">
+        <div class="a6-card" data-id="1" role="button" tabindex="0" aria-label="Open details 1"><div class="a6-num">1</div><div class="a6-title">Decide Who Is Accountable</div><div class="a6-sub">Name owners and decision responsibilities.</div></div>
+        <div class="a6-card" data-id="2" role="button" tabindex="0" aria-label="Open details 2"><div class="a6-num">2</div><div class="a6-title">Understand Impacts and Plan Accordingly</div><div class="a6-sub">Assess affected people, harms and context.</div></div>
+        <div class="a6-card" data-id="3" role="button" tabindex="0" aria-label="Open details 3"><div class="a6-num">3</div><div class="a6-title">Measure and Manage Risks</div><div class="a6-sub">Manage AI risk through enterprise controls.</div></div>
+        <div class="a6-card" data-id="4" role="button" tabindex="0" aria-label="Open details 4"><div class="a6-num">4</div><div class="a6-title">Share Essential Information</div><div class="a6-sub">Explain use, purpose, data and impacts.</div></div>
+        <div class="a6-card" data-id="5" role="button" tabindex="0" aria-label="Open details 5"><div class="a6-num">5</div><div class="a6-title">Test and Monitor</div><div class="a6-sub">Test before release and monitor production.</div></div>
+        <div class="a6-card" data-id="6" role="button" tabindex="0" aria-label="Open details 6"><div class="a6-num">6</div><div class="a6-title">Maintain Human Control</div><div class="a6-sub">Keep review, override and challenge paths.</div></div>
+      </div>
+      <div id="a6-detail" class="detail-dock"></div>
     </div>
-
-    <div id="a6-detail"></div>
   </div>
 </section>
 
@@ -1082,10 +1663,10 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     </div>
 
     <div class="agent-risk-strip">
-      <div class="agent-risk"><div class="ar-icon">🔐</div><div class="ar-title">Privilege risk</div><div class="ar-desc">Over-permissioned agents can act beyond intended scope or be misused as a trusted deputy.</div></div>
-      <div class="agent-risk"><div class="ar-icon">🧭</div><div class="ar-title">Behaviour risk</div><div class="ar-desc">Agents may misread goals, over-optimise, chain unsafe actions or behave unpredictably.</div></div>
-      <div class="agent-risk"><div class="ar-icon">🧩</div><div class="ar-title">Complexity risk</div><div class="ar-desc">Tools, memory, data sources, sub-agents and handoffs expand the attack surface.</div></div>
-      <div class="agent-risk"><div class="ar-icon">🧾</div><div class="ar-title">Accountability risk</div><div class="ar-desc">Long, distributed agent chains can make it hard to explain who or what caused an outcome.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🔐</div><div class="ar-title">Before build: access</div><div class="ar-desc">Limit identity, data and tool permissions before the agent is connected to real systems.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧩</div><div class="ar-title">During build: tool chain</div><div class="ar-desc">Check prompts, memory, APIs, plugins and handoffs as one combined attack surface.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧪</div><div class="ar-title">Before go-live: failure tests</div><div class="ar-desc">Test prompt injection, unsafe actions, bad instructions, overreach and human override paths.</div></div>
+      <div class="agent-risk"><div class="ar-icon">🧾</div><div class="ar-title">In operation: accountability</div><div class="ar-desc">Log what the agent saw, decided and did so incidents can be investigated and explained.</div></div>
     </div>
 
     <h3 class="agent-subhead">Agent-safe adoption checklist</h3>
@@ -1134,179 +1715,125 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 <hr class="divider">
 
 <!-- LIFECYCLE / TRAIN ROUTE -->
-<section id="lifecycle">
+<section id="lifecycle" class="lifecycle-polished">
   <div class="section-wrap">
-    <div class="section-label">Use Case & Agent Lifecycle</div>
-    <h2 class="section-title">The AI lifecycle as a <span class="light">train journey</span></h2>
-    <p class="section-intro">A cleaner, easier way to show the flow from idea to retirement. Each station is a gate the use case or agent should pass before it moves further.</p>
+    <div class="section-label">Lifecycle Route</div>
+    <h2 class="section-title">Move from idea to production <span class="light">without skipping guardrails</span></h2>
+    <p class="section-intro">A practical train-style route for AI use cases and agentic AI. Each station is a gate before the use case moves forward.</p>
 
-    <div class="life-note">
-      <strong>How to read this:</strong> start at Station 1 and follow the route. The coral stations are extra-important for <em>agentic AI</em>, because agents can use tools, call systems and take actions.
-    </div>
-
-    <div class="life-train-layout">
-      <div class="train-board">
-        <div class="train-hero">
-          <div class="train-icon">🚆</div>
-          <div>
-            <div class="kicker">AI delivery route</div>
-            <h3>Idea → Control → Test → Run → Retire</h3>
-            <p>Do not jump straight from a clever idea to production. A safe AI or agent rollout needs purpose, accountability, risk checks, controlled access, testing, monitoring and a planned exit.</p>
-          </div>
+    <div class="journey-board" aria-label="AI lifecycle train journey">
+      <div class="journey-head">
+        <div>
+          <span class="journey-badge">AI adoption route</span>
+          <h3>Start small. Control access. Test hard. Monitor continuously.</h3>
+          <p>Use this route for normal AI use cases and add stronger controls where the AI agent can use tools, call systems, access memory or trigger workflows.</p>
         </div>
-
-        <div class="route-lane" aria-label="AI lifecycle train route">
-          <div class="route-track top">
-            <div class="station">
-              <div class="station-bubble">1</div><span class="station-arrow">→</span>
-              <h4>Choose the use case</h4>
-              <p>Define the outcome, users, value and boundary. Confirm AI or an agent is actually needed.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P2</span><span class="station-tag">Discover</span></div>
-            </div>
-            <div class="station">
-              <div class="station-bubble">2</div><span class="station-arrow">→</span>
-              <h4>Name the owner</h4>
-              <p>Assign accountability before build starts. Record who approves, operates and reviews it.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P1</span><span class="station-tag">P8</span></div>
-            </div>
-            <div class="station">
-              <div class="station-bubble">3</div><span class="station-arrow">→</span>
-              <h4>Assess impact and risk</h4>
-              <p>Check privacy, fairness, safety, security, legal impact and possible harm.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P2/P3</span><span class="station-tag">Risk</span></div>
-            </div>
-            <div class="station agent">
-              <div class="station-bubble">4</div>
-              <h4>Control data and tools</h4>
-              <p>Limit data, APIs, memory and actions. Use least privilege and clear system boundaries.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P3</span><span class="station-tag agent">Agent</span></div>
-            </div>
-          </div>
-
-          <div class="route-turn"></div>
-
-          <div class="route-track bottom">
-            <div class="station agent">
-              <div class="station-bubble">5</div><span class="station-arrow">→</span>
-              <h4>Test hard</h4>
-              <p>Test edge cases, unsafe outputs, prompt injection, tool misuse and override paths.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P5</span><span class="station-tag agent">Red team</span></div>
-            </div>
-            <div class="station agent">
-              <div class="station-bubble">6</div><span class="station-arrow">→</span>
-              <h4>Approve and release</h4>
-              <p>Go live only with a register entry, human control, rollback and user-facing guidance.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P4/P6</span><span class="station-tag agent">Human control</span></div>
-            </div>
-            <div class="station">
-              <div class="station-bubble">7</div><span class="station-arrow">→</span>
-              <h4>Monitor and improve</h4>
-              <p>Track logs, quality, drift, incidents, complaints, tool use and business value.</p>
-              <div class="station-tags"><span class="station-tag ai6">AI6 P5</span><span class="station-tag">Operate</span></div>
-            </div>
-            <div class="station">
-              <div class="station-bubble">8</div>
-              <h4>Retire or redesign</h4>
-              <p>Remove access, archive records and decommission if value drops or risk changes.</p>
-              <div class="station-tags"><span class="station-tag">Retire</span><span class="station-tag">Records</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bubble-row" aria-label="Key lifecycle controls">
-          <span class="play-bubble">🎯 Purpose</span>
-          <span class="play-bubble ai6">👤 Owner</span>
-          <span class="play-bubble">⚖️ Risk</span>
-          <span class="play-bubble agent">🔐 Least privilege</span>
-          <span class="play-bubble agent">🧪 Agent testing</span>
-          <span class="play-bubble ai6">🧑‍⚖️ Human control</span>
-          <span class="play-bubble">📈 Monitoring</span>
-          <span class="play-bubble">🗄️ Retire</span>
+        <div class="train-symbol" aria-hidden="true">
+          <span class="train-light"></span>
+          <span class="train-body">AI</span>
+          <span class="train-wheels">● ●</span>
         </div>
       </div>
 
-      <div class="life-side">
-        <div class="life-card">
-          <h3>Why this works better</h3>
-          <p>It shows governance as a journey, not a wall of controls. The reader can follow the train from idea to retirement.</p>
-          <ul class="life-list">
-            <li><strong>Station 1–3:</strong> prove value, ownership and risk.</li>
-            <li><strong>Station 4–6:</strong> control access, test hard and approve safely.</li>
-            <li><strong>Station 7–8:</strong> monitor, improve, retire or redesign.</li>
-          </ul>
-        </div>
+      <div class="phase-rail" aria-label="Lifecycle phases">
+        <div class="phase active"><span>1</span><b>Discover</b><small>Purpose and value</small></div>
+        <div class="phase"><span>2</span><b>Govern</b><small>Owner and risk</small></div>
+        <div class="phase agent"><span>3</span><b>Control</b><small>Data, tools, access</small></div>
+        <div class="phase agent"><span>4</span><b>Assure</b><small>Test and approve</small></div>
+        <div class="phase"><span>5</span><b>Operate</b><small>Monitor and retire</small></div>
+      </div>
 
-        <div class="life-card">
-          <h3>Agent-specific gates</h3>
-          <p>For agents, the riskiest part is not the chat response. It is what the agent can access and do.</p>
-          <ul class="life-list agent">
-            <li>Can it call tools, APIs or workflows?</li>
-            <li>Does it have more access than it needs?</li>
-            <li>Are tool calls, memory and actions logged?</li>
-            <li>Can a human pause, override or shut it down?</li>
-            <li>Is there a rollback path if it acts incorrectly?</li>
-          </ul>
-          <div class="life-mini">Original visual design. Summary wording is source-linked in the page footer and avoids copying source text.</div>
-        </div>
+      <div class="station-route">
+        <article class="route-station">
+          <span class="station-no">01</span>
+          <h4>Choose the use case</h4>
+          <p>Define the outcome, users, value and boundaries. Confirm AI is needed.</p>
+          <div class="chips"><span>AI6 P2</span><span>Discover</span></div>
+        </article>
+        <article class="route-station">
+          <span class="station-no">02</span>
+          <h4>Name the owner</h4>
+          <p>Assign who approves, operates, monitors and responds to issues.</p>
+          <div class="chips"><span>AI6 P1</span><span>Accountability</span></div>
+        </article>
+        <article class="route-station">
+          <span class="station-no">03</span>
+          <h4>Assess impact</h4>
+          <p>Check privacy, fairness, safety, security, legal and people impact.</p>
+          <div class="chips"><span>AI6 P2/P3</span><span>Risk</span></div>
+        </article>
+        <article class="route-station agent">
+          <span class="station-no">04</span>
+          <h4>Control access</h4>
+          <p>Limit data, APIs, memory, actions and tool permissions.</p>
+          <div class="chips"><span>Agent gate</span><span>Least privilege</span></div>
+        </article>
+        <article class="route-station agent">
+          <span class="station-no">05</span>
+          <h4>Test hard</h4>
+          <p>Test edge cases, unsafe outputs, prompt attacks and tool misuse.</p>
+          <div class="chips"><span>AI6 P5</span><span>Red team</span></div>
+        </article>
+        <article class="route-station agent">
+          <span class="station-no">06</span>
+          <h4>Approve release</h4>
+          <p>Use register entry, rollback, user guidance and human approval points.</p>
+          <div class="chips"><span>AI6 P4/P6</span><span>Human control</span></div>
+        </article>
+        <article class="route-station">
+          <span class="station-no">07</span>
+          <h4>Monitor live use</h4>
+          <p>Track logs, sources, drift, incidents, complaints and business value.</p>
+          <div class="chips"><span>Operate</span><span>Monitor</span></div>
+        </article>
+        <article class="route-station">
+          <span class="station-no">08</span>
+          <h4>Retire or redesign</h4>
+          <p>Remove access, archive records and redesign if value or risk changes.</p>
+          <div class="chips"><span>Retire</span><span>Records</span></div>
+        </article>
+      </div>
+
+      <div class="route-note">
+        <strong>Simple rule:</strong> agents need extra gates at access, testing and release because they can act through tools. Do not give them broad access and hope governance will catch up later.
       </div>
     </div>
   </div>
 </section>
 
-<!-- THREE NUMBERS -->
-<section id="numbers">
+
+<!-- APPLY GUIDE -->
+<section id="apply" class="apply-guide">
   <div class="section-wrap">
-    <div class="num3-grid">
-      <div class="num3-item">
-        <div class="num3-big">8</div>
-        <div class="num3-label">Ethics Principles</div>
-        <div class="num3-desc">The foundational values — <em>why</em> AI must be responsible. Published 2019. Still the bedrock of all Australian AI governance.</div>
-        <div class="num3-note">Source: DISR · industry.gov.au</div>
+    <div class="section-label">Apply the Guide</div>
+    <h2 class="section-title">Use this pattern for any AI use case</h2>
+    <p class="section-intro">This is the practical adoption view. Start with a real business scenario, apply the guardrails, then decide whether it is safe to pilot, hold or redesign.</p>
+
+    <div class="apply-scenario">
+      <div class="scenario-card">
+        <span class="tag tag-gold">Worked example</span>
+        <h3>AI-assisted employee onboarding agent</h3>
+        <p>An internal agent answers onboarding questions, checks policy documents, creates service requests and guides a new starter through common tasks.</p>
+        <div class="scenario-risk">Main risk: it may access more employee data or systems than needed, give outdated advice, or trigger actions without enough human control.</div>
       </div>
-      <div class="num3-item">
-        <div class="num3-big">6</div>
-        <div class="num3-label">Essential Practices (AI6)</div>
-        <div class="num3-desc">The practical playbook — <em>how</em> to implement responsible AI. Published October 2025 by NAIC.</div>
-        <div class="num3-note">Source: NAIC · Replaces VAISS</div>
+      <div class="scenario-steps">
+        <div class="step-card"><b>1. Purpose</b><span>Answer onboarding questions and raise low-risk requests only.</span></div>
+        <div class="step-card"><b>2. Owner</b><span>HR owns content. IT owns integration. Security approves access.</span></div>
+        <div class="step-card"><b>3. Data</b><span>Use approved policy sources. Do not expose sensitive HR records unless justified.</span></div>
+        <div class="step-card"><b>4. Agent access</b><span>Start read-only. Add write actions only after testing and approval.</span></div>
+        <div class="step-card"><b>5. Human control</b><span>Human approval for account, payroll, role or permission changes.</span></div>
+        <div class="step-card"><b>6. Monitoring</b><span>Log prompts, sources, tool calls, failures, escalations and user feedback.</span></div>
       </div>
-      <div class="num3-item">
-        <div class="num3-big" style="color:var(--mist);opacity:.5;text-decoration:line-through">10</div>
-        <div class="num3-label">Old VAISS Guardrails</div>
-        <div class="num3-desc">The previous 10-guardrail standard. Superseded October 2025 by AI6. Still embedded within the 6 practices — not lost, just reorganised.</div>
-        <div class="num3-note">Superseded Oct 2025 · See crosswalk</div>
-      </div>
+    </div>
+
+    <div class="guardrail-grid">
+      <div class="guardrail-card"><h3>Minimum guardrails before pilot</h3><ul><li>Named owner and support path</li><li>Use case recorded in AI register</li><li>Risk and privacy check completed</li><li>Approved data sources only</li><li>Human review for high-impact actions</li></ul></div>
+      <div class="guardrail-card"><h3>Extra guardrails for agents</h3><ul><li>Least privilege and scoped tool access</li><li>No broad admin or sensitive system access</li><li>Tool-call logging and alerting</li><li>Prompt injection and misuse testing</li><li>Pause, rollback and shutdown process</li></ul></div>
+      <div class="guardrail-card"><h3>Decision gate</h3><ul><li><strong>Proceed:</strong> low risk, controls clear, owner named</li><li><strong>Pilot only:</strong> moderate risk, limited users, close monitoring</li><li><strong>Hold:</strong> unclear data, unclear owner or weak human control</li><li><strong>Reject/redesign:</strong> high impact with no contestability or rollback</li></ul></div>
     </div>
   </div>
 </section>
 
-<!-- MAPPING -->
-<section id="mapping">
-  <div class="section-wrap">
-    <div class="section-label">Cross-Reference</div>
-    <h2 class="section-title">How the 8 Principles map <span class="light">to the 6 Practices</span></h2>
-    <p class="section-intro">Each AI6 practice is grounded in one or more of the 8 Ethics Principles. This mapping shows the connection — use it to trace your governance controls back to foundational values.</p>
-
-    <div class="map-note">
-      <span>💡</span>
-      <span><strong>Reading this table:</strong> The gold badges show which AI6 practices each Ethics Principle is primarily addressed by. One principle can support multiple practices — and one practice draws on multiple principles.</span>
-    </div>
-
-    <div class="map-table-wrap">
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Ethics Principle</th>
-            <th>Primary AI6 Practice(s)</th>
-            <th>Key Obligation</th>
-          </tr>
-        </thead>
-        <tbody id="map-tbody">
-          <!-- Injected by JS -->
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section id="faq">
@@ -1389,15 +1916,20 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
   </div>
 </section>
 
+
 <!-- FOOTER -->
 <footer id="footer">
+  <div class="footer-brand">
+    <img src="data:image/jpeg;base64,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" alt="">
+    <span><strong>Prepared by Anirban Ghosal</strong> · Independent source-linked navigator</span>
+  </div>
   <div class="ft-logo">🇦🇺 Australia AI Guide</div>
   <div class="ft-links">
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
     <a href="#agents">AI Agents</a>
     <a href="#lifecycle">Lifecycle</a>
-    <a href="#mapping">Mapping</a>
+    <a href="#apply">Apply Guide</a>
     <a href="#faq">FAQ</a>
     <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank">DISR</a>
     <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank">AI6 (NAIC)</a>
@@ -1414,12 +1946,28 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
     Source anchors: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank" rel="noopener">AI Ethics Principles</a> · <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" rel="noopener">Guidance for AI Adoption</a> · <a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" target="_blank" rel="noopener">Careful adoption of agentic AI services</a> · <a href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information" target="_blank" rel="noopener">OAIC APP 1</a>
   </div>
   <div class="ft-disclaimer">
-    Small source/disclaimer note: This is an independent consolidated navigator, not a government website or official policy document. It uses original short summaries and links to public source pages. Do not treat it as legal, procurement, security or compliance advice. Confirm requirements against the source documents and your organisation's obligations.
+    Small note: Independent consolidated navigator, not a government website or official policy document. Uses short original summaries and links to public source pages. Confirm formal requirements against source documents and your organisation's obligations.
   </div>
 </footer>
 
 <script>
 if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNav = document.getElementById('primary-navigation');
+if (navToggle && primaryNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!isOpen));
+    primaryNav.classList.toggle('open', !isOpen);
+  });
+  primaryNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryNav.classList.remove('open');
+    });
+  });
+}
 
 /* ── DATA ── */
 const P8 = [
@@ -1548,7 +2096,7 @@ const A6 = [
       'Pre-deployment testing: accuracy, bias, security, usability. Use realistic data including edge cases. Document all results.',
       'Define monitoring KPIs before go-live — accuracy rate, false positive/negative rates, demographic parity, complaint volume.',
       'Establish an AI incident response plan with defined escalation paths and rollback procedures.',
-      'Schedule annual formal audits for higher-risk systems. Engage the new AISI (2026) for independent testing of highest-risk systems.'
+      'Schedule formal reviews for higher-risk systems. Monitor the Australian AI Safety Institute (AISI) as it becomes operational for future safety insights, testing guidance and independent review pathways.'
     ],
     src:'https://www.industry.gov.au/publications/guidance-for-ai-adoption'
   },
@@ -1604,10 +2152,14 @@ const AGENT_CONTROLS = [
 
 /* ── RENDER P8 CARDS ── */
 const p8Grid = document.getElementById('p8-grid');
+p8Grid.innerHTML = '';
 P8.forEach(p => {
   const d = document.createElement('div');
   d.className = 'p8-card';
   d.dataset.id = p.n;
+  d.setAttribute('role','button');
+  d.setAttribute('tabindex','0');
+  d.setAttribute('aria-label',`Open details for ethics principle ${p.n}: ${p.title}`);
   d.innerHTML = `
     <div class="p8-num">${p.n}</div>
     <div class="p8-icon">${p.icon}</div>
@@ -1616,6 +2168,7 @@ P8.forEach(p => {
     <span class="p8-link">Explore → </span>
   `;
   d.onclick = () => showP8Detail(p.n);
+  d.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showP8Detail(p.n); } };
   p8Grid.appendChild(d);
 });
 
@@ -1623,7 +2176,7 @@ function showP8Detail(n, shouldScroll = true) {
   const p = P8[n-1];
   const det = document.getElementById('p8-detail');
   document.querySelectorAll('.p8-card').forEach(c => c.classList.toggle('active', +c.dataset.id === n));
-  det.className = 'show';
+  det.className = 'show detail-dock';
   det.innerHTML = `
     <div class="pd-left">
       <div class="pd-num">${p.n}</div>
@@ -1632,22 +2185,27 @@ function showP8Detail(n, shouldScroll = true) {
       <span class="tag tag-teal">Ethics Principle ${p.n}</span>
     </div>
     <div class="pd-right">
-      <h4>What it requires</h4>
+      <h4>Plain-English meaning</h4>
       <p>${p.detail}</p>
-      <h4>Addressed by these AI6 Practices</h4>
+      <h4>How to apply it</h4>
+      <p>Ask: does this use case protect people, explain impact, reduce harm and leave someone accountable for the outcome?</p>
+      <h4>Connects to</h4>
       <div class="pd-practices">${p.practices.map(pr=>`<span class="pd-practice-tag">${pr}</span>`).join('')}</div>
-      <div class="pd-source">Source: <a href="${p.source}" target="_blank">industry.gov.au — Australia's AI Ethics Principles</a></div>
+      <div class="pd-source">Source: <a href="${p.source}" target="_blank">industry.gov.au — AI Ethics Principles</a></div>
     </div>
   `;
-  if (shouldScroll) det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 /* ── RENDER A6 CARDS ── */
 const a6Grid = document.getElementById('a6-grid');
+a6Grid.innerHTML = '';
 A6.forEach(a => {
   const d = document.createElement('div');
   d.className = 'a6-card';
   d.dataset.id = a.n;
+  d.setAttribute('role','button');
+  d.setAttribute('tabindex','0');
+  d.setAttribute('aria-label',`Open details for AI6 practice ${a.n}: ${a.title}`);
   const pips = [1,2,3,4,5,6,7,8].map(i => `<div class="a6-pip${a.principles.includes(i)?' active':''}" title="Ethics Principle ${i}">${i}</div>`).join('');
   d.innerHTML = `
     <div class="a6-num">${a.n}</div>
@@ -1656,6 +2214,7 @@ A6.forEach(a => {
     <div class="a6-principles">${pips}</div>
   `;
   d.onclick = () => showA6Detail(a.n);
+  d.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showA6Detail(a.n); } };
   a6Grid.appendChild(d);
 });
 
@@ -1663,29 +2222,30 @@ function showA6Detail(n, shouldScroll = true) {
   const a = A6[n-1];
   const det = document.getElementById('a6-detail');
   document.querySelectorAll('.a6-card').forEach(c => c.classList.toggle('active', +c.dataset.id === n));
-  det.className = 'show';
+  det.className = 'show detail-dock';
   det.innerHTML = `
     <div class="ad-left">
       <div class="ad-num">${a.n}</div>
       <div class="ad-title">Practice ${a.n}: ${a.title}</div>
-      <div class="ad-level"><span class="tag tag-gold">AI6 Essential Practice</span></div>
+      <div class="ad-level"><span class="tag tag-gold">AI6 practice</span></div>
     </div>
     <div class="ad-right">
-      <h4>What the guidance requires</h4>
+      <h4>What it means</h4>
       <p>${a.why}</p>
-      <h4>Enterprise implementation steps</h4>
-      <ol class="ad-steps">${a.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+      <h4>Adoption steps</h4>
+      <ol class="ad-steps">${a.steps.slice(0,4).map(s=>`<li>${s}</li>`).join('')}</ol>
       <div class="ad-sources">
-        Source: <a href="${a.src}" target="_blank">industry.gov.au — Guidance for AI Adoption (AI6)</a>
-        &nbsp;·&nbsp; Grounds Ethics Principles: ${a.principles.map(p=>`<strong style="color:rgba(255,255,255,.5)">P${p}</strong>`).join(', ')}
+        Source: <a href="${a.src}" target="_blank">Guidance for AI Adoption</a>
+        &nbsp;·&nbsp; Ethics links: ${a.principles.map(p=>`<strong style="color:rgba(255,255,255,.5)">P${p}</strong>`).join(', ')}
       </div>
     </div>
   `;
-  if (shouldScroll) det.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 /* ── RENDER MAPPING TABLE ── */
 const tbody = document.getElementById('map-tbody');
+if (tbody) {
+tbody.innerHTML = '';
 MAP.forEach(m => {
   const tr = document.createElement('tr');
   tr.innerHTML = `
@@ -1695,6 +2255,7 @@ MAP.forEach(m => {
   `;
   tbody.appendChild(tr);
 });
+}
 
 
 /* ── RENDER AGENT CONTROLS ── */
