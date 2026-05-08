@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Experience & Platform Enabler Team | Leadership Web Pack</title>
+<meta name="description" content="A leadership-ready, fact-based business case for establishing an AI Experience & Platform Enabler Team inside Technology." />
+<style>
+  :root{
+    --ink:#071B3A;
+    --navy:#061A3A;
+    --navy2:#0B2A5B;
+    --blue:#0F4C81;
+    --teal:#00A6B8;
+    --teal2:#21D4D8;
+    --cyan:#8EF7FF;
+    --purple:#6D5EF6;
+    --green:#23C483;
+    --amber:#F5A524;
+    --red:#EF4444;
+    --bg:#F6FAFD;
+    --panel:#FFFFFF;
+    --line:#D8E7EF;
+    --muted:#5F6F86;
+    --soft:#EAF8FB;
+    --deep-gradient:linear-gradient(135deg,#061A3A 0%,#0B2A5B 45%,#008CA0 100%);
+    --ai-gradient:linear-gradient(135deg,#00A6B8 0%,#21D4D8 45%,#6D5EF6 100%);
+    --shadow:0 24px 70px rgba(6,26,58,.14);
+    --shadow2:0 12px 34px rgba(6,26,58,.10);
+    --radius:26px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;background:radial-gradient(circle at 85% -10%,rgba(33,212,216,.22),transparent 28%),linear-gradient(180deg,#F7FBFD 0,#FFFFFF 40%,#F2F8FB 100%);color:var(--ink);line-height:1.5}
+  a{color:#007C91;text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:white;padding:10px;border-radius:8px;z-index:99}
+
+  /* Navigation */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(216,231,239,.9)}
+  .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);letter-spacing:-.02em}
+  .brand-title{display:flex;flex-direction:column;line-height:1.05}.brand-title small{font-weight:700;color:var(--muted);font-size:12px;letter-spacing:.02em}
+  .logo-mark{width:48px;height:48px;flex:0 0 auto;filter:drop-shadow(0 12px 18px rgba(0,166,184,.25))}
+  .navlinks{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .navlinks a{font-size:13px;font-weight:800;color:var(--ink);border:1px solid transparent;border-radius:999px;padding:8px 11px;background:rgba(234,248,251,.75)}
+  .navlinks a:hover{background:white;border-color:rgba(0,166,184,.55);text-decoration:none}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;background:var(--deep-gradient);color:white;isolation:isolate}
+  .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.28),transparent);z-index:-2}
+  .hero:after{content:"";position:absolute;width:580px;height:580px;border-radius:50%;right:-190px;top:-160px;background:radial-gradient(circle,rgba(142,247,255,.28),rgba(33,212,216,.10) 45%,transparent 68%);z-index:-1}
+  .hero-inner{padding:76px 0 64px;display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.11);padding:8px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;font-size:12px;color:#E9FDFF}
+  .pulse{width:9px;height:9px;background:var(--teal2);border-radius:999px;box-shadow:0 0 0 6px rgba(33,212,216,.14)}
+  h1{font-size:clamp(42px,6.7vw,86px);line-height:.92;letter-spacing:-.055em;margin:22px 0 16px;max-width:900px}
+  .subtitle{font-size:clamp(18px,2.1vw,27px);color:#DFFBFF;font-weight:650;max-width:820px;margin:0 0 26px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{border:0;border-radius:999px;padding:13px 18px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:14px}.btn.primary{background:white;color:var(--navy);box-shadow:0 16px 32px rgba(0,0,0,.16)}.btn.secondary{background:rgba(255,255,255,.10);color:white;border:1px solid rgba(255,255,255,.30)}.btn:hover{transform:translateY(-1px)}
+  .hero-panel{position:relative;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.22);border-radius:34px;padding:22px;box-shadow:0 30px 90px rgba(0,0,0,.18)}
+  .ai-orb{height:420px;border-radius:28px;background:radial-gradient(circle at 45% 35%,rgba(142,247,255,.95),rgba(0,166,184,.54) 24%,rgba(11,42,91,.75) 56%,rgba(6,26,58,.95) 100%);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.22)}
+  .ai-orb svg{position:absolute;inset:0;width:100%;height:100%;opacity:.92}
+  .floating-card{position:absolute;background:rgba(255,255,255,.92);color:var(--ink);border:1px solid rgba(216,231,239,.9);border-radius:18px;padding:14px 16px;box-shadow:0 20px 38px rgba(0,0,0,.16);max-width:240px}
+  .floating-card b{display:block;color:var(--navy);font-size:14px}.floating-card span{font-size:12px;color:var(--muted);font-weight:700}.f1{top:26px;left:22px}.f2{bottom:28px;right:22px}.f3{top:138px;right:28px}
+  .outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.outcome{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:16px}.outcome b{display:block;color:white;font-size:14px}.outcome span{font-size:12px;color:#D8FBFF}
+
+  /* Sections */
+  main{padding:38px 0 78px}.section{padding:42px 0;scroll-margin-top:92px}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:20px}.kicker{color:#00899A;font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:950;margin-bottom:8px}.section h2{font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.045em;margin:0;color:var(--navy)}.lead{font-size:19px;color:var(--muted);max-width:920px;margin:10px 0 0}.evidence-chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:white;border-radius:999px;padding:9px 12px;font-weight:900;color:var(--navy);box-shadow:var(--shadow2);font-size:13px}
+  .grid{display:grid;gap:18px}.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(4,1fr)}
+  .card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow2);position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--ai-gradient);opacity:.9}.card h3{font-size:22px;line-height:1.15;margin:0 0 8px;color:var(--navy);letter-spacing:-.02em}.card p{margin:0;color:var(--muted)}.card ul{margin:12px 0 0 18px;color:var(--muted);padding:0}.card li{margin:8px 0}.icon{width:52px;height:52px;border-radius:18px;background:var(--ai-gradient);display:grid;place-items:center;color:white;font-size:25px;font-weight:900;margin-bottom:14px;box-shadow:0 16px 28px rgba(0,166,184,.22)}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;background:var(--soft);color:#007C91;text-transform:uppercase;font-weight:950;letter-spacing:.08em;font-size:11px;margin-bottom:12px}
+  .statement{background:var(--deep-gradient);color:white;border-radius:34px;padding:28px;box-shadow:var(--shadow);display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:center}.statement .bigicon{width:64px;height:64px;border-radius:22px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:30px}.statement h3{margin:0 0 8px;font-size:28px}.statement p{margin:0;color:#E4FBFF;font-size:17px}
+
+  /* Need */
+  .driver{display:grid;grid-template-columns:42px 1fr;gap:14px;background:white;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 22px rgba(6,26,58,.06)}.driver-num{width:36px;height:36px;border-radius:999px;background:var(--deep-gradient);color:white;display:grid;place-items:center;font-weight:950}.driver b{display:block;color:var(--navy);margin-bottom:4px}.driver span{color:var(--muted);font-size:14px}.risk{display:grid;grid-template-columns:42px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.risk .alert{width:36px;height:36px;border-radius:14px;background:#FFF5E6;color:#B45C00;display:grid;place-items:center;font-weight:950}.risk b{display:block;color:var(--navy);margin-bottom:4px}.risk span{color:var(--muted);font-size:14px}
+
+  /* Boundary */
+  .boundary-table{width:100%;border-collapse:separate;border-spacing:0;background:white;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}.boundary-table th{background:var(--deep-gradient);color:white;text-align:left;padding:17px;font-size:17px}.boundary-table th:nth-child(3){background:linear-gradient(135deg,#007C91,#00A6B8)}.boundary-table td{padding:16px;border-top:1px solid var(--line);vertical-align:top}.boundary-table td:first-child{font-weight:950;color:var(--navy);background:#F6FAFD;width:18%}.boundary-table strong{color:var(--navy)}.pills{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.pill{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-weight:900;color:var(--navy);box-shadow:0 8px 18px rgba(6,26,58,.06)}
+
+  /* Use cases */
+  .use-card{display:grid;grid-template-columns:64px 1fr;gap:16px}.use-no{width:34px;height:34px;border-radius:999px;background:var(--deep-gradient);color:white;display:grid;place-items:center;font-weight:950;margin-bottom:8px}.use-card .icon{margin:0;width:58px;height:58px;font-size:24px}.value-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.mini{background:linear-gradient(180deg,#fff,#F1FBFD);border:1px solid var(--line);border-radius:22px;padding:18px}.mini h4{margin:0 0 8px;color:var(--navy);font-size:18px}.mini ul{margin:0 0 0 18px;padding:0;color:var(--muted)}
+
+  /* Operating model */
+  .model-layout{display:grid;grid-template-columns:1fr 290px;gap:20px}.hub{min-height:560px;background:white;border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hub:before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(0,166,184,.16),transparent 65%)}.center-node{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:230px;height:230px;border-radius:50%;background:var(--deep-gradient);color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:950;box-shadow:0 22px 50px rgba(6,26,58,.22);padding:24px}.center-node span{font-size:42px;margin-bottom:8px}.spoke{position:absolute;width:270px;background:white;border:1px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:0 10px 25px rgba(6,26,58,.08)}.spoke h4{margin:0 0 4px;color:var(--navy)}.spoke p{margin:0;color:var(--muted);font-size:14px}.spoke:after{content:"";position:absolute;height:2px;background:#15A6B6;opacity:.65;top:50%}.s1{left:26px;top:34px}.s2{left:26px;top:222px}.s3{left:26px;bottom:34px}.s4{right:26px;top:34px}.s5{right:26px;top:222px}.s6{right:26px;bottom:34px}.s1:after,.s2:after,.s3:after{right:-76px;width:76px}.s4:after,.s5:after,.s6:after{left:-76px;width:76px}.role-panel{display:grid;gap:16px}.role-list{background:white;border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:var(--shadow2)}.role-list h3{margin:0 0 10px}.role{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding:12px 0;font-weight:900;color:var(--navy)}.role:first-of-type{border-top:0}
+
+  /* Workflow */
+  .workflow{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.step{background:white;border:1px solid var(--line);border-radius:20px;padding:16px 12px;text-align:center;position:relative;box-shadow:0 10px 22px rgba(6,26,58,.06)}.step:not(:last-child):after{content:"→";position:absolute;right:-15px;top:42%;font-size:24px;font-weight:950;color:#00899A}.step .step-no{width:34px;height:34px;border-radius:999px;background:#007C91;color:white;display:grid;place-items:center;font-weight:950;margin:0 auto 10px}.step .emoji{font-size:28px;display:block;margin-bottom:8px}.step h4{margin:0 0 6px;color:var(--navy);font-size:15px}.step p{margin:0;color:var(--muted);font-size:12px}.raci{overflow-x:auto;margin-top:18px}.raci table{width:100%;border-collapse:collapse;border-radius:22px;overflow:hidden;background:white;border:1px solid var(--line);box-shadow:var(--shadow2)}.raci th{background:var(--navy);color:white;text-align:left}.raci th,.raci td{padding:13px;border-bottom:1px solid var(--line)}.raci tr:last-child td{border-bottom:0}.raci td:not(:first-child){text-align:center;font-weight:900}.own{color:#00899A}.partner{color:#24486F}.inform{color:#77849A}
+
+  /* Roadmap */
+  .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.phase{background:white;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow2);position:relative;overflow:hidden}.phase:before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--ai-gradient)}.phase h3{margin:0 0 8px;color:var(--navy)}.phase ul{margin:12px 0 0 18px;padding:0;color:var(--muted)}.phase li{margin:8px 0}.metric-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}.metric{background:linear-gradient(180deg,#fff,#F1FBFD);border:1px solid var(--line);border-radius:20px;padding:16px;text-align:center}.metric .micon{font-size:25px}.metric b{display:block;color:var(--navy);margin-top:8px;font-size:14px}.metric span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+
+  /* Everyday */
+  .cadence{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.day-card{background:white;border:1px solid var(--line);border-radius:26px;padding:20px;box-shadow:var(--shadow2)}.day-card h3{margin:0 0 8px;color:var(--navy)}.day-card ul{margin:10px 0 0 18px;padding:0;color:var(--muted)}.day-card li{margin:7px 0}
+
+  .sources{background:#F7FBFD;border:1px solid var(--line);border-radius:26px;padding:22px}.sources ol{margin:8px 0 0 20px;padding:0}.sources li{margin:9px 0;color:var(--muted)}.footer{padding:34px 0;background:var(--navy);color:#DFFBFF}.footer .wrap{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}.footer b{color:white}.tiny{font-size:13px;color:var(--muted)}.copy-toast{position:fixed;right:20px;bottom:20px;background:var(--navy);color:white;border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);display:none;z-index:100}
+
+  @media(max-width:1050px){.hero-inner,.grid.two,.grid.three,.grid.four,.model-layout,.roadmap,.cadence{grid-template-columns:1fr}.outcomes,.metric-grid,.value-strip{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hub{min-height:auto}.hub:before,.spoke:after{display:none}.center-node,.spoke{position:static;transform:none;width:auto;height:auto;border-radius:20px;margin:12px 0}.center-node{height:auto;min-height:160px}.workflow{grid-template-columns:1fr}.step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%)}}
+  @media(max-width:640px){.wrap{padding:0 16px}.hero-inner{padding:48px 0}.outcomes,.metric-grid,.value-strip{grid-template-columns:1fr}.section-head{display:block}.statement{grid-template-columns:1fr}.brand-title small{display:none}h1{font-size:42px}.subtitle{font-size:18px}.boundary-table{font-size:14px}.boundary-table th,.boundary-table td{padding:12px}.use-card{grid-template-columns:1fr}.hero-panel{padding:14px}.ai-orb{height:360px}.floating-card{max-width:190px}.f3{right:12px}.f1{left:12px}.f2{right:12px}}
+  @media print{.topbar,.hero-actions,.copy-toast{display:none}.hero{background:white;color:var(--ink)}.hero:before,.hero:after{display:none}.subtitle,.hero-card p,.hero-card li{color:var(--ink)}.hero-panel{display:none}.hero-inner{display:block;padding:30px 0}.card,.statement,.hub,.role-list,.phase,.day-card,.raci table,.boundary-table{box-shadow:none}.section{break-inside:avoid;padding:24px 0}.footer{background:white;color:var(--ink);border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand" aria-label="Anir AI brand">
+      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Anir AI logo">
+        <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#061A3A"/><stop offset=".55" stop-color="#00A6B8"/><stop offset="1" stop-color="#21D4D8"/></linearGradient></defs>
+        <path d="M32 3 57 17v30L32 61 7 47V17L32 3Z" fill="url(#g)" stroke="#8EF7FF" stroke-width="2"/>
+        <path d="M22 41V24c0-5 4-9 10-9s10 4 10 9v17" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="23" cy="26" r="3" fill="#8EF7FF"/><circle cx="41" cy="26" r="3" fill="#8EF7FF"/><circle cx="32" cy="17" r="3" fill="white"/><circle cx="32" cy="42" r="3" fill="#8EF7FF"/>
+        <path d="M23 26h18M32 20v19M18 36h10m8 0h10" stroke="#8EF7FF" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-title"><span>AI Experience & Platform Enabler</span><small>Technology operating layer for employee AI</small></div>
+    </div>
+    <nav class="navlinks" aria-label="Section links">
+      <a href="#need">Need</a><a href="#case">Business case</a><a href="#scope">Scope</a><a href="#usecases">Use cases</a><a href="#model">Model</a><a href="#workflow">Workflow</a><a href="#roadmap">90 days</a><a href="#sources">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span> Leadership discussion pack · web ready</div>
+      <h1>AI Experience & Platform Enabler Team</h1>
+      <p class="subtitle">A Technology-owned capability to make employee-facing AI safe, useful, supportable, measurable and scalable.</p>
+      <div class="hero-actions">
+        <button class="btn primary" onclick="window.print()">Print / Save as PDF</button>
+        <button class="btn secondary" onclick="copyPitch()">Copy leadership pitch</button>
+        <a class="btn secondary" href="#roadmap">View 90-day plan</a>
+      </div>
+      <div class="outcomes" aria-label="Key outcomes">
+        <div class="outcome"><b>Safer adoption</b><span>Guardrails, data controls, agent lifecycle</span></div>
+        <div class="outcome"><b>Better experience</b><span>Clear front door, guidance, support</span></div>
+        <div class="outcome"><b>Supportable AI</b><span>Runbooks, service desk, incident path</span></div>
+        <div class="outcome"><b>Evidence & value</b><span>Telemetry, register, audit pack</span></div>
+      </div>
+    </div>
+    <div class="hero-panel" aria-hidden="true">
+      <div class="ai-orb">
+        <svg viewBox="0 0 800 520" preserveAspectRatio="none">
+          <g fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2">
+            <path d="M80 360 C180 210 310 330 410 180 S620 100 730 250"/>
+            <path d="M60 130 C230 240 360 90 520 220 S680 330 760 150"/>
+            <path d="M110 430 C300 350 370 440 520 330 S690 250 760 400"/>
+          </g>
+          <g fill="#E9FDFF">
+            <circle cx="120" cy="150" r="5"/><circle cx="250" cy="232" r="5"/><circle cx="390" cy="146" r="5"/><circle cx="535" cy="225" r="5"/><circle cx="690" cy="165" r="5"/>
+            <circle cx="155" cy="378" r="5"/><circle cx="315" cy="318" r="5"/><circle cx="450" cy="190" r="5"/><circle cx="620" cy="132" r="5"/>
+            <circle cx="225" cy="410" r="5"/><circle cx="365" cy="410" r="5"/><circle cx="545" cy="330" r="5"/><circle cx="705" cy="390" r="5"/>
+          </g>
+        </svg>
+        <div class="floating-card f1"><b>AI front door</b><span>approved tools · exceptions · guidance</span></div>
+        <div class="floating-card f2"><b>Agent registry</b><span>owner · access · lifecycle · evidence</span></div>
+        <div class="floating-card f3"><b>Secure foundation</b><span>data · labels · Purview · least privilege</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="main" class="wrap">
+  <section class="section" id="need">
+    <div class="section-head">
+      <div><div class="kicker">01 · Why this matters</div><h2>AI is becoming employee infrastructure</h2><p class="lead">The gap is not business AI strategy. The gap is Technology ownership of the AI operating layer that employees use every day.</p></div>
+      <span class="evidence-chip">Fact-based · no inflated claims</span>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <span class="tag">Why now</span>
+        <div class="grid" style="gap:12px">
+          <div class="driver"><div class="driver-num">1</div><div><b>AI use is now mainstream</b><span>Stanford HAI’s AI Index tracks rapid growth in AI capability, investment and organisational use.</span></div></div>
+          <div class="driver"><div class="driver-num">2</div><div><b>Copilot needs secure data readiness</b><span>Microsoft guidance focuses on oversharing remediation, guardrails and AI-related compliance obligations.</span></div></div>
+          <div class="driver"><div class="driver-num">3</div><div><b>AI risk needs a management system</b><span>NIST AI RMF and ISO/IEC 42001 support structured governance, controls and continual improvement.</span></div></div>
+          <div class="driver"><div class="driver-num">4</div><div><b>AI assurance is becoming expected</b><span>Australian public-sector guidance points to accountable AI use, assurance practices, training and registers.</span></div></div>
+          <div class="driver"><div class="driver-num">5</div><div><b>Agents and MCP increase integration control needs</b><span>MCP connects AI apps to external systems, tools and workflows. That makes access and connector control important.</span></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">If nobody owns it</span>
+        <div class="grid" style="gap:12px">
+          <div class="risk"><div class="alert">!</div><div><b>Shadow AI and tool sprawl</b><span>Teams adopt tools, plugins or agents without visibility or control.</span></div></div>
+          <div class="risk"><div class="alert">!</div><div><b>Overshared data and weak permissions</b><span>AI surfaces what users can access, so poor permissions become a bigger exposure.</span></div></div>
+          <div class="risk"><div class="alert">!</div><div><b>Poor employee experience</b><span>Employees get mixed guidance, blocked tools, slow support and low trust.</span></div></div>
+          <div class="risk"><div class="alert">!</div><div><b>No AI support model</b><span>Service desk teams are not ready for AI access, answer-quality or agent incident questions.</span></div></div>
+          <div class="risk"><div class="alert">!</div><div><b>No evidence or value view</b><span>Leaders cannot see what is in use, what is controlled, and what value is being delivered.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="case">
+    <div class="statement">
+      <div class="bigicon">◎</div>
+      <div>
+        <h3>Leadership position</h3>
+        <p><strong>Business AI can pursue business value.</strong> Technology still needs a clear owner for the AI experience, platform, support, controls, telemetry and agent operating layer.</p>
+      </div>
+    </div>
+    <div class="grid three" style="margin-top:18px">
+      <div class="card"><div class="icon">1</div><h3>Business case</h3><p>Reduce friction, lower technology risk, improve licence value and give employees a trusted way to use AI.</p></div>
+      <div class="card"><div class="icon">2</div><h3>Establishment logic</h3><p>Start as a small virtual team with one accountable Technology lead. Formalise only if the 90-day evidence supports scale.</p></div>
+      <div class="card"><div class="icon">3</div><h3>Executive ask</h3><p>Approve a 90-day Technology mandate to build the AI front door, baseline risk, create the service model and prove value.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="scope">
+    <div class="section-head"><div><div class="kicker">02 · Positioning</div><h2>Scope boundary with Business AI</h2><p class="lead">This team is a horizontal Technology enabler. It does not own business strategy, business case benefits or process redesign.</p></div></div>
+    <div style="overflow-x:auto">
+      <table class="boundary-table" aria-label="Scope boundary table">
+        <thead><tr><th>Area</th><th>Business AI Team</th><th>AI Experience & Platform Enabler Team</th></tr></thead>
+        <tbody>
+          <tr><td>Mission</td><td>Find business opportunities, use cases and value cases.</td><td><strong>Make employee-facing AI safe, usable, supportable and scalable.</strong></td></tr>
+          <tr><td>Owns</td><td>Business priorities, use cases, ROI, process redesign and business sponsor engagement.</td><td>AI experience, platform enablement, AI service operations, technical guardrails, agent lifecycle and telemetry.</td></tr>
+          <tr><td>Primary customer</td><td>Business sponsors and business functions.</td><td>Employees, service teams, digital workplace, security/data partners and technology operations.</td></tr>
+          <tr><td>Measures success</td><td>Business value, adoption by business area, productivity or process outcomes.</td><td>Safe rollout, supportability, employee experience, usage visibility, risk posture and evidence completeness.</td></tr>
+          <tr><td>Does not own</td><td>Enterprise platform controls, service desk runbooks, AI tool catalogue, agent registry or data readiness.</td><td>Business case ownership, final business outcomes, legal interpretation, privacy decision authority or final risk acceptance.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pills"><span class="pill">☁ Technology-owned</span><span class="pill">↔ Horizontal service provider</span><span class="pill">🛡 Works with Security, Data and Service Desk</span><span class="pill">⚙ Platform + experience + governance evidence</span></div>
+  </section>
+
+  <section class="section" id="usecases">
+    <div class="section-head"><div><div class="kicker">03 · Practical value</div><h2>Priority use cases</h2><p class="lead">Start with the work that creates visible value, reduces risk and improves the employee experience quickly.</p></div></div>
+    <div class="grid three">
+      <div class="card use-card"><div class="icon">✓</div><div><div class="use-no">1</div><h3>Copilot readiness</h3><p>Reduce oversharing, improve labels and strengthen secure rollout readiness.</p></div></div>
+      <div class="card use-card"><div class="icon">▦</div><div><div class="use-no">2</div><h3>AI service catalogue</h3><p>Give employees a clear front door for approved AI tools, agents and exceptions.</p></div></div>
+      <div class="card use-card"><div class="icon">☏</div><div><div class="use-no">3</div><h3>AI support desk</h3><p>Create runbooks for AI access, answer quality, data exposure and agent incidents.</p></div></div>
+      <div class="card use-card"><div class="icon">◎</div><div><div class="use-no">4</div><h3>Agent registry and lifecycle</h3><p>Track every agent with owner, purpose, permission model, risk and status.</p></div></div>
+      <div class="card use-card"><div class="icon">∞</div><div><div class="use-no">5</div><h3>Connected AI / MCP control</h3><p>Manage how AI applications connect to tools, data, prompts and workflows.</p></div></div>
+      <div class="card use-card"><div class="icon">▤</div><div><div class="use-no">6</div><h3>Governance evidence pack</h3><p>Keep approvals, controls, support records, training and telemetry in one place.</p></div></div>
+    </div>
+    <div class="value-strip">
+      <div class="mini"><h4>Employee experience</h4><ul><li>Easier access to trusted AI tools</li><li>Clear guidance and faster support</li></ul></div>
+      <div class="mini"><h4>Risk reduction</h4><ul><li>Lower exposure to misuse and sprawl</li><li>Stronger controls and evidence</li></ul></div>
+      <div class="mini"><h4>Operational value</h4><ul><li>Standardised processes and reuse</li><li>Visible cost, usage and adoption</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="model">
+    <div class="section-head"><div><div class="kicker">04 · Operating model</div><h2>Six capabilities form the core</h2><p class="lead">The team should operate as a small platform-and-experience function, not a large new department.</p></div></div>
+    <div class="model-layout">
+      <div class="hub" aria-label="Operating model mind map">
+        <div class="center-node"><span>◉</span>AI Experience &<br/>Platform Enabler<br/>Team</div>
+        <div class="spoke s1"><h4>1. AI front door</h4><p>Request intake, approved tools, exceptions and guidance.</p></div>
+        <div class="spoke s2"><h4>2. Secure AI foundation</h4><p>Data, access, Purview, labels, permissions and least privilege.</p></div>
+        <div class="spoke s3"><h4>3. Employee AI experience</h4><p>Training, prompt patterns, champions, feedback and adoption.</p></div>
+        <div class="spoke s4"><h4>4. AI service operations</h4><p>Support model, KB, incident path and escalation.</p></div>
+        <div class="spoke s5"><h4>5. Agent & integration control</h4><p>Agent registry, MCP connections, lifecycle and monitoring.</p></div>
+        <div class="spoke s6"><h4>6. Value, risk & evidence</h4><p>Telemetry, licence value, dashboards, audit pack and reporting.</p></div>
+      </div>
+      <div class="role-panel">
+        <div class="role-list"><h3>Core roles</h3><div class="role">👤 Lead</div><div class="role">🏗 Platform architect</div><div class="role">🛡 Security/Data partner</div><div class="role">🎧 Service desk lead</div><div class="role">⭐ Adoption lead</div></div>
+        <div class="card"><span class="tag">Lean start</span><h3>Start virtual</h3><p>Use matrixed roles first. Formalise later only if evidence shows demand, risk and operational value.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="workflow">
+    <div class="section-head"><div><div class="kicker">05 · Delivery model</div><h2>From idea to approved rollout</h2><p class="lead">The process must be simple enough for employees and strong enough for governance, support and audit evidence.</p></div></div>
+    <div class="workflow" aria-label="Delivery workflow">
+      <div class="step"><div class="step-no">1</div><span class="emoji">💡</span><h4>Request / idea</h4><p>Employee or team need</p></div>
+      <div class="step"><div class="step-no">2</div><span class="emoji">🔎</span><h4>Triage</h4><p>Fit, urgency and owner</p></div>
+      <div class="step"><div class="step-no">3</div><span class="emoji">🛡</span><h4>Risk & data review</h4><p>Access, content, privacy, security</p></div>
+      <div class="step"><div class="step-no">4</div><span class="emoji">⚙</span><h4>Build / configure</h4><p>Tool, prompts, agent, controls</p></div>
+      <div class="step"><div class="step-no">5</div><span class="emoji">👥</span><h4>Pilot</h4><p>Small rollout with feedback</p></div>
+      <div class="step"><div class="step-no">6</div><span class="emoji">🚀</span><h4>Deploy & support</h4><p>Publish, train, monitor</p></div>
+      <div class="step"><div class="step-no">7</div><span class="emoji">📈</span><h4>Measure & improve</h4><p>Usage, incidents, value, evidence</p></div>
+    </div>
+    <div class="raci">
+      <table aria-label="Delivery governance RACI">
+        <thead><tr><th>Activity</th><th>Business</th><th>Technology enabler</th><th>Security/Data</th><th>Service desk</th></tr></thead>
+        <tbody>
+          <tr><td>Use case intake</td><td class="own">Own</td><td class="partner">Partner</td><td class="partner">Partner</td><td class="inform">Inform</td></tr>
+          <tr><td>Technical controls</td><td class="inform">Inform</td><td class="own">Own</td><td class="own">Own</td><td class="inform">Inform</td></tr>
+          <tr><td>Support readiness</td><td class="inform">Inform</td><td class="partner">Partner</td><td class="partner">Partner</td><td class="own">Own</td></tr>
+          <tr><td>Reporting and evidence</td><td class="inform">Inform</td><td class="partner">Partner</td><td class="own">Own</td><td class="inform">Inform</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="roadmap">
+    <div class="section-head"><div><div class="kicker">06 · Establishment plan</div><h2>90-day evidence sprint</h2><p class="lead">Approve a short mandate first. Use evidence to decide whether to continue, expand or absorb the capability.</p></div></div>
+    <div class="roadmap">
+      <div class="phase"><h3>Days 1–30: Baseline</h3><ul><li>AI tool inventory</li><li>Copilot readiness baseline</li><li>Support model gap review</li><li>Usage and licence baseline</li><li>Draft AI service catalogue</li></ul></div>
+      <div class="phase"><h3>Days 31–60: Control & enable</h3><ul><li>Launch AI front door</li><li>Publish employee guidance and KB</li><li>Remediate top exposure risks</li><li>Create agent intake template</li><li>Define escalation and incident path</li></ul></div>
+      <div class="phase"><h3>Days 61–90: Prove value</h3><ul><li>Publish dashboard</li><li>Create evidence pack</li><li>Run 3–5 pilot scenarios</li><li>Confirm scope and RACI</li><li>Make continue / scale / stop decision</li></ul></div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric"><div class="micon">🧭</div><b>Clear ownership</b><span>One front door for employee AI</span></div>
+      <div class="metric"><div class="micon">🔐</div><b>Safer rollout</b><span>Lower oversharing and access exposure</span></div>
+      <div class="metric"><div class="micon">🎧</div><b>Better support</b><span>Runbooks and escalation path</span></div>
+      <div class="metric"><div class="micon">📊</div><b>Visible value</b><span>Usage, cost and adoption view</span></div>
+      <div class="metric"><div class="micon">📁</div><b>Evidence ready</b><span>Controls, approvals and audit pack</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="everyday">
+    <div class="section-head"><div><div class="kicker">07 · Everyday work</div><h2>What the team does in practice</h2><p class="lead">This is the practical operating rhythm that makes the team real, not just a governance label.</p></div></div>
+    <div class="cadence">
+      <div class="day-card"><h3>Daily</h3><ul><li>Triage AI requests and exceptions</li><li>Review support tickets and known issues</li><li>Check urgent access or data exposure concerns</li><li>Update guidance where employees are confused</li></ul></div>
+      <div class="day-card"><h3>Weekly</h3><ul><li>Review new agents and tool requests</li><li>Prioritise Copilot/data readiness fixes</li><li>Refresh AI service catalogue</li><li>Publish support KB updates</li></ul></div>
+      <div class="day-card"><h3>Monthly</h3><ul><li>Review adoption, usage and licence value</li><li>Review incidents, exceptions and risks</li><li>Update evidence pack</li><li>Report progress to Technology leadership</li></ul></div>
+      <div class="day-card"><h3>Quarterly</h3><ul><li>Validate operating model and team capacity</li><li>Review maturity against NIST / ISO / internal controls</li><li>Refresh roadmap and investment ask</li><li>Decide scale, stop or absorb</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="sources">
+    <div class="section-head"><div><div class="kicker">08 · Evidence boundary</div><h2>Sources used</h2><p class="lead">The page avoids unsupported claims and uses public, checkable sources only.</p></div></div>
+    <div class="sources">
+      <ol>
+        <li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener">Stanford HAI — 2025 AI Index Report</a>: broad AI adoption, investment, capability and governance trends.</li>
+        <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/secure-govern-copilot-foundational-deployment-guidance" target="_blank" rel="noopener">Microsoft — Secure and govern Microsoft 365 Copilot</a>: oversharing remediation, guardrails and AI-related regulatory obligations.</li>
+        <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-secure-governed-data-foundation-microsoft-365-copilot" target="_blank" rel="noopener">Microsoft — secure governed data foundation for Copilot</a>: IT and security admin guidance for Copilot readiness.</li>
+        <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance" target="_blank" rel="noopener">Microsoft Copilot Studio — security and governance</a>: controls and governance for agents.</li>
+        <li><a href="https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps?view=o365-worldwide" target="_blank" rel="noopener">Microsoft 365 admin center — manage Copilot agents</a>: enable, assign, block, remove and manage agents.</li>
+        <li><a href="https://airc.nist.gov/airmf-resources/airmf/" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>: govern, map, measure and manage AI risks.</li>
+        <li><a href="https://www.iso.org/standard/42001" target="_blank" rel="noopener">ISO/IEC 42001</a>: AI management system standard for risk and opportunity management.</li>
+        <li><a href="https://www.digital.gov.au/ai/ai-in-government-policy" target="_blank" rel="noopener">Australian Government — Policy for responsible use of AI in government</a>: accountable and responsible AI use direction.</li>
+        <li><a href="https://www.finance.gov.au/government/public-data/data-and-digital-ministers-meeting/national-framework-assurance-artificial-intelligence-government" target="_blank" rel="noopener">Australian Government — National framework for the assurance of AI in government</a>: AI assurance cornerstones and practices.</li>
+        <li><a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" rel="noopener">Model Context Protocol official documentation</a>: MCP as an open standard for connecting AI applications to external systems.</li>
+      </ol>
+      <p class="tiny">Note: Analyst-style claims or vendor forecast percentages were deliberately not included unless they could be supported from public, checkable sources.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><b>AI Experience & Platform Enabler Team</b><br/><span>Leadership-ready web pack · prepared for enterprise discussion</span></div>
+    <div>Prepared by Anirban Ghosal with AI assistance · Current as of May 2026</div>
+  </div>
+</footer>
+<div id="toast" class="copy-toast">Leadership pitch copied</div>
+<script>
+function copyPitch(){
+  const pitch = `We are not proposing another business AI team. We are proposing a Technology-owned AI Experience & Platform Enabler Team to make employee-facing AI safe, useful, supportable, measurable and scalable. Business AI can focus on business value and use cases. Technology needs to own the operating layer: approved tools, Copilot readiness, data/access controls, service desk support, agent lifecycle, telemetry and governance evidence. The recommendation is to approve a 90-day evidence sprint, prove value, then decide whether to scale.`;
+  navigator.clipboard.writeText(pitch).then(()=>{const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',2200);});
+}
+</script>
+</body>
+</html>
