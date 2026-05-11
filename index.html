@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Independent source-linked navigator for Australian AI governance, AI6 practices, agentic AI risk and practical adoption lifecycle.">
-<meta property="og:title" content="🇦🇺 Australia AI Navigator: 8 Principles, 6 Practices & Agentic AI">
-<meta property="og:description" content="Understand how Australia's foundational AI Ethics Principles connect to the AI6 framework and May 2026 agentic AI security guidance. Interactive, verified, free.">
+<meta name="description" content="Practical guidance for enterprise AI adoption, MCP, agentic AI, evidence packs, and Australian AI alignment.">
+<meta property="og:title" content="AI Governance, Applied and Simplified">
+<meta property="og:description" content="Practical guidance for enterprise AI adoption, MCP, agentic AI, evidence packs, controls, and Australian AI alignment.">
 <meta name="theme-color" content="#0a1628">
-<title>🇦🇺 Australia AI Navigator: 8 Principles, 6 Practices & Agentic AI</title>
+<meta name="author" content="Anirban Ghosal">
+<title>AI Governance, Applied and Simplified</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
 
@@ -47,6 +48,9 @@ a:hover{color:var(--teal2)}
 
 /* ── UTIL ── */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:fixed;top:12px;left:12px;z-index:999;padding:10px 14px;border-radius:8px;background:var(--gold);color:var(--ink);font-weight:700;transform:translateY(-150%);transition:transform .15s;border:none}
+.skip-link:focus{transform:translateY(0)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
 .tag{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
 .tag-gold{background:var(--gold3);color:#7a5a00}
 .tag-teal{background:var(--teal3);color:#085048}
@@ -941,8 +945,8 @@ details[open] .faq-q::after{transform:rotate(45deg);color:var(--teal)}
 
 
 /* ── FINAL UX PASS ── */
-html{scroll-padding-top:60px}
-section[id]{scroll-margin-top:60px}
+html{scroll-padding-top:72px}
+section[id]{scroll-margin-top:72px}
 #nav{height:60px;padding:0 28px}
 .nav-mark{width:34px!important;height:34px!important;opacity:.98!important;border:1px solid rgba(212,160,23,.55)!important;box-shadow:0 0 0 3px rgba(212,160,23,.06),0 6px 18px rgba(0,0,0,.28)!important}
 .nav-logo{gap:9px}
@@ -1588,6 +1592,8 @@ section[id]{scroll-margin-top:60px}
 </head>
 <body>
 
+<a class="skip-link" href="#hero">Skip to main content</a>
+
 <div id="scroll-progress"></div>
 
 <noscript>
@@ -1599,10 +1605,10 @@ section[id]{scroll-margin-top:60px}
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" href="#hero" aria-label="Australia AI Guide home">
+  <a class="nav-logo" href="#hero" aria-label="Australia AI Guidance Navigator home">
     <img class="nav-mark" src="data:image/jpeg;base64,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" alt="AG logo">
     <span class="au-mini">AU</span>
-    <span class="brand-title">Australia AI Guide</span>
+    <span class="brand-title">Australia AI Guidance Navigator</span>
   </a>
   <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false"><span aria-hidden="true"></span></button>
   <div class="nav-links" id="primary-navigation">
@@ -1623,36 +1629,35 @@ section[id]{scroll-margin-top:60px}
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="dot"></span>
-      Independent source-linked navigator · Includes 1 May 2026 Agentic AI update
+      Australia AI Guidance Navigator · Anirban Ghosal
     </div>
     <h1>
-      <em>Australia's AI Governance</em><br>
-      <span class="accent">8 Principles.</span> 6 Practices.<br>One Navigator.
+      <em>AI Governance,</em><br>
+      <span class="accent">Applied</span> and Simplified
     </h1>
     <p class="hero-sub">
-      The most common confusion in Australian AI governance — decoded.
-      Understand what each layer means, how they fit together, and how the 1 May 2026 agentic AI update strengthens safe adoption.
+      Practical, source-linked guidance for enterprise AI adoption, MCP, agentic AI, evidence packs, controls, and Australian AI alignment.
     </p>
     <div class="hero-layer-flow">
       <a class="layer-card" href="#principles">
         <div class="num">8</div>
-        <div class="label">Ethics Principles</div>
-        <div class="mini">Values layer — what responsible AI should protect.</div>
+        <div class="label">Australian AI Guidance</div>
+        <div class="mini">Values and practices for responsible adoption.</div>
       </a>
-      <a class="layer-card" href="#ai6">
-        <div class="num">6</div>
-        <div class="label">AI6 Practices</div>
-        <div class="mini">Operating layer — who owns, tests and monitors AI.</div>
+      <a class="layer-card" href="MCP-Agentic-AI-Guidance-Framework/">
+        <div class="num">MCP</div>
+        <div class="label">MCP and Agentic AI</div>
+        <div class="mini">Controls for tool-using and autonomous systems.</div>
       </a>
-      <a class="layer-card" href="#agents">
-        <div class="num" style="color:var(--mist)">2026</div>
-        <div class="label">Agentic AI</div>
-        <div class="mini">Security layer — controls for AI that can use tools.</div>
+      <a class="layer-card" href="ai-architecture-principles/">
+        <div class="num" style="color:var(--mist)">AP</div>
+        <div class="label">Architecture Principles</div>
+        <div class="mini">Design patterns for safer enterprise AI.</div>
       </a>
       <a class="layer-card apply" href="#apply">
         <div class="num">✓</div>
-        <div class="label">Apply the Guide</div>
-        <div class="mini">Use-case walkthrough — turn guidance into adoption steps.</div>
+        <div class="label">Evidence Packs and Governance</div>
+        <div class="mini">Ownership, controls, gates and assurance records.</div>
       </a>
     </div>
     <div class="hero-cta">
@@ -1671,8 +1676,9 @@ section[id]{scroll-margin-top:60px}
 <section id="explainer">
   <div class="exp-inner">
     <div class="exp-text">
-      <div class="section-label">The Core Distinction</div>
-      <h2>Why & How.<br>Two different questions.</h2>
+      <div class="section-label">Why this site exists</div>
+      <h2>Practical enterprise patterns from public guidance.</h2>
+      <p>Many organisations are moving from AI experiments to AI systems that affect work, data, decisions, and operations. This site turns public guidance into practical enterprise patterns: ownership, risk classification, controls, evidence, release gates, monitoring, and incident response.</p>
       <p>Australian AI guidance commonly answers two different questions. The <strong>8 Ethics Principles</strong> answer <em>why</em> — they describe the responsible AI values published in 2019.</p>
       <p>The <strong>6 AI Essential Practices (AI6)</strong> answer <em>how</em> — they provide practical steps for responsible AI governance and adoption, published in October 2025 as an update to VAISS.</p>
       <p>They are <strong>complementary, not competing</strong>. AI6 maintains alignment with the 8 principles, so the page shows them together instead of treating them as separate documents.</p>
@@ -2133,7 +2139,7 @@ section[id]{scroll-margin-top:60px}
     <img src="data:image/jpeg;base64,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" alt="">
     <span><strong>Prepared by Anirban Ghosal</strong> · Independent source-linked navigator</span>
   </div>
-  <div class="ft-logo">🇦🇺 Australia AI Guide</div>
+  <div class="ft-logo">Australia AI Guidance Navigator</div>
   <div class="ft-links">
     <a href="#principles">8 Principles</a>
     <a href="#ai6">6 Practices</a>
@@ -2148,15 +2154,16 @@ section[id]{scroll-margin-top:60px}
     <a href="https://www.oaic.gov.au/" target="_blank">OAIC</a>
   </div>
   <div class="ft-copy">
-    Source-checked May 2026 · Independent plain-English summary with links to source pages<br>
-    Source bodies referenced: DISR · NAIC · ASD ACSC · DTA · Finance · OAIC
+    © 2026 Anirban Ghosal. All rights reserved.<br>
+    Original source: https://anir-a.github.io/Australia-AI-Guidance-Navigator/<br>
+    Source-checked May 2026 · Source bodies referenced: DISR · NAIC · ASD ACSC · DTA · Finance · OAIC
   </div>
 
   <div class="ft-disclaimer" style="margin-top:10px">
     Source anchors: <a href="https://www.industry.gov.au/publications/australias-ai-ethics-principles" target="_blank" rel="noopener">AI Ethics Principles</a> · <a href="https://www.industry.gov.au/publications/guidance-for-ai-adoption" target="_blank" rel="noopener">Guidance for AI Adoption</a> · <a href="https://www.cyber.gov.au/business-government/secure-design/artificial-intelligence/careful-adoption-of-agentic-ai-services" target="_blank" rel="noopener">Careful adoption of agentic AI services</a> · <a href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines/chapter-1-app-1-open-and-transparent-management-of-personal-information" target="_blank" rel="noopener">OAIC APP 1</a>
   </div>
   <div class="ft-disclaimer">
-    Small note: Independent consolidated navigator, not a government website or official policy document. Uses short original summaries and links to public source pages. Confirm formal requirements against source documents and your organisation's obligations.
+    This material is provided for general guidance and education. You may reference or share this page with attribution to the original source. Commercial reuse, republication, adaptation, resale, or packaging into another product or training dataset is not permitted without written permission. Independent guidance only. Not legal, compliance, security, or government advice.
   </div>
 </footer>
 
