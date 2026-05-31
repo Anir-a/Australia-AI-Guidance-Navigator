@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/Git_Banner_May 31, 2026, 08_56_37 PM" alt="Australia AI Guidance Navigator" width="100%">
+  <img src="./assets/ag-banner.png" alt="Australia AI Guidance Navigator" width="100%">
 </p>
 
 # Australia AI Guidance Navigator
