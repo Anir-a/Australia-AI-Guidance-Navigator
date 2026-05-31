@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/anir-a/Australia-AI-Guidance-Navigator/main/assets/ag-banner.png" alt="Australia AI Guidance Navigator" width="100%">
+  <img src="./assets/Git_Banner_May 31, 2026, 08_56_37 PM" alt="Australia AI Guidance Navigator" width="100%">
 </p>
-
-<div align="center">
 
 # Australia AI Guidance Navigator
 
