@@ -6,7 +6,7 @@
 
 # Australia AI Guidance Navigator
 
-### Guiding Australia's Public Sector into the Future with Responsible AI
+### Guiding Australia's Enterprise into the Future with Responsible AI
 
 A practical collection of AI governance guidance, architecture principles, implementation frameworks, and learning resources designed for architects, technology leaders, governance teams, and delivery organisations.
 
@@ -98,10 +98,10 @@ Meet the fictional team behind the guidance:
 |------------|------------|
 | Anir | AI Lead / Platform Architect |
 | Bingo | Head of AI |
-| Neon | Solution Engineer |
+| Leon | Vibe Coder |
 | Supra | Identity & Compliance Specialist |
 | Sud | Developer |
-| Abhi | Engagement Manager |
+| Abi | Engagement Manager |
 
 🔗 https://anir-a.github.io/Australia-AI-Guidance-Navigator/AI-Team/
 
