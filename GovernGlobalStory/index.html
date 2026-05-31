@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building Intelligent Enterprises — The GovernGlobal Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#040b16;--page:#060e1c;--page2:#08122,3;--card:#0b1828;--lift:#0f2035;
+  --edge:#1a3252;--edge2:#2a4d78;--edge3:#3a5e8c;
+  --gold:#c4962a;--gold2:#ddb84a;--gold3:#f0d070;--gold4:#fde8a0;
+  --cream:#e4d8c4;--cream2:#c8baa0;--cream3:#9a8c78;
+  --teal:#0d9488;--teal2:#14b8a6;--teal3:#5eead4;
+  --sky:#1d6fb8;--sky2:#3b8fd4;--sky3:#93c4f0;
+  --jade:#059669;--jade2:#10b981;--jade3:#6ee7b7;
+  --rose:#be185d;--rose2:#ec4899;--rose3:#fbcfe8;
+  --amber:#b45309;--amber2:#d97706;--amber3:#fbbf24;
+  --violet:#6d28d9;--violet2:#8b5cf6;--violet3:#c4b5fd;
+  --red:#b91c1c;--red2:#ef4444;
+  --text:#dde8f5;--text2:#7a96b4;--text3:#3d5878;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --r:10px;--rl:18px;--rxl:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--ink);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.75;min-height:100vh;display:flex}
+
+/* ── NOISE ── */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+
+/* ── SIDEBAR ── */
+#sidebar{
+  width:260px;min-width:260px;height:100vh;position:sticky;top:0;
+  background:rgba(4,11,22,.97);border-right:1px solid var(--edge);
+  overflow-y:auto;z-index:200;display:flex;flex-direction:column;
+  padding:0 0 40px;
+  scrollbar-width:thin;scrollbar-color:var(--edge) transparent;
+}
+#sidebar::-webkit-scrollbar{width:3px}
+#sidebar::-webkit-scrollbar-thumb{background:var(--edge);border-radius:2px}
+.sb-brand{padding:24px 20px 18px;border-bottom:1px solid var(--edge)}
+.sb-logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold3));
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;
+  font-weight:700;color:#000;margin-bottom:10px}
+.sb-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);font-weight:600;margin-bottom:2px}
+.sb-sub{font-size:13.5px;color:var(--text2);font-family:var(--serif);font-style:italic;line-height:1.3}
+.sb-nav{padding:20px 0}
+.sb-section{padding:6px 20px 4px;font-size:9.5px;font-weight:700;color:var(--text3);
+  text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+.sb-link{display:flex;align-items:center;gap:10px;padding:8px 20px;cursor:pointer;
+  font-size:12.5px;color:var(--text3);transition:all .15s;border-left:2px solid transparent;
+  font-family:var(--sans);text-decoration:none}
+.sb-link:hover{color:var(--text2);background:rgba(26,50,82,.3);border-left-color:var(--edge)}
+.sb-link.on{color:var(--gold2);background:rgba(196,150,42,.07);border-left-color:var(--gold)}
+.sb-link .sbi{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;
+  justify-content:center;font-size:12px;flex-shrink:0;background:var(--lift);border:1px solid var(--edge)}
+.sb-link.on .sbi{background:rgba(196,150,42,.15);border-color:rgba(196,150,42,.3)}
+
+/* ── MAIN CONTENT ── */
+#main{flex:1;min-width:0;overflow-x:hidden;position:relative;z-index:1}
+
+/* ── CHAPTERS ── */
+.chapter{min-height:100vh;display:none;padding:0}
+.chapter.on{display:block}
+
+/* ── COVER PAGE ── */
+.cover{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:80px 80px 70px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#040b16 0%,#081830 50%,#040b16 100%);
+}
+.cover-bg{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 100% 80% at 90% 20%,rgba(196,150,42,.06),transparent),
+    radial-gradient(ellipse 60% 60% at 5% 85%,rgba(13,148,136,.05),transparent),
+    radial-gradient(ellipse 80% 40% at 50% 50%,rgba(29,111,184,.04),transparent)}
+.cover-rule{width:80px;height:3px;background:var(--gold);margin-bottom:32px;border-radius:2px}
+.cover-kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);
+  font-weight:600;margin-bottom:20px}
+.cover h1{font-family:var(--serif);font-size:clamp(36px,6vw,72px);font-weight:300;
+  line-height:1.05;letter-spacing:-1px;color:var(--text);margin-bottom:8px}
+.cover h1 em{color:var(--gold3);font-style:italic;font-weight:300}
+.cover h1 strong{font-weight:700;display:block}
+.cover-sub{font-family:var(--serif);font-size:22px;font-weight:300;color:var(--text2);
+  font-style:italic;margin-bottom:48px;letter-spacing:-.3px}
+.cover-meta{display:flex;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.cm{border-top:1px solid var(--edge2);padding-top:14px}
+.cm .cv{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--gold2)}
+.cm .cl{font-size:10.5px;color:var(--text3);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px}
+.cover-byline{font-size:12px;color:var(--text3);letter-spacing:1px;text-transform:uppercase}
+.cover-deco{position:absolute;right:80px;top:80px;opacity:.06;
+  font-family:var(--serif);font-size:260px;font-weight:700;color:var(--gold);
+  line-height:1;user-select:none;pointer-events:none}
+
+/* ── CHAPTER HEADERS ── */
+.ch-header{
+  padding:80px 80px 60px;position:relative;overflow:hidden;
+  background:linear-gradient(140deg,var(--page) 0%,var(--card) 100%);
+  border-bottom:1px solid var(--edge);
+}
+.ch-header::before{content:'';position:absolute;right:0;top:0;bottom:0;width:400px;
+  background:radial-gradient(ellipse at right,rgba(196,150,42,.04),transparent)}
+.ch-num{font-family:var(--serif);font-size:120px;font-weight:700;color:var(--gold);
+  opacity:.08;position:absolute;right:60px;bottom:-20px;line-height:1;pointer-events:none;user-select:none}
+.ch-kicker{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);
+  font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ch-kicker::before{content:'';width:30px;height:1px;background:var(--gold)}
+.ch-title{font-family:var(--serif);font-size:clamp(26px,4vw,46px);font-weight:600;
+  line-height:1.1;letter-spacing:-.5px;color:var(--text);margin-bottom:14px}
+.ch-title em{color:var(--gold3);font-style:italic}
+.ch-desc{font-size:16px;color:var(--text2);max-width:620px;line-height:1.7;font-style:italic;
+  font-family:var(--serif)}
+
+/* ── CONTENT AREA ── */
+.ch-body{padding:60px 80px 100px;max-width:960px}
+@media(max-width:900px){.ch-body,.ch-header,.cover{padding-left:32px;padding-right:32px}}
+
+/* ── TYPOGRAPHY ── */
+.ch-body h2{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--text);
+  letter-spacing:-.4px;margin:56px 0 20px;padding-bottom:12px;
+  border-bottom:1px solid var(--edge);display:flex;align-items:baseline;gap:12px}
+.ch-body h2 .hn{font-family:var(--mono);font-size:12px;color:var(--gold);
+  background:rgba(196,150,42,.12);padding:2px 8px;border-radius:4px;font-weight:500}
+.ch-body h3{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--text);
+  margin:28px 0 10px;letter-spacing:-.2px}
+.ch-body p{margin-bottom:14px;line-height:1.8;color:var(--text2);font-size:15px}
+.ch-body p strong{color:var(--text)}
+.ch-body p:first-of-type{font-size:16.5px;color:var(--text);font-family:var(--serif);
+  line-height:1.75;font-weight:300}
+
+/* ── PULL QUOTES ── */
+.pullquote{
+  margin:40px 0;padding:28px 36px;position:relative;
+  border-left:3px solid var(--gold);background:rgba(196,150,42,.04);
+}
+.pullquote::before{content:'"';font-family:var(--serif);font-size:80px;color:var(--gold);
+  opacity:.3;position:absolute;top:-10px;left:20px;line-height:1}
+.pullquote p{font-family:var(--serif);font-size:19px;font-style:italic;font-weight:400;
+  color:var(--cream);line-height:1.6;margin:0 0 10px;padding-left:20px}
+.pullquote .pq-attr{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--gold2);font-weight:600;padding-left:20px}
+
+/* ── CHARACTER CARDS ── */
+.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:28px 0}
+.char-card{background:var(--card);border:1px solid var(--edge);border-radius:var(--rl);
+  padding:22px;display:flex;gap:16px;align-items:flex-start;transition:all .2s;cursor:default}
+.char-card:hover{border-color:var(--edge2);transform:translateY(-2px)}
+.char-avatar{width:52px;height:52px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  font-weight:700;font-family:var(--serif);position:relative;overflow:hidden}
+.char-info h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
+.char-info .char-role{font-size:11px;color:var(--gold2);text-transform:uppercase;
+  letter-spacing:.8px;font-weight:600;margin-bottom:6px}
+.char-info .char-lens{font-size:12.5px;color:var(--text3);line-height:1.55;font-style:italic}
+.av-bingo{background:linear-gradient(135deg,#1a3a8f,#2563eb);color:#93c5fd}
+.av-anir{background:linear-gradient(135deg,#0d4f4c,#0d9488);color:#5eead4}
+.av-abhi{background:linear-gradient(135deg,#14532d,#16a34a);color:#86efac}
+.av-supra{background:linear-gradient(135deg,#881337,#e11d48);color:#fda4af}
+.av-neon{background:linear-gradient(135deg,#581c87,#9333ea);color:#d8b4fe}
+.av-sud{background:linear-gradient(135deg,#1e3a5f,#1d4ed8);color:#bfdbfe}
+.av-nanajee{background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fed7aa}
+.av-kutub{background:linear-gradient(135deg,#164e63,#0891b2);color:#a5f3fc}
+.av-gogol{background:linear-gradient(135deg,#713f12,#ca8a04);color:#fef08a}
+
+/* ── DIAGRAMS ── */
+.diagram{margin:32px 0;background:var(--lift);border:1px solid var(--edge);
+  border-radius:var(--rl);overflow:hidden}
+.diagram-title{padding:14px 20px;border-bottom:1px solid var(--edge);
+  font-size:10.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text3);
+  font-family:var(--mono);font-weight:500;display:flex;align-items:center;gap:8px}
+.diagram-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.diagram svg{display:block;width:100%;height:auto}
+.diagram-body{padding:28px}
+
+/* ── CONCEPT LAYERS ── */
+.layer-diagram{display:flex;flex-direction:column;gap:4px;margin:20px 0}
+.ld-row{display:flex;align-items:center;gap:12px}
+.ld-label{font-size:10px;font-family:var(--mono);color:var(--text3);width:110px;
+  text-align:right;flex-shrink:0;text-transform:uppercase;letter-spacing:.5px}
+.ld-bar{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.ld-node{border-radius:7px;padding:8px 14px;font-size:12.5px;font-weight:500;white-space:nowrap}
+.n-gold{background:rgba(196,150,42,.14);border:1px solid rgba(196,150,42,.3);color:var(--gold3)}
+.n-teal{background:rgba(13,148,136,.14);border:1px solid rgba(13,148,136,.3);color:var(--teal3)}
+.n-sky{background:rgba(29,111,184,.14);border:1px solid rgba(29,111,184,.3);color:var(--sky3)}
+.n-jade{background:rgba(5,150,105,.14);border:1px solid rgba(5,150,105,.3);color:var(--jade3)}
+.n-rose{background:rgba(190,24,93,.14);border:1px solid rgba(190,24,93,.3);color:var(--rose3)}
+.n-violet{background:rgba(109,40,217,.14);border:1px solid rgba(109,40,217,.3);color:var(--violet3)}
+.n-amber{background:rgba(180,83,9,.14);border:1px solid rgba(180,83,9,.3);color:var(--amber3)}
+.ld-connector{width:2px;height:18px;background:linear-gradient(var(--edge),var(--edge2));margin:0 auto 0 164px}
+
+/* ── TABLES ── */
+.tw{overflow-x:auto;border-radius:var(--r);border:1px solid var(--edge);margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--lift);color:var(--gold2);padding:11px 16px;text-align:left;
+  border-bottom:1px solid var(--edge2);font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.7px;font-weight:700;white-space:nowrap}
+td{padding:11px 16px;border-bottom:1px solid var(--edge);color:var(--text2);vertical-align:top;line-height:1.6}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.013)}
+td strong{color:var(--text)} td code{font-family:var(--mono);font-size:12px;background:var(--lift);color:var(--teal2);padding:1px 7px;border-radius:4px}
+
+/* ── CALLOUTS ── */
+.callout{display:flex;gap:12px;align-items:flex-start;border-radius:var(--r);padding:14px 18px;margin:16px 0;font-size:13.5px;line-height:1.65}
+.callout .ci{font-size:18px;flex-shrink:0;margin-top:1px}
+.c-gold{background:rgba(196,150,42,.07);border:1px solid rgba(196,150,42,.22);color:var(--gold4)}
+.c-teal{background:rgba(13,148,136,.07);border:1px solid rgba(13,148,136,.2);color:var(--teal3)}
+.c-rose{background:rgba(190,24,93,.07);border:1px solid rgba(190,24,93,.2);color:var(--rose3)}
+.c-jade{background:rgba(5,150,105,.07);border:1px solid rgba(5,150,105,.2);color:var(--jade3)}
+.c-amber{background:rgba(180,83,9,.07);border:1px solid rgba(180,83,9,.2);color:var(--amber3)}
+
+/* ── CONCEPT CARDS ── */
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:20px 0}
+.ccard{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:18px;transition:all .2s}
+.ccard:hover{border-color:var(--edge2)}
+.ccard-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.ci-teal{background:rgba(13,148,136,.14);border:1px solid rgba(13,148,136,.25)}
+.ci-gold{background:rgba(196,150,42,.14);border:1px solid rgba(196,150,42,.25)}
+.ci-jade{background:rgba(5,150,105,.14);border:1px solid rgba(5,150,105,.25)}
+.ci-sky{background:rgba(29,111,184,.14);border:1px solid rgba(29,111,184,.25)}
+.ci-rose{background:rgba(190,24,93,.14);border:1px solid rgba(190,24,93,.25)}
+.ci-violet{background:rgba(109,40,217,.14);border:1px solid rgba(109,40,217,.25)}
+.ccard h4{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:6px}
+.ccard p{font-size:12.5px;color:var(--text3);line-height:1.55}
+
+/* ── TAGS ── */
+.tag{display:inline-flex;align-items:center;padding:2px 9px;border-radius:5px;font-size:11px;font-weight:600;margin:2px}
+.tg{background:rgba(5,150,105,.12);color:var(--jade2);border:1px solid rgba(5,150,105,.25)}
+.tb{background:rgba(29,111,184,.12);color:var(--sky2);border:1px solid rgba(29,111,184,.25)}
+.tt{background:rgba(13,148,136,.12);color:var(--teal2);border:1px solid rgba(13,148,136,.25)}
+.to{background:rgba(180,83,9,.12);color:var(--amber2);border:1px solid rgba(180,83,9,.25)}
+.tr{background:rgba(190,24,93,.12);color:var(--rose2);border:1px solid rgba(190,24,93,.25)}
+.tp{background:rgba(109,40,217,.12);color:var(--violet2);border:1px solid rgba(109,40,217,.25)}
+.tgold{background:rgba(196,150,42,.12);color:var(--gold3);border:1px solid rgba(196,150,42,.25)}
+
+/* ── COMPARISON SPLIT ── */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.vs-panel{background:var(--card);border:1px solid var(--edge);border-radius:var(--r);padding:18px}
+.vs-panel h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:12px}
+.vs-panel ul{list-style:none;padding:0}
+.vs-panel li{font-size:13px;color:var(--text2);margin-bottom:7px;padding-left:16px;position:relative;line-height:1.55}
+.vs-panel li::before{content:"›";position:absolute;left:0;font-weight:700}
+.vs-good h4{color:var(--jade2)} .vs-good li::before{color:var(--jade2)}
+.vs-bad h4{color:var(--rose2)} .vs-bad li::before{color:var(--rose2)}
+
+/* ── DECISION FLOW ── */
+.dflow{display:flex;flex-direction:column;gap:0;margin:24px 0}
+.df-step{display:flex;align-items:stretch;gap:0}
+.df-line{display:flex;flex-direction:column;align-items:center;width:44px;flex-shrink:0}
+.df-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--gold);background:var(--card);
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+  color:var(--gold);z-index:1;margin-top:16px}
+.df-connector{width:2px;flex:1;background:linear-gradient(var(--edge),var(--edge));min-height:16px}
+.df-content{flex:1;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);
+  padding:14px 18px;margin:8px 0;transition:border-color .2s}
+.df-content:hover{border-color:var(--edge2)}
+.df-content h4{font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:4px}
+.df-content p{font-size:13px;color:var(--text3);margin:0;line-height:1.55}
+
+/* ── CHAPTER DIVIDER ── */
+.ch-divider{height:1px;background:linear-gradient(90deg,transparent,var(--edge2),transparent);margin:0 0}
+
+
+
+/* ── DISCLAIMER BANNER ── */
+#disclaimer-bar{
+  position:sticky;top:0;z-index:999;width:100%;
+  background:rgba(30,20,5,.97);
+  border-bottom:1px solid rgba(217,119,6,.35);
+  padding:8px 20px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  backdrop-filter:blur(10px);
+}
+#disclaimer-bar .db-icon{font-size:14px;flex-shrink:0}
+#disclaimer-bar .db-text{
+  font-size:11.5px;color:rgba(253,186,116,.85);line-height:1.45;flex:1;min-width:200px
+}
+#disclaimer-bar .db-text strong{color:var(--amber3)}
+#disclaimer-bar .db-text a{color:rgba(253,186,116,.7);text-decoration:underline;font-size:10.5px}
+#disclaimer-bar .db-close{
+  background:none;border:1px solid rgba(217,119,6,.3);border-radius:5px;
+  color:rgba(253,186,116,.5);font-size:10px;padding:2px 8px;cursor:pointer;
+  flex-shrink:0;font-family:var(--sans);transition:all .15s;
+}
+#disclaimer-bar .db-close:hover{color:var(--amber2);border-color:rgba(217,119,6,.6)}
+.chapter-notice{
+  margin:0 0 32px;padding:16px 22px;
+  background:rgba(30,20,5,.6);border:1px solid rgba(217,119,6,.2);
+  border-radius:var(--r);font-size:12.5px;color:rgba(253,186,116,.7);
+  line-height:1.65;display:flex;gap:10px;align-items:flex-start;
+}
+.chapter-notice .cn-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.chapter-notice a{color:rgba(147,196,240,.7);text-decoration:underline}
+
+/* ── CITATIONS & LEGAL ── */
+.cite{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:16px;height:16px;border-radius:50%;background:rgba(196,150,42,.18);
+  border:1px solid rgba(196,150,42,.35);color:var(--gold2);
+  font-size:9px;font-weight:700;font-family:var(--mono);
+  cursor:pointer;vertical-align:super;margin-left:2px;
+  transition:all .15s;text-decoration:none;
+}
+.cite:hover{background:rgba(196,150,42,.35);color:var(--gold3)}
+.ref-list{list-style:none;padding:0;counter-reset:refs}
+.ref-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--edge);
+  font-size:13px;color:var(--text2);line-height:1.65;counter-increment:refs}
+.ref-item:last-child{border-bottom:none}
+.ref-num{
+  width:26px;height:26px;border-radius:50%;flex-shrink:0;
+  background:rgba(196,150,42,.12);border:1px solid rgba(196,150,42,.25);
+  color:var(--gold2);font-size:10px;font-weight:700;
+  font-family:var(--mono);display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+}
+.ref-body strong{color:var(--text);font-size:13.5px}
+.ref-body a{color:var(--sky2);text-decoration:none;font-size:12px;word-break:break-all}
+.ref-body a:hover{text-decoration:underline}
+.ref-cat{font-size:10px;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--text3);margin-top:3px;font-family:var(--mono)}
+.legal-box{
+  background:var(--card);border:1px solid var(--edge);border-radius:var(--rl);
+  padding:28px 32px;margin:20px 0;
+}
+.legal-box h3{font-family:var(--serif);font-size:18px;color:var(--text);margin-bottom:12px}
+.legal-box p{font-size:13px;color:var(--text2);line-height:1.75;margin-bottom:10px}
+.legal-box p:last-child{margin-bottom:0}
+.legal-box strong{color:var(--text)}
+.trademark-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:16px 0}
+.tm-item{background:var(--lift);border:1px solid var(--edge);border-radius:8px;
+  padding:10px 14px;font-size:12.5px;color:var(--text2)}
+.tm-item strong{color:var(--text);display:block;margin-bottom:2px}
+.cc-badge{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(196,150,42,.07);border:1px solid rgba(196,150,42,.2);
+  border-radius:var(--r);padding:14px 18px;margin:16px 0;
+}
+.cc-badge .cc-icon{
+  font-size:28px;flex-shrink:0;
+}
+.cc-badge p{font-size:13px;color:var(--text2);margin:0;line-height:1.6}
+.cover-legal{
+  position:absolute;bottom:24px;right:60px;
+  font-size:10px;color:var(--text3);text-align:right;line-height:1.6;
+  letter-spacing:.3px;max-width:300px;
+}
+
+/* ── PRINT ── */
+@media print{
+  #sidebar{display:none!important}
+  #main{width:100%}
+  .chapter{display:block!important;page-break-before:always}
+  .cover{page-break-before:avoid}
+  body{background:#fff!important;color:#111!important}
+  .ch-body p{color:#333!important}
+  .tw td{color:#444!important;border-color:#ddd!important}
+  th{background:#eee!important;color:#111!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<nav id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-logo">GG</div>
+    <div class="sb-title">Govern Global</div>
+    <div class="sb-sub">Building Intelligent Enterprises</div>
+    <div style="margin-top:8px;padding:6px 10px;background:rgba(217,119,6,.08);border:1px solid rgba(217,119,6,.2);border-radius:6px;font-size:9.5px;color:rgba(253,186,116,.7);line-height:1.5">
+      Educational guide only. All Microsoft product names &amp; features are Microsoft Corporation IP. Not affiliated with or endorsed by Microsoft.
+    </div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-section">Front Matter</div>
+    <a class="sb-link on" onclick="sc('cover')"><div class="sbi">📖</div>Cover & Team</a>
+    <div class="sb-section">Chapters</div>
+    <a class="sb-link" onclick="sc('ch0')"><div class="sbi">◎</div>Overview — The Story</a>
+    <a class="sb-link" onclick="sc('ch1')"><div class="sbi">01</div>AI Adoption Strategy</a>
+    <a class="sb-link" onclick="sc('ch2')"><div class="sbi">02</div>Data Architecture</a>
+    <a class="sb-link" onclick="sc('ch3')"><div class="sbi">03</div>Agent Platform Design</a>
+    <a class="sb-link" onclick="sc('ch4')"><div class="sbi">04</div>Dynamics 365 AI</a>
+    <a class="sb-link" onclick="sc('legal')"><div class="sbi">⚖</div>Sources &amp; Legal</a>
+    <a class="sb-link" onclick="sc('ch5')"><div class="sbi">05</div>ALM &amp; Governance</a>
+  </div>
+</nav>
+
+<!-- ── MAIN ── -->
+<div id="main">
+
+<!-- ═══════════════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════════════════ -->
+
+  <!-- ── DISCLAIMER BANNER ── -->
+  <div id="disclaimer-bar">
+    <span class="db-icon">⚠</span>
+    <span class="db-text">
+      <strong>Educational &amp; Guidance Use Only.</strong>
+      All product names, features, frameworks, and technical concepts described in this book are the intellectual property of <strong>Microsoft Corporation</strong>. This publication is an independent educational commentary — it is not affiliated with, endorsed by, or produced by Microsoft. GovernGlobal is fictional. All technical details should be verified against official Microsoft documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before use in any real project.
+    </span>
+    <button class="db-close" onclick="this.parentElement.style.display='none'">Dismiss</button>
+  </div>
+
+<div class="chapter on" id="cover">
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-deco">AI</div>
+  <div class="cover-kicker">Govern Global · Agentic AI Architecture Series</div>
+  <div class="cover-rule"></div>
+  <h1><em>Building</em><strong>Intelligent Enterprises</strong></h1>
+  <div class="cover-sub">The GovernGlobal Story — An Architect's Field Guide</div>
+  <div class="cover-meta">
+    <div class="cm"><div class="cv">5</div><div class="cl">Architecture Modules</div></div>
+    <div class="cm"><div class="cv">9</div><div class="cl">Expert Perspectives</div></div>
+    <div class="cm"><div class="cv">14</div><div class="cl">Countries · 1 Mission</div></div>
+    <div class="cm"><div class="cv">∞</div><div class="cl">Real-world Patterns</div></div>
+  </div>
+  
+  <div class="cover-legal">
+    <strong style="color:var(--amber2);font-size:10.5px">Educational &amp; Guidance Use Only</strong><br>
+    All product features, frameworks &amp; technical concepts described herein<br>
+    are the intellectual property of <strong>Microsoft Corporation</strong>.<br>
+    This is an independent educational publication. Not affiliated with<br>
+    or endorsed by Microsoft. GovernGlobal is fictional.<br>
+    <span style="opacity:.6">Independent narrative structure: CC BY 4.0</span>
+  </div>
+  <div class="cover-byline">Govern Global · AI Architecture Practice · 2025</div>
+</div>
+
+<!-- ── THE TEAM ── -->
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+<h2><span class="hn">CAST</span> The GovernGlobal Team</h2>
+<p>GovernGlobal is an enterprise professional services and healthcare consulting firm operating across 14 countries. They advise governments, hospitals, and large enterprises on digital transformation. Patient health records, legal contracts, procurement workflows, and citizen services flow through their systems daily — making compliance, security, and governance non-negotiable from day one. These nine people will design every agent, debate every architecture, and own every outcome.</p>
+
+<div class="char-grid">
+  <div class="char-card">
+    <div class="char-avatar av-bingo">B</div>
+    <div class="char-info">
+      <h4>Bingo</h4>
+      <div class="char-role">Head of AI</div>
+      <div class="char-lens">"Why are we building this — and can we prove its value to the board in 90 days?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-anir">A</div>
+    <div class="char-info">
+      <h4>Anir</h4>
+      <div class="char-role">Platform &amp; Governance Architect</div>
+      <div class="char-lens">"Which platform, which pattern, and what breaks at scale if we choose wrong?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-abhi">Ab</div>
+    <div class="char-info">
+      <h4>Abhi</h4>
+      <div class="char-role">Engagement Manager / PM</div>
+      <div class="char-lens">"What order do we build in? Who signs off? Which decision is blocking which?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-supra">S</div>
+    <div class="char-info">
+      <h4>Supra</h4>
+      <div class="char-role">Identity &amp; Compliance Admin</div>
+      <div class="char-lens">"Who is the agent acting as? What data is it allowed to see? HIPAA says no."</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-neon">N</div>
+    <div class="char-info">
+      <h4>Neon</h4>
+      <div class="char-role">Vibe Coder</div>
+      <div class="char-lens">"How do I ship this — and what does it actually cost to run at 10,000 sessions?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-sud">Su</div>
+    <div class="char-info">
+      <h4>Sud</h4>
+      <div class="char-role">Developer</div>
+      <div class="char-lens">"How do I build this exactly, and what are the deployment rules I must follow?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-nanajee">NJ</div>
+    <div class="char-info">
+      <h4>NanaJee</h4>
+      <div class="char-role">API Management &amp; Integration</div>
+      <div class="char-lens">"What is the agent allowed to call? Is every endpoint registered in my gateway?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-kutub">K</div>
+    <div class="char-info">
+      <h4>Kutub</h4>
+      <div class="char-role">Power Platform Architect</div>
+      <div class="char-lens">"Can we solve this in Copilot Studio — and exactly when does it hit the ceiling?"</div>
+    </div>
+  </div>
+  <div class="char-card">
+    <div class="char-avatar av-gogol">G</div>
+    <div class="char-info">
+      <h4>Gogol</h4>
+      <div class="char-role">ITSM Specialist</div>
+      <div class="char-lens">"Where is the ITSM record? Who owns it? AI without a ticket is invisible to governance."</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout c-gold"><div class="ci">✦</div><div><strong>How to read this book.</strong> Each chapter follows a real design challenge that GovernGlobal faces. The team debates, the architect decides, the principle is explained. Every concept is anchored to a failure mode: what breaks if you get this wrong in production. Architecture is not about choosing the best option — it is about understanding what each option costs when it fails.</div></div>
+</div>
+</div><!-- /cover -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 0 — OVERVIEW
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch0">
+<div class="ch-header">
+  <div class="ch-num">00</div>
+  <div class="ch-kicker">Overview</div>
+  <div class="ch-title">The <em>GovernGlobal</em> Story</div>
+  <div class="ch-desc">Fourteen countries. Nine experts. One mandate: build an AI program that works in production — not just in demos. This is what that looks like from day one.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">0.1</span> The Problem Worth Solving</h2>
+<p>GovernGlobal's daily operations span 14 countries. Their engagement managers manually summarize client meetings into CRM records. Their accounts payable teams match bank statements row by row in spreadsheets. Their procurement analysts review hundreds of contracts each month without AI assistance. Their field engineers arrive on-site at hospitals with no real-time access to the AI-powered guidance that could help them diagnose equipment faults faster.</p>
+<p>None of this is unusual. It is the operational condition of most large professional services firms. What makes GovernGlobal different is that they have decided to change it — systematically, with architecture, not experiments.</p>
+
+<div class="pullquote">
+  <p>The question is not whether AI will transform how we work. The question is whether we build the foundation properly before we build the agents on top of it.</p>
+  <div class="pq-attr">— Anir, Platform &amp; Governance Architect</div>
+</div>
+
+<h2><span class="hn">0.2</span> What an AI Agent Actually Is</h2>
+<p>The word "agent" is used imprecisely in most organizations. Before GovernGlobal builds anything, Anir draws a definition on the whiteboard that the whole team agrees to use.</p>
+
+<div class="diagram">
+  <div class="diagram-title">What an AI Agent Is (and Is Not)</div>
+  <svg viewBox="0 0 780 320" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/>
+      </marker>
+    </defs>
+    <!-- User input -->
+    <rect x="20" y="130" width="120" height="60" rx="10" fill="rgba(13,148,136,.14)" stroke="rgba(13,148,136,.4)" stroke-width="1.5"/>
+    <text x="80" y="156" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="12" font-weight="600">User</text>
+    <text x="80" y="172" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">natural language</text>
+    <!-- Arrow -->
+    <line x1="140" y1="160" x2="190" y2="160" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- Reason box -->
+    <rect x="195" y="100" width="140" height="120" rx="10" fill="rgba(196,150,42,.1)" stroke="rgba(196,150,42,.4)" stroke-width="1.5"/>
+    <text x="265" y="128" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="15" font-weight="600">Reason</text>
+    <text x="265" y="150" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">Understand intent</text>
+    <text x="265" y="166" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">Plan a response</text>
+    <text x="265" y="182" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">Choose actions</text>
+    <!-- Arrow -->
+    <line x1="335" y1="160" x2="385" y2="160" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- Retrieve box -->
+    <rect x="390" y="100" width="140" height="120" rx="10" fill="rgba(29,111,184,.1)" stroke="rgba(29,111,184,.4)" stroke-width="1.5"/>
+    <text x="460" y="128" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="15" font-weight="600">Retrieve</text>
+    <text x="460" y="150" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">Query knowledge</text>
+    <text x="460" y="166" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">sources &amp; systems</text>
+    <text x="460" y="182" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">within boundaries</text>
+    <!-- Arrow -->
+    <line x1="530" y1="160" x2="580" y2="160" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- Act box -->
+    <rect x="585" y="100" width="140" height="120" rx="10" fill="rgba(5,150,105,.1)" stroke="rgba(5,150,105,.4)" stroke-width="1.5"/>
+    <text x="655" y="128" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="15" font-weight="600">Act or Hand Off</text>
+    <text x="655" y="150" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">Take action in</text>
+    <text x="655" y="166" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">connected systems</text>
+    <text x="655" y="182" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11">or escalate to human</text>
+    <!-- NOT labels -->
+    <text x="265" y="248" text-anchor="middle" fill="#6d4c41" font-family="DM Sans" font-size="11">✗ Not a search engine</text>
+    <text x="460" y="248" text-anchor="middle" fill="#6d4c41" font-family="DM Sans" font-size="11">✗ Not a chatbot</text>
+    <text x="655" y="248" text-anchor="middle" fill="#6d4c41" font-family="DM Sans" font-size="11">✗ Not autonomous AI</text>
+    <text x="655" y="268" text-anchor="middle" fill="#6d4c41" font-family="DM Sans" font-size="11">(without design)</text>
+    <!-- Boundary label -->
+    <rect x="100" y="270" width="580" height="28" rx="6" fill="rgba(190,24,93,.08)" stroke="rgba(190,24,93,.25)" stroke-width="1"/>
+    <text x="390" y="289" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="11" font-weight="600">Every capability operates within designed, governed boundaries — defined by the architect</text>
+  </svg>
+</div>
+
+<h2><span class="hn">0.3</span> The Five Capability Domains</h2>
+<p>GovernGlobal's AI transformation is organized into five capability domains. Each one is a structural layer — and like floors in a building, you cannot safely occupy the upper floors without the lower ones being architecturally sound. These five domains form the structure of this book.</p>
+
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;margin:20px 0">
+  <!-- Layer 5 - top -->
+  <rect x="60" y="20" width="580" height="58" rx="10" fill="rgba(109,40,217,.12)" stroke="rgba(109,40,217,.35)" stroke-width="1.5"/>
+  <text x="350" y="44" text-anchor="middle" fill="#c4b5fd" font-family="Cormorant Garamond" font-size="16" font-weight="600">05 · ALM, Governance &amp; Responsible AI</text>
+  <text x="350" y="64" text-anchor="middle" fill="#7a6a9a" font-family="DM Sans" font-size="11">Supra · Anir · Gogol — the architecture nobody sees until it fails</text>
+  <!-- Layer 4 -->
+  <rect x="60" y="93" width="580" height="58" rx="10" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.35)" stroke-width="1.5"/>
+  <text x="350" y="117" text-anchor="middle" fill="#fed7aa" font-family="Cormorant Garamond" font-size="16" font-weight="600">04 · Dynamics 365 AI Integration</text>
+  <text x="350" y="137" text-anchor="middle" fill="#8a6040" font-family="DM Sans" font-size="11">Abhi · Kutub · NanaJee — the right Copilot for the right role</text>
+  <!-- Layer 3 -->
+  <rect x="60" y="166" width="580" height="58" rx="10" fill="rgba(29,111,184,.12)" stroke="rgba(29,111,184,.35)" stroke-width="1.5"/>
+  <text x="350" y="190" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="16" font-weight="600">03 · Agent Platform &amp; Design Patterns</text>
+  <text x="350" y="210" text-anchor="middle" fill="#4a6a8a" font-family="DM Sans" font-size="11">Kutub · Neon · Sud — designing agents that don't surprise you</text>
+  <!-- Layer 2 -->
+  <rect x="60" y="239" width="580" height="58" rx="10" fill="rgba(13,148,136,.12)" stroke="rgba(13,148,136,.35)" stroke-width="1.5"/>
+  <text x="350" y="263" text-anchor="middle" fill="#5eead4" font-family="Cormorant Garamond" font-size="16" font-weight="600">02 · Data &amp; Knowledge Architecture</text>
+  <text x="350" y="283" text-anchor="middle" fill="#2a6a64" font-family="DM Sans" font-size="11">Anir · Supra · NanaJee — what the agent knows and who controls it</text>
+  <!-- Layer 1 - foundation -->
+  <rect x="60" y="312" width="580" height="58" rx="10" fill="rgba(196,150,42,.14)" stroke="rgba(196,150,42,.45)" stroke-width="2"/>
+  <text x="350" y="336" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="16" font-weight="600">01 · AI Adoption Strategy</text>
+  <text x="350" y="356" text-anchor="middle" fill="#8a6a20" font-family="DM Sans" font-size="11">Bingo · Abhi — building a program that survives contact with reality</text>
+  <!-- Foundation label -->
+  <text x="20" y="345" text-anchor="middle" fill="#c4962a" font-family="DM Sans" font-size="9" font-weight="700" transform="rotate(-90,20,345)">FOUNDATION</text>
+</svg>
+
+<div class="callout c-teal"><div class="ci">🗺</div><div><strong>The building analogy:</strong> You cannot skip the foundation and build the roof. Every GovernGlobal AI agent depends on a governed data layer, which depends on a coherent adoption strategy, which depends on clear business case construction. This is not a linear process — but the dependencies are real, and they run downward.</div></div>
+
+<h2><span class="hn">0.4</span> The Central Tension of the Whole Program</h2>
+<p>Before the first line of agent configuration is written, GovernGlobal's team has a tension that every AI program has. It is productive. It is never fully resolved. The book is about how the team manages it.</p>
+
+<div class="vs-grid">
+  <div class="vs-panel" style="border-left:3px solid var(--teal2)">
+    <h4 style="color:var(--teal2)">⚡ Neon wants to ship</h4>
+    <ul>
+      <li>Prototype in three days, deployed in a week</li>
+      <li>Learns from production — iteration beats planning</li>
+      <li>Technical debt is a future problem</li>
+      <li>Real value requires real users</li>
+    </ul>
+    <div style="font-size:12px;color:var(--text3);margin-top:10px;font-style:italic">"Give me a weekend and I'll have something running."</div>
+  </div>
+  <div class="vs-panel" style="border-left:3px solid var(--gold)">
+    <h4 style="color:var(--gold2)">🏗 Anir wants it right</h4>
+    <ul>
+      <li>Architecture decisions compound — wrong now costs 10x later</li>
+      <li>GovernGlobal handles patient data — mistakes have legal consequences</li>
+      <li>Technical debt in AI isn't just code debt — it's compliance debt</li>
+      <li>The second agent is always easier if the first was done properly</li>
+    </ul>
+    <div style="font-size:12px;color:var(--text3);margin-top:10px;font-style:italic">"Give me a week to design it, and I'll save three months of rework."</div>
+  </div>
+</div>
+
+<p>Both are right. The book shows how GovernGlobal resolves this tension — not by choosing one or the other, but by building the governance structure that lets Neon ship fast inside boundaries that Anir trusts.</p>
+
+</div>
+</div><!-- /ch0 -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 1 — AI ADOPTION STRATEGY
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch1">
+<div class="ch-header">
+  <div class="ch-num">01</div>
+  <div class="ch-kicker">Module One · Bingo &amp; Abhi</div>
+  <div class="ch-title">AI Adoption Strategy:<br><em>Building a Program That Survives Reality</em></div>
+  <div class="ch-desc">Bingo has 90 days to show the board something real. Abhi has to sequence 11 proposals into a deliverable plan. Anir is worried they will skip the foundations. This chapter is about why Anir is right.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">1.1</span> The Cloud Adoption Framework — A Sequencing Model</h2>
+<p>The Cloud Adoption Framework for Azure is Microsoft's prescribed methodology<a class="cite" href="#ref-1" title="Microsoft CAF — learn.microsoft.com/azure/cloud-adoption-framework">1</a> for moving workloads and building AI capabilities in the cloud. It is not a checklist — it is a sequencing model. Each phase produces outputs that are the inputs of the next. Skipping phases doesn't eliminate the work; it moves it to production where it costs ten times more to fix.</p>
+
+<div class="diagram">
+  <div class="diagram-title">CAF for AI — GovernGlobal's Four-Phase Journey</div>
+  <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <defs><marker id="a2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/></marker></defs>
+    <!-- Phase boxes -->
+    <rect x="10" y="30" width="160" height="130" rx="10" fill="rgba(196,150,42,.1)" stroke="rgba(196,150,42,.4)" stroke-width="1.5"/>
+    <text x="90" y="58" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="17" font-weight="700">Strategy</text>
+    <text x="90" y="80" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Align leadership</text>
+    <text x="90" y="96" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Define objectives</text>
+    <text x="90" y="112" text-anchor="middle" fill="#c8a84b" font-family="DM Sans" font-size="10" font-weight="600">Bingo owns this</text>
+    <text x="90" y="140" text-anchor="middle" fill="#5a4010" font-family="DM Sans" font-size="9">Output: AI vision,</text>
+    <text x="90" y="153" text-anchor="middle" fill="#5a4010" font-family="DM Sans" font-size="9">exec sponsorship</text>
+    <line x1="170" y1="95" x2="200" y2="95" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#a2)"/>
+    
+    <rect x="205" y="30" width="160" height="130" rx="10" fill="rgba(29,111,184,.1)" stroke="rgba(29,111,184,.4)" stroke-width="1.5"/>
+    <text x="285" y="58" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="17" font-weight="700">Plan</text>
+    <text x="285" y="80" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Prioritize use cases</text>
+    <text x="285" y="96" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Score feasibility</text>
+    <text x="285" y="112" text-anchor="middle" fill="#3b8fd4" font-family="DM Sans" font-size="10" font-weight="600">Abhi sequences this</text>
+    <text x="285" y="140" text-anchor="middle" fill="#2a4060" font-family="DM Sans" font-size="9">Output: prioritized</text>
+    <text x="285" y="153" text-anchor="middle" fill="#2a4060" font-family="DM Sans" font-size="9">backlog, CoE charter</text>
+    <line x1="365" y1="95" x2="395" y2="95" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#a2)"/>
+    
+    <rect x="400" y="30" width="160" height="130" rx="10" fill="rgba(190,24,93,.1)" stroke="rgba(190,24,93,.4)" stroke-width="1.5"/>
+    <text x="480" y="58" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="17" font-weight="700">Ready</text>
+    <text x="480" y="80" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">Govern foundation</text>
+    <text x="480" y="96" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">Sensitivity labels</text>
+    <text x="480" y="112" text-anchor="middle" fill="#ec4899" font-family="DM Sans" font-size="10" font-weight="600">Supra MUST sign off</text>
+    <text x="480" y="140" text-anchor="middle" fill="#602030" font-family="DM Sans" font-size="9">Output: governed envs,</text>
+    <text x="480" y="153" text-anchor="middle" fill="#602030" font-family="DM Sans" font-size="9">labeled data, policies</text>
+    <line x1="560" y1="95" x2="590" y2="95" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#a2)"/>
+    
+    <rect x="595" y="30" width="155" height="130" rx="10" fill="rgba(5,150,105,.1)" stroke="rgba(5,150,105,.4)" stroke-width="1.5"/>
+    <text x="672" y="58" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="17" font-weight="700">Adopt</text>
+    <text x="672" y="80" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Ship first agent</text>
+    <text x="672" y="96" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Measure &amp; iterate</text>
+    <text x="672" y="112" text-anchor="middle" fill="#10b981" font-family="DM Sans" font-size="10" font-weight="600">Neon + Sud build</text>
+    <text x="672" y="140" text-anchor="middle" fill="#1a4030" font-family="DM Sans" font-size="9">Output: deployed</text>
+    <text x="672" y="153" text-anchor="middle" fill="#1a4030" font-family="DM Sans" font-size="9">agent, measured ROI</text>
+  </svg>
+</div>
+
+<div class="callout c-rose"><div class="ci">⚡</div><div><strong>The cost of skipping Ready:</strong> Neon ships an agent in week two that connects to GovernGlobal's SharePoint knowledge base. Three weeks later, Supra discovers the SharePoint library contains unclassified documents including patient health records from a past project. The agent has been summarizing protected health information to users who weren't authorized to see it. This is not a Neon failure — it is an architecture failure. The Ready phase exists to prevent it.</div></div>
+
+<h2><span class="hn">1.2</span> The Center of Excellence — Three Shapes, Three Stages</h2>
+<p>A Center of Excellence is not a team. It is a function that changes shape as organizational AI maturity grows. The danger is keeping the same shape past its useful life. A CoE that doesn't evolve becomes the bottleneck it was created to prevent.</p>
+
+<div class="diagram">
+  <div class="diagram-title">CoE Operating Model Evolution — GovernGlobal's Journey</div>
+  <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- Stage 1 -->
+    <rect x="10" y="20" width="228" height="210" rx="12" fill="rgba(196,150,42,.06)" stroke="rgba(196,150,42,.3)" stroke-width="1.5"/>
+    <text x="124" y="48" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="15" font-weight="700">Stage 1 · Centralized</text>
+    <text x="124" y="66" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Months 1–12</text>
+    <circle cx="124" cy="115" r="35" fill="rgba(196,150,42,.15)" stroke="rgba(196,150,42,.4)" stroke-width="1.5"/>
+    <text x="124" y="112" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="10" font-weight="700">CoE</text>
+    <text x="124" y="125" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="10">owns all</text>
+    <text x="40" y="180" text-anchor="middle" fill="#7a6030" font-family="DM Sans" font-size="10">✓ Standards built</text>
+    <text x="40" y="196" text-anchor="middle" fill="#7a6030" font-family="DM Sans" font-size="10">✓ Governance set</text>
+    <text x="204" y="180" text-anchor="middle" fill="#c04020" font-family="DM Sans" font-size="10">⚠ Bottleneck risk</text>
+    <text x="204" y="196" text-anchor="middle" fill="#c04020" font-family="DM Sans" font-size="10">⚠ Shadow AI risk</text>
+    
+    <!-- Arrow -->
+    <text x="266" y="130" text-anchor="middle" fill="#3a5878" font-family="DM Sans" font-size="20">→</text>
+    
+    <!-- Stage 2 -->
+    <rect x="268" y="20" width="224" height="210" rx="12" fill="rgba(29,111,184,.06)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="380" y="48" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="15" font-weight="700">Stage 2 · Advisory</text>
+    <text x="380" y="66" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Months 12–24</text>
+    <!-- CoE circle (smaller, top) -->
+    <circle cx="380" cy="100" r="25" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="380" y="97" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="9" font-weight="700">CoE</text>
+    <text x="380" y="109" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="9">Standards</text>
+    <!-- BU circles -->
+    <circle cx="330" cy="155" r="20" fill="rgba(29,111,184,.15)" stroke="rgba(29,111,184,.35)" stroke-width="1"/>
+    <text x="330" y="159" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="9">BU delivers</text>
+    <circle cx="430" cy="155" r="20" fill="rgba(29,111,184,.15)" stroke="rgba(29,111,184,.35)" stroke-width="1"/>
+    <text x="430" y="159" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="9">BU delivers</text>
+    <line x1="380" y1="125" x2="345" y2="135" stroke="#2a4d78" stroke-width="1" stroke-dasharray="4,2"/>
+    <line x1="380" y1="125" x2="415" y2="135" stroke="#2a4d78" stroke-width="1" stroke-dasharray="4,2"/>
+    <text x="380" y="205" text-anchor="middle" fill="#3a5878" font-family="DM Sans" font-size="10">CoE consults · BUs build</text>
+    
+    <!-- Arrow -->
+    <text x="514" y="130" text-anchor="middle" fill="#3a5878" font-family="DM Sans" font-size="20">→</text>
+    
+    <!-- Stage 3 -->
+    <rect x="522" y="20" width="228" height="210" rx="12" fill="rgba(5,150,105,.06)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="636" y="48" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="15" font-weight="700">Stage 3 · Federated</text>
+    <text x="636" y="66" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Months 24+</text>
+    <!-- Network of circles -->
+    <circle cx="636" cy="90" r="16" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="636" y="94" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="8" font-weight="700">Gov Board</text>
+    <circle cx="585" cy="140" r="16" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="585" y="144" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="8">BU Auto</text>
+    <circle cx="635" cy="155" r="16" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="635" y="159" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="8">BU Auto</text>
+    <circle cx="685" cy="140" r="16" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="685" y="144" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="8">BU Auto</text>
+    <line x1="628" y1="106" x2="598" y2="124" stroke="#2a4d78" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="636" y1="106" x2="635" y2="139" stroke="#2a4d78" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="644" y1="106" x2="672" y2="124" stroke="#2a4d78" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="636" y="200" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">CoE governs · BUs own fully</text>
+  </svg>
+</div>
+
+<div class="pullquote">
+  <p>GovernGlobal's legal division built a shadow AI tool using a free-tier subscription because the CoE queue had a seven-week wait time. The tool accessed client contract data with no sensitivity labels, no audit trail, and no governance. That is what happens when a centralized CoE stays Stage 1 too long.</p>
+  <div class="pq-attr">— Anir, recounting the incident that forced CoE evolution</div>
+</div>
+
+<h2><span class="hn">1.3</span> Use Case Prioritization — The Four-Dimension Filter</h2>
+<p>GovernGlobal receives 11 AI project proposals in the first planning cycle. Bingo wants to approve all of them. Abhi draws a 2×2 grid on the whiteboard and asks each team to score their proposal on four dimensions. By the end of the session, three proposals are in the first delivery wave. Eight are deferred — not rejected, deferred.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Use Case Scoring Matrix — GovernGlobal Sprint 1 Selection</div>
+  <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <!-- Grid -->
+    <line x1="180" y1="40" x2="680" y2="40" stroke="#1a3252" stroke-width="1"/>
+    <line x1="180" y1="120" x2="680" y2="120" stroke="#1a3252" stroke-width="1"/>
+    <line x1="180" y1="200" x2="680" y2="200" stroke="#1a3252" stroke-width="1"/>
+    <line x1="180" y1="280" x2="680" y2="280" stroke="#1a3252" stroke-width="1"/>
+    <line x1="180" y1="320" x2="680" y2="320" stroke="#1a3252" stroke-width=".5"/>
+    <!-- Row labels -->
+    <text x="170" y="88" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Business</text>
+    <text x="170" y="102" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Value</text>
+    <text x="170" y="168" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Technical</text>
+    <text x="170" y="182" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Feasibility</text>
+    <text x="170" y="248" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Risk</text>
+    <text x="170" y="262" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Level</text>
+    <text x="170" y="295" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Org</text>
+    <text x="170" y="309" text-anchor="end" fill="#7a96b4" font-family="DM Sans" font-size="11" font-weight="600">Readiness</text>
+    <!-- Column headers -->
+    <text x="270" y="30" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11" font-weight="700">IT Helpdesk Agent</text>
+    <text x="420" y="30" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="700">Contract Review AI</text>
+    <text x="580" y="30" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="11" font-weight="700">Multi-Jurisdiction AI</text>
+    <!-- IT Helpdesk scores -->
+    <rect x="210" y="52" width="120" height="56" rx="8" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="270" y="82" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="24" font-weight="700">HIGH</text>
+    <rect x="210" y="132" width="120" height="56" rx="8" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="270" y="162" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="24" font-weight="700">HIGH</text>
+    <rect x="210" y="212" width="120" height="56" rx="8" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="270" y="242" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="24" font-weight="700">LOW</text>
+    <rect x="210" y="290" width="120" height="22" rx="5" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="270" y="305" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="11" font-weight="700">READY ✓</text>
+    <!-- Badge -->
+    <rect x="220" y="320" width="100" height="18" rx="9" fill="rgba(5,150,105,.3)" stroke="rgba(5,150,105,.6)" stroke-width="1"/>
+    <text x="270" y="333" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="700">SPRINT 1 ✓</text>
+    <!-- Contract Review scores -->
+    <rect x="360" y="52" width="120" height="56" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="420" y="82" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="24" font-weight="700">HIGH</text>
+    <rect x="360" y="132" width="120" height="56" rx="8" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.3)" stroke-width="1"/>
+    <text x="420" y="162" text-anchor="middle" fill="#fed7aa" font-family="Cormorant Garamond" font-size="24" font-weight="700">MED</text>
+    <rect x="360" y="212" width="120" height="56" rx="8" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.3)" stroke-width="1"/>
+    <text x="420" y="242" text-anchor="middle" fill="#fed7aa" font-family="Cormorant Garamond" font-size="24" font-weight="700">MED</text>
+    <rect x="360" y="290" width="120" height="22" rx="5" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.3)" stroke-width="1"/>
+    <text x="420" y="305" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="11">Partially Ready</text>
+    <rect x="370" y="320" width="100" height="18" rx="9" fill="rgba(180,83,9,.2)" stroke="rgba(180,83,9,.5)" stroke-width="1"/>
+    <text x="420" y="333" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="10" font-weight="700">SPRINT 2</text>
+    <!-- Multi-Jurisdiction -->
+    <rect x="520" y="52" width="120" height="56" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="580" y="82" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="24" font-weight="700">HIGH</text>
+    <rect x="520" y="132" width="120" height="56" rx="8" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.3)" stroke-width="1"/>
+    <text x="580" y="162" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="24" font-weight="700">LOW</text>
+    <rect x="520" y="212" width="120" height="56" rx="8" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.3)" stroke-width="1"/>
+    <text x="580" y="242" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="24" font-weight="700">HIGH</text>
+    <rect x="520" y="290" width="120" height="22" rx="5" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.3)" stroke-width="1"/>
+    <text x="580" y="305" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="11">Not Ready ✗</text>
+    <rect x="530" y="320" width="100" height="18" rx="9" fill="rgba(190,24,93,.2)" stroke="rgba(190,24,93,.5)" stroke-width="1"/>
+    <text x="580" y="333" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="10" font-weight="700">DEFERRED</text>
+  </svg>
+</div>
+
+<h2><span class="hn">1.4</span> ROAI — Building the Financial Case Properly</h2>
+<p>Traditional ROI asks: how much did we spend and how much did we save? ROAI asks a harder question: how much did we invest across the full lifecycle — including the costs we haven't paid yet — and what is the realistic range of outcomes given our actual adoption conditions?</p>
+
+<div class="diagram">
+  <div class="diagram-title">ROAI Construction — GovernGlobal Procurement Agent Business Case</div>
+  <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <!-- Step 1: Baseline -->
+    <rect x="10" y="20" width="155" height="240" rx="10" fill="rgba(196,150,42,.08)" stroke="rgba(196,150,42,.3)" stroke-width="1.5"/>
+    <text x="87" y="48" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="14" font-weight="700">① Baseline</text>
+    <text x="87" y="70" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10" font-weight="600">Measure current state</text>
+    <text x="87" y="95" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11" font-weight="600">340</text>
+    <text x="87" y="110" text-anchor="middle" fill="#7a6030" font-family="DM Sans" font-size="9">contracts/month</text>
+    <text x="87" y="130" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11" font-weight="600">2.4 hrs</text>
+    <text x="87" y="145" text-anchor="middle" fill="#7a6030" font-family="DM Sans" font-size="9">avg per contract</text>
+    <text x="87" y="165" text-anchor="middle" fill="#c8baa0" font-family="DM Sans" font-size="11" font-weight="600">816 hrs</text>
+    <text x="87" y="180" text-anchor="middle" fill="#7a6030" font-family="DM Sans" font-size="9">total/month baseline</text>
+    <rect x="30" y="218" width="115" height="28" rx="6" fill="rgba(190,24,93,.15)" stroke="rgba(190,24,93,.3)" stroke-width="1"/>
+    <text x="87" y="236" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="600">NEVER use benchmarks — measure yours</text>
+    <!-- Step 2: Costs -->
+    <rect x="180" y="20" width="155" height="240" rx="10" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="257" y="48" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="14" font-weight="700">② Total Costs</text>
+    <text x="257" y="68" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9" font-weight="600">ALL costs, not just license</text>
+    <text x="257" y="92" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Development</text>
+    <text x="257" y="108" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Integration</text>
+    <text x="257" y="124" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Licensing</text>
+    <text x="257" y="140" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Training</text>
+    <text x="257" y="156" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Monitoring</text>
+    <text x="257" y="172" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Maintenance</text>
+    <text x="257" y="188" text-anchor="middle" fill="#7a96b4" font-family="DM Sans" font-size="10">Future upgrades</text>
+    <text x="257" y="218" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9" font-style="italic">TCO Calculator → Azure costs<a class="cite" href="#ref-3" title="Azure TCO Calculator — azure.microsoft.com/pricing/tco/calculator">3</a></text>
+    <!-- Step 3: Three Bands -->
+    <rect x="350" y="20" width="355" height="240" rx="10" fill="rgba(5,150,105,.06)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="527" y="48" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="14" font-weight="700">③ Three-Band Projection</text>
+    <!-- Conservative band -->
+    <rect x="368" y="62" width="318" height="46" rx="7" fill="rgba(190,24,93,.1)" stroke="rgba(190,24,93,.25)" stroke-width="1"/>
+    <text x="410" y="82" text-anchor="start" fill="#fda4af" font-family="DM Sans" font-size="11" font-weight="700">Conservative</text>
+    <text x="410" y="98" text-anchor="start" fill="#804050" font-family="DM Sans" font-size="10">25% adoption · Max friction · 204 hrs saved/month</text>
+    <!-- Expected band -->
+    <rect x="368" y="118" width="318" height="46" rx="7" fill="rgba(196,150,42,.1)" stroke="rgba(196,150,42,.25)" stroke-width="1"/>
+    <text x="410" y="138" text-anchor="start" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="700">Expected</text>
+    <text x="410" y="154" text-anchor="start" fill="#8a7040" font-family="DM Sans" font-size="10">55% adoption · Realistic curve · 449 hrs saved/month</text>
+    <!-- Optimistic band -->
+    <rect x="368" y="174" width="318" height="46" rx="7" fill="rgba(5,150,105,.1)" stroke="rgba(5,150,105,.25)" stroke-width="1"/>
+    <text x="410" y="194" text-anchor="start" fill="#6ee7b7" font-family="DM Sans" font-size="11" font-weight="700">Optimistic</text>
+    <text x="410" y="210" text-anchor="start" fill="#2a6050" font-family="DM Sans" font-size="10">80% adoption · Process redesign · 653 hrs saved/month</text>
+    <text x="527" y="248" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="9" font-style="italic">Business Value Toolkit maps each band to business outcomes<a class="cite" href="#ref-2" title="Power Platform Business Value Toolkit — learn.microsoft.com/power-platform">2</a></text>
+  </svg>
+</div>
+
+<h2><span class="hn">1.5</span> Who Measures What — The Adoption Measurement Architecture</h2>
+
+<div class="tw"><table>
+<tr><th>Role</th><th>What They Measure</th><th>Tool / Mechanism</th><th>Key Metric</th></tr>
+<tr><td><span class="tag tgold">Bingo</span> Head of AI</td><td>Program credibility; executive-level adoption proof</td><td>Copilot Studio usage estimator; Business Value Toolkit</td><td>Resolved vs abandoned sessions; adoption rate month-over-month</td></tr>
+<tr><td><span class="tag tb">Abhi</span> Engagement Mgr</td><td>Delivery sequence; stakeholder sign-off cycle</td><td>Project tracking; CAF milestone validation</td><td>Delivery velocity; blocker resolution time</td></tr>
+<tr><td><span class="tag tr">Supra</span> Compliance</td><td>Sensitive data access events per agent run</td><td>Microsoft Purview audit logs</td><td>Sensitive data volume per user per run; anomaly flags</td></tr>
+<tr><td><span class="tag tt">Gogol</span> ITSM</td><td>AI-attributable incidents; SLA adherence</td><td>ITSM platform; automated AI incident tagging</td><td>Incident rate per 1,000 sessions; mean time to resolve</td></tr>
+</table></div>
+
+<div class="callout c-gold"><div class="ci">💡</div><div><strong>The two cost drivers nobody explains clearly:</strong> In consumption-based AI billing, what moves your quarterly cost is not how many users you have or how long sessions last — it is (1) which language model processes each interaction (larger models = significantly more credits per query) and (2) how complex your agent's orchestration is (more chains of model invocations = more credits per user turn). Neon discovers this when GovernGlobal's first agent costs 4x the estimate in month two. The orchestration was more complex than planned.</div></div>
+
+</div>
+</div><!-- /ch1 -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 2 — DATA ARCHITECTURE
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch2">
+<div class="ch-header">
+  <div class="ch-num">02</div>
+  <div class="ch-kicker">Module Two · Anir, Supra &amp; NanaJee</div>
+  <div class="ch-title">Data &amp; Knowledge Architecture:<br><em>What the Agent Knows and Who Controls It</em></div>
+  <div class="ch-desc">Kutub wants to connect the agent to everything. Supra has HIPAA obligations and 14 data residency regimes. NanaJee is counting endpoints. Anir is at the whiteboard with the question that decides everything: what does the agent know, and how do we control it?</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">2.1</span> Grounding — The Mechanism That Makes AI Trustworthy</h2>
+<p>Without grounding, an AI agent speaks from its training data — which is vast, general, and impossible to audit. With grounding, the agent speaks from your organization's specific data — which is controlled, attributable, and governable. The grounding architecture is the most consequential design decision in any enterprise AI deployment.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Grounded vs Ungrounded AI — GovernGlobal Compliance Agent</div>
+  <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- Ungrounded left -->
+    <rect x="10" y="10" width="330" height="240" rx="12" fill="rgba(190,24,93,.06)" stroke="rgba(190,24,93,.3)" stroke-width="1.5"/>
+    <text x="175" y="38" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="16" font-weight="700">✗ Ungrounded Agent</text>
+    <text x="175" y="58" text-anchor="middle" fill="#7a4050" font-family="DM Sans" font-size="10">Speaks from training data</text>
+    <!-- Brain icon area -->
+    <circle cx="175" cy="115" r="42" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.3)" stroke-width="1"/>
+    <text x="175" y="110" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="30">🌐</text>
+    <text x="175" y="132" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="10">General knowledge</text>
+    <text x="175" y="148" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="10">from training</text>
+    <!-- Problems -->
+    <text x="30" y="185" fill="#a04050" font-family="DM Sans" font-size="10">⚠ Cannot cite internal policy</text>
+    <text x="30" y="200" fill="#a04050" font-family="DM Sans" font-size="10">⚠ Cannot be audited</text>
+    <text x="30" y="215" fill="#a04050" font-family="DM Sans" font-size="10">⚠ May hallucinate GovernGlobal rules</text>
+    <text x="30" y="230" fill="#a04050" font-family="DM Sans" font-size="10">⚠ Blends general + internal silently</text>
+    <!-- Grounded right -->
+    <rect x="380" y="10" width="330" height="240" rx="12" fill="rgba(5,150,105,.06)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="545" y="38" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="16" font-weight="700">✓ Grounded Agent</text>
+    <text x="545" y="58" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Speaks from your data</text>
+    <!-- Knowledge source icons -->
+    <rect x="420" y="70" width="80" height="36" rx="6" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="460" y="92" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="10">Policy Docs</text>
+    <rect x="510" y="70" width="80" height="36" rx="6" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="550" y="92" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="10">Contracts DB</text>
+    <rect x="600" y="70" width="90" height="36" rx="6" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="645" y="92" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="10">Regulations</text>
+    <!-- Arrow down to agent -->
+    <line x1="545" y1="106" x2="545" y2="130" stroke="#2a4d78" stroke-width="1.5"/>
+    <polygon points="539,128 545,138 551,128" fill="#2a4d78"/>
+    <circle cx="545" cy="155" r="22" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.4)" stroke-width="1.5"/>
+    <text x="545" y="159" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">Agent</text>
+    <!-- Benefits -->
+    <text x="400" y="196" fill="#2a6050" font-family="DM Sans" font-size="10">✓ Every claim is attributable to source</text>
+    <text x="400" y="211" fill="#2a6050" font-family="DM Sans" font-size="10">✓ Audit trail exists</text>
+    <text x="400" y="226" fill="#2a6050" font-family="DM Sans" font-size="10">✓ Source control = response control</text>
+    <text x="400" y="241" fill="#2a6050" font-family="DM Sans" font-size="10">✓ Governance surface is bounded</text>
+  </svg>
+</div>
+
+<h2><span class="hn">2.2</span> Microsoft Dataverse — The Enterprise AI Fabric</h2>
+<p>Dataverse is not a database with a connector attached<a class="cite" href="#ref-4" title="Microsoft Dataverse — learn.microsoft.com/power-apps/maker/data-platform">4</a> to it<a class="cite" href="#ref-4" title="Microsoft Dataverse overview — learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro">4</a>. It is Microsoft's unified data platform designed from the ground up to serve AI agents, Dynamics 365 apps, Power Apps, and external models simultaneously from a single, governed source of truth. The distinction matters because it changes which design decisions you make.</p>
+
+<div class="tw"><table>
+<tr><th>Need</th><th>Dataverse</th><th>Azure Data Lake</th><th>Cosmos DB</th><th>Azure SQL</th></tr>
+<tr><td><strong>Native AI agent connectivity</strong></td><td><span class="tag tg">First-class</span></td><td><span class="tag tr">Needs extras</span></td><td><span class="tag tr">Custom dev</span></td><td><span class="tag to">Via connector</span></td></tr>
+<tr><td><strong>Built-in classification</strong></td><td><span class="tag tg">✓ Native AIP</span></td><td><span class="tag tr">Requires Purview add-on</span></td><td><span class="tag tr">Custom</span></td><td><span class="tag tr">External tooling</span></td></tr>
+<tr><td><strong>Row-level security</strong></td><td><span class="tag tg">Native — data layer</span></td><td><span class="tag to">File-level only</span></td><td><span class="tag to">Complex</span></td><td><span class="tag tg">Yes (schema design)</span></td></tr>
+<tr><td><strong>Schema enforcement</strong></td><td><span class="tag tg">Typed, validated</span></td><td><span class="tag tr">Schema-on-read</span></td><td><span class="tag tr">Schemaless</span></td><td><span class="tag tg">Full relational</span></td></tr>
+<tr><td><strong>Best for AI grounding</strong></td><td><span class="tag tg">Central SSOT, multiple AI consumers</span></td><td>Raw lake storage at scale</td><td>High-throughput transactional</td><td>Relational transactional</td></tr>
+</table></div>
+
+<div class="pullquote">
+  <p>Supra's rule: no AI agent goes near patient data without sensitivity labels applied in Dataverse first. Labels are not metadata — they are enforcement mechanisms. The agent can only retrieve what the label permits the calling user to see. Without them, access is unbounded.</p>
+  <div class="pq-attr">— Supra, after GovernGlobal's first data governance review</div>
+</div>
+
+<h2><span class="hn">2.3</span> Azure AI Search — When Knowledge Is Distributed</h2>
+<p>GovernGlobal's knowledge base is not in one system. Policy documents live in SharePoint. Contract data lives in an SQL database. Case management records come from an API. Archived project files are PDFs in blob storage. Azure AI Search solves the heterogeneous data problem by ingesting all source types through configurable indexers and creating one unified semantic index that agents can query.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Azure AI Search — GovernGlobal's Knowledge Unification Architecture</div>
+  <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <defs><marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/></marker></defs>
+    <!-- Sources top row -->
+    <rect x="30" y="10" width="110" height="44" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="85" y="28" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">SharePoint</text>
+    <text x="85" y="44" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Policy Documents</text>
+    <rect x="160" y="10" width="110" height="44" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="215" y="28" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">SQL Database</text>
+    <text x="215" y="44" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Contract Records</text>
+    <rect x="290" y="10" width="110" height="44" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="345" y="28" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">Case Mgmt API</text>
+    <text x="345" y="44" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Live Case Data</text>
+    <rect x="420" y="10" width="110" height="44" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="475" y="28" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">Blob Storage</text>
+    <text x="475" y="44" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Archived PDFs</text>
+    <rect x="550" y="10" width="140" height="44" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="620" y="28" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">Regulatory Sites</text>
+    <text x="620" y="44" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Jurisdiction Rules</text>
+    <!-- Arrows to indexers -->
+    <line x1="85" y1="54" x2="200" y2="112" stroke="#1a3252" stroke-width="1.2" marker-end="url(#arr3)"/>
+    <line x1="215" y1="54" x2="250" y2="112" stroke="#1a3252" stroke-width="1.2" marker-end="url(#arr3)"/>
+    <line x1="345" y1="54" x2="340" y2="112" stroke="#1a3252" stroke-width="1.2" marker-end="url(#arr3)"/>
+    <line x1="475" y1="54" x2="420" y2="112" stroke="#1a3252" stroke-width="1.2" marker-end="url(#arr3)"/>
+    <line x1="620" y1="54" x2="490" y2="112" stroke="#1a3252" stroke-width="1.2" marker-end="url(#arr3)"/>
+    <!-- AI Search central box -->
+    <rect x="140" y="112" width="420" height="80" rx="12" fill="rgba(29,111,184,.12)" stroke="rgba(29,111,184,.4)" stroke-width="2"/>
+    <text x="350" y="142" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="18" font-weight="600">Azure AI Search</text>
+    <text x="230" y="164" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Configurable Indexers</text>
+    <text x="350" y="164" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Semantic Ranking</text>
+    <text x="470" y="164" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Vector Search</text>
+    <!-- Incremental indexing highlight -->
+    <rect x="190" y="180" width="320" height="26" rx="6" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.35)" stroke-width="1"/>
+    <text x="350" y="197" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="700">Incremental Indexing — triggers on source change, not on schedule<a class="cite" href="#ref-5" title="Azure AI Search indexer concepts — learn.microsoft.com/azure/search/search-indexer-overview">5</a></text>
+    <!-- Arrow to Agent -->
+    <line x1="350" y1="210" x2="350" y2="242" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr3)"/>
+    <rect x="240" y="244" width="220" height="30" rx="8" fill="rgba(5,150,105,.12)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="350" y="263" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="11" font-weight="600">Copilot Studio Agent — unified natural language queries</text>
+  </svg>
+</div>
+
+<div class="callout c-amber"><div class="ci">⚠</div><div><strong>Incremental vs scheduled indexing:</strong> Standard indexing runs on a schedule — every 6, 12, or 24 hours. Incremental indexing triggers when source data changes. For GovernGlobal's procurement agents, a contract status that changes at 9am must be reflected in agent responses at 9:05am — not at 9pm when the nightly index runs. NanaJee insists every data source feeding the search index has incremental indexing enabled. "Stale data is a compliance risk," he says.</div></div>
+
+<h2><span class="hn">2.4</span> Data Residency — Governing 14 Countries</h2>
+<p>GovernGlobal's EU practice stores patient data in Azure Germany. Their Southeast Asia practice stores contracts in Azure Singapore. Their AI services run on Azure models that may be deployed in different regions. Cross-region data movement — sending data from one Azure region to another for AI processing — is not assumed. It must be explicitly governed.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Cross-Region Architecture — GovernGlobal EU Healthcare Practice</div>
+  <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <defs><marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/></marker>
+    <marker id="arr4r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#e11d48"/></marker></defs>
+    <!-- EU Environment -->
+    <rect x="20" y="20" width="280" height="160" rx="12" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="160" y="50" text-anchor="middle" fill="#93c4f0" font-family="DM Serif Display" font-size="15">🇪🇺 EU Environment (Germany)</text>
+    <rect x="50" y="66" width="220" height="40" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="160" y="83" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">Copilot Studio Agent</text>
+    <text x="160" y="97" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Patient data — GDPR + HIPAA labeled</text>
+    <rect x="50" y="118" width="220" height="40" rx="8" fill="rgba(5,150,105,.1)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="160" y="135" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="11" font-weight="600">Dataverse (Germany)</text>
+    <text x="160" y="149" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="9">Sensitivity labels applied by Supra</text>
+    <!-- Cross-region arrow — disabled (red X) -->
+    <line x1="300" y1="100" x2="420" y2="100" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr4r)"/>
+    <!-- Block symbol -->
+    <circle cx="360" cy="100" r="14" fill="rgba(190,24,93,.2)" stroke="#e11d48" stroke-width="1.5"/>
+    <text x="360" y="106" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="16" font-weight="700">✗</text>
+    <text x="360" y="76" text-anchor="middle" fill="#e11d48" font-family="DM Sans" font-size="9" font-weight="700">Blocked without</text>
+    <text x="360" y="88" text-anchor="middle" fill="#e11d48" font-family="DM Sans" font-size="9" font-weight="700">cross-region enabled</text>
+    <!-- US AI Service -->
+    <rect x="430" y="20" width="270" height="160" rx="12" fill="rgba(109,40,217,.08)" stroke="rgba(109,40,217,.3)" stroke-width="1.5"/>
+    <text x="565" y="50" text-anchor="middle" fill="#c4b5fd" font-family="DM Serif Display" font-size="15">🇺🇸 North America (AI Service)</text>
+    <rect x="460" y="70" width="210" height="50" rx="8" fill="rgba(109,40,217,.12)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="565" y="93" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11" font-weight="600">Azure OpenAI Service</text>
+    <text x="565" y="109" text-anchor="middle" fill="#6d50a0" font-family="DM Sans" font-size="9">Language processing &amp; generation</text>
+    <!-- Fix: enable cross-region -->
+    <rect x="280" y="165" width="170" height="35" rx="8" fill="rgba(5,150,105,.2)" stroke="rgba(5,150,105,.5)" stroke-width="1.5"/>
+    <text x="365" y="180" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="700">Supra's Fix:</text>
+    <text x="365" y="194" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="9">Enable cross-region data movement</text>
+    <text x="365" y="206" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="9">for EU environment in PP admin center</text>
+  </svg>
+</div>
+
+<h2><span class="hn">2.5</span> Power BI Semantic Models as AI Sources</h2>
+<p>GovernGlobal's finance team has spent three years building a certified Power BI semantic model representing client revenue, project margins, and resource allocation — validated by audit, trusted by CFOs across 14 countries. This model should serve as the grounding layer for Bingo's executive briefing agent. But there is a right way and three wrong ways to expose it.</p>
+
+<div class="cc-grid">
+  <div class="ccard" style="border-left:3px solid var(--jade2)">
+    <div class="ccard-icon ci-jade">✓</div>
+    <h4 style="color:var(--jade2)">Endorse the Semantic Model<a class="cite" href="#ref-6" title="Power BI Endorsement — learn.microsoft.com/power-bi/collaborate-share/service-endorsement-overview">6</a></h4>
+    <p>Registers the model in the AI-ready catalog. Preserves live DirectQuery connectivity. Inherits existing row-level security. The executive agent sees current data with the CFO's access controls intact.</p>
+  </div>
+  <div class="ccard" style="border-left:3px solid var(--rose2);opacity:.7">
+    <div class="ccard-icon ci-rose">✗</div>
+    <h4 style="color:var(--rose2)">Export to CSV</h4>
+    <p>Creates a static snapshot. Loses live connectivity. Loses row-level security. Executive queries yesterday's data as if it were today's. Compliance risk.</p>
+  </div>
+  <div class="ccard" style="border-left:3px solid var(--rose2);opacity:.7">
+    <div class="ccard-icon ci-rose">✗</div>
+    <h4 style="color:var(--rose2)">Copy to Dataverse</h4>
+    <p>Creates a raw copy with no DAX measures, no dimensional hierarchies, no business logic. The AI gets numbers without meaning.</p>
+  </div>
+  <div class="ccard" style="border-left:3px solid var(--rose2);opacity:.7">
+    <div class="ccard-icon ci-rose">✗</div>
+    <h4 style="color:var(--rose2)">Share the Workspace</h4>
+    <p>Makes the workspace visible to additional users. Does not register the model as an AI grounding source. Agent cannot query it.</p>
+  </div>
+</div>
+
+</div>
+</div><!-- /ch2 -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 3 — AGENT PLATFORM
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch3">
+<div class="ch-header">
+  <div class="ch-num">03</div>
+  <div class="ch-kicker">Module Three · Kutub, Neon &amp; Sud</div>
+  <div class="ch-title">Agent Platform Architecture:<br><em>Designing Agents That Don't Surprise You</em></div>
+  <div class="ch-desc">Kutub's architecture review is the most important meeting in GovernGlobal's AI program. Every bad agent decision made here will cost ten times more to fix in production. This chapter is that meeting, made educational.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">3.1</span> The Copilot Studio Ceiling — Know It Before You Design<a class="cite" href="#ref-8" title="Microsoft Copilot Studio — learn.microsoft.com/microsoft-copilot-studio/fundamentals-what-is-copilot-studio">8</a></h2>
+<p>Kutub's first question at every architecture review: "Can Studio solve this?" His second question, which most teams never ask: "What happens when it can't?" Understanding the platform ceiling is not pessimism — it is the design discipline that prevents six-week rework when a requirement turns out to exceed the platform's capability.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Platform Capability Map — What Studio Solves vs Where Custom Is Needed</div>
+  <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <!-- Studio zone -->
+    <rect x="10" y="10" width="340" height="270" rx="12" fill="rgba(13,148,136,.06)" stroke="rgba(13,148,136,.3)" stroke-width="1.5"/>
+    <text x="180" y="40" text-anchor="middle" fill="#5eead4" font-family="Cormorant Garamond" font-size="17" font-weight="600">Copilot Studio</text>
+    <text x="180" y="58" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Low-code · Visual designer · Governed connectors</text>
+    <!-- Studio capabilities as pills -->
+    <rect x="30" y="72" width="138" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="99" y="91" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Conversational Agents</text>
+    <rect x="182" y="72" width="148" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="256" y="91" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Knowledge Retrieval</text>
+    <rect x="30" y="110" width="118" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="89" y="129" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Topic Authoring</text>
+    <rect x="160" y="110" width="168" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="244" y="129" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Live Agent Escalation</text>
+    <rect x="30" y="148" width="128" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="94" y="167" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Multi-Channel Deploy</text>
+    <rect x="172" y="148" width="158" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="251" y="167" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Power Automate Flows</text>
+    <rect x="30" y="186" width="108" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="84" y="205" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Computer Use</text>
+    <rect x="150" y="186" width="108" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="204" y="205" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">MCP Servers</text>
+    <rect x="270" y="186" width="62" height="28" rx="14" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.3)" stroke-width="1"/>
+    <text x="301" y="205" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="11">Voice</text>
+    <text x="180" y="258" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">✓ GovernGlobal's Helpdesk, Procurement,</text>
+    <text x="180" y="272" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Patient Intake agents → Studio</text>
+    <!-- Custom zone -->
+    <rect x="370" y="10" width="340" height="270" rx="12" fill="rgba(109,40,217,.06)" stroke="rgba(109,40,217,.3)" stroke-width="1.5"/>
+    <text x="540" y="40" text-anchor="middle" fill="#c4b5fd" font-family="Cormorant Garamond" font-size="17" font-weight="600">Custom / Azure AI Foundry</text>
+    <text x="540" y="58" text-anchor="middle" fill="#4a3070" font-family="DM Sans" font-size="10">Code-first · Full pipeline control · AI engineering</text>
+    <rect x="390" y="72" width="138" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="459" y="91" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Custom ML Pipelines</text>
+    <rect x="542" y="72" width="148" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="616" y="91" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Formal Evaluations</text>
+    <rect x="390" y="110" width="148" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="464" y="129" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Custom Vector Stores</text>
+    <rect x="552" y="110" width="138" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="621" y="129" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Semantic Kernel SDK</text>
+    <rect x="390" y="148" width="168" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="474" y="167" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Multi-jurisdiction Legal AI</text>
+    <rect x="572" y="148" width="118" height="28" rx="14" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="631" y="167" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="11">Fine-tuned Models</text>
+    <text x="540" y="244" text-anchor="middle" fill="#4a3070" font-family="DM Sans" font-size="10">✓ GovernGlobal's multi-jurisdiction</text>
+    <text x="540" y="258" text-anchor="middle" fill="#4a3070" font-family="DM Sans" font-size="10">contract legality analyzer → Foundry</text>
+  </svg>
+</div>
+
+<h2><span class="hn">3.2</span> Language Models — Three Contracts, Not Three Quality Tiers</h2>
+<p>Selecting a language model is not about picking the "most capable" option. It is about matching the interaction contract to the business requirement. Each model type provides a different guarantee — and that guarantee is the design decision, not a performance consideration.</p>
+
+<div class="diagram">
+  <div class="diagram-title">NLU Model Selection — GovernGlobal's Three Agents, Three Contracts</div>
+  <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- NLU -->
+    <rect x="10" y="20" width="220" height="195" rx="12" fill="rgba(196,150,42,.08)" stroke="rgba(196,150,42,.35)" stroke-width="2"/>
+    <text x="120" y="50" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="18" font-weight="700">NLU</text>
+    <text x="120" y="68" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10" font-weight="600">Standard</text>
+    <rect x="30" y="80" width="180" height="28" rx="6" fill="rgba(5,150,105,.12)" stroke="rgba(5,150,105,.25)" stroke-width="1"/>
+    <text x="120" y="99" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="700">FULLY DETERMINISTIC</text>
+    <text x="120" y="130" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Same input →</text>
+    <text x="120" y="145" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">same authored response</text>
+    <text x="120" y="163" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="10" font-weight="600">GovernGlobal use:</text>
+    <text x="120" y="178" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Patient eligibility agent</text>
+    <text x="120" y="191" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Regulatory compliance Q&A</text>
+    <text x="120" y="204" text-anchor="middle" fill="#c8a84b" font-family="DM Sans" font-size="9" font-weight="600">→ Audit-compliant ✓</text>
+    <!-- NLU+ -->
+    <rect x="248" y="20" width="220" height="195" rx="12" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.35)" stroke-width="2"/>
+    <text x="358" y="50" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="18" font-weight="700">NLU+</text>
+    <text x="358" y="68" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10" font-weight="600">Enhanced</text>
+    <rect x="268" y="80" width="180" height="28" rx="6" fill="rgba(29,111,184,.15)" stroke="rgba(29,111,184,.3)" stroke-width="1"/>
+    <text x="358" y="99" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="700">VOICE CHANNEL READY</text>
+    <text x="358" y="130" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Enhanced context reasoning</text>
+    <text x="358" y="145" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Multi-step conversations</text>
+    <text x="358" y="163" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="600">GovernGlobal use:</text>
+    <text x="358" y="178" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">Healthcare voice appointment agent</text>
+    <text x="358" y="191" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">D365 Contact Center integration</text>
+    <text x="358" y="204" text-anchor="middle" fill="#3b8fd4" font-family="DM Sans" font-size="9" font-weight="600">→ Voice channel ✓</text>
+    <!-- Generative -->
+    <rect x="486" y="20" width="220" height="195" rx="12" fill="rgba(109,40,217,.08)" stroke="rgba(109,40,217,.35)" stroke-width="2"/>
+    <text x="596" y="50" text-anchor="middle" fill="#c4b5fd" font-family="Cormorant Garamond" font-size="15" font-weight="700">Generative NLU</text>
+    <text x="596" y="68" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10" font-weight="600">LLM-powered</text>
+    <rect x="506" y="80" width="180" height="28" rx="6" fill="rgba(109,40,217,.15)" stroke="rgba(109,40,217,.3)" stroke-width="1"/>
+    <text x="596" y="99" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="10" font-weight="700">NATURAL VARIED PHRASING</text>
+    <text x="596" y="130" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">LLM generates from grounding</text>
+    <text x="596" y="145" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">Handles any phrasing naturally</text>
+    <text x="596" y="163" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="10" font-weight="600">GovernGlobal use:</text>
+    <text x="596" y="178" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="9">Internal policy Q&amp;A (staff)</text>
+    <text x="596" y="191" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="9">Knowledge base exploration</text>
+    <text x="596" y="204" text-anchor="middle" fill="#8b5cf6" font-family="DM Sans" font-size="9" font-weight="600">→ Internal only per Supra ✓</text>
+  </svg>
+</div>
+
+<div class="pullquote">
+  <p>A generative NLU model at temperature zero is not deterministic. It is "approximately consistent." That is not the same thing. When a HIPAA auditor asks us to reproduce a specific patient eligibility response for a compliance review, "approximately consistent" is not an acceptable answer. We use NLU with authored dialog nodes for eligibility. Full stop.</p>
+  <div class="pq-attr">— Supra, closing the debate on language model selection for the patient agent</div>
+</div>
+
+<h2><span class="hn">3.3</span> Orchestration Models — Two Routing Philosophies</h2>
+
+<div class="vs-grid">
+  <div class="vs-panel" style="border-top:3px solid var(--gold2)">
+    <h4>Classic Orchestration</h4>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:12px;font-style:italic">"Like a fixed airport gate assignment"</div>
+    <ul>
+      <li>Trigger phrases route to specific topics — hardcoded matching</li>
+      <li>Same input always routes to same topic — fully predictable</li>
+      <li>New topics require new trigger phrase sets to be defined</li>
+      <li>Cannot dynamically discover or route to other agents</li>
+      <li>Debug easily: trace which phrase triggered which topic</li>
+    </ul>
+    <div style="margin-top:12px;padding:8px 12px;background:rgba(196,150,42,.08);border-radius:6px;font-size:12px;color:var(--gold3)">GovernGlobal use: deterministic compliance response agent where every topic has a fixed authored response</div>
+  </div>
+  <div class="vs-panel" style="border-top:3px solid var(--teal2)">
+    <h4>Generative Orchestration</h4>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:12px;font-style:italic">"Like a smart routing system that reads your destination"</div>
+    <ul>
+      <li>Topics activated by description of their purpose — no triggers needed</li>
+      <li>New agents auto-discovered based on capability description</li>
+      <li>Routes to other agents dynamically — enables multi-agent composition</li>
+      <li>Handles varied phrasing naturally without exhaustive trigger lists</li>
+      <li>Required when: "topics selected based on description, not trigger phrase"</li>
+    </ul>
+    <div style="margin-top:12px;padding:8px 12px;background:rgba(13,148,136,.08);border-radius:6px;font-size:12px;color:var(--teal3)">GovernGlobal use: internal procurement agent routing to specialist sub-agents for HR, Finance, Legal, and Contracts</div>
+  </div>
+</div>
+
+<h2><span class="hn">3.4</span> Topic Architecture — The Three Safety Exits</h2>
+
+<div class="diagram">
+  <div class="diagram-title">GovernGlobal Patient Intake Agent — Topic Flow with Safety Architecture</div>
+  <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <defs><marker id="arr5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/></marker></defs>
+    <!-- Start -->
+    <rect x="290" y="10" width="140" height="38" rx="8" fill="rgba(13,148,136,.15)" stroke="rgba(13,148,136,.4)" stroke-width="1.5"/>
+    <text x="360" y="34" text-anchor="middle" fill="#5eead4" font-family="DM Sans" font-size="12" font-weight="600">Patient calls in</text>
+    <line x1="360" y1="48" x2="360" y2="72" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- Conversation Start -->
+    <rect x="250" y="74" width="220" height="38" rx="8" fill="rgba(196,150,42,.12)" stroke="rgba(196,150,42,.35)" stroke-width="1.5"/>
+    <text x="360" y="90" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="11" font-weight="600">Conversation Start Topic</text>
+    <text x="360" y="104" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="9">Greeting · Context gathering · Auth</text>
+    <line x1="360" y1="112" x2="360" y2="136" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- NLU matching -->
+    <rect x="230" y="138" width="260" height="38" rx="8" fill="rgba(29,111,184,.12)" stroke="rgba(29,111,184,.35)" stroke-width="1.5"/>
+    <text x="360" y="154" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="11" font-weight="600">NLU+ Intent Recognition</text>
+    <text x="360" y="168" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">Voice channel · D365 Contact Center</text>
+    <!-- Branches -->
+    <line x1="280" y1="176" x2="120" y2="210" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <line x1="360" y1="176" x2="360" y2="210" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <line x1="440" y1="176" x2="600" y2="210" stroke="#2a4d78" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- Fallback -->
+    <rect x="20" y="212" width="200" height="60" rx="8" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.35)" stroke-width="1.5"/>
+    <text x="120" y="234" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="11" font-weight="700">Fallback Topic</text>
+    <text x="120" y="250" text-anchor="middle" fill="#8a5030" font-family="DM Sans" font-size="9">Intent unrecognized</text>
+    <text x="120" y="264" text-anchor="middle" fill="#8a5030" font-family="DM Sans" font-size="9">→ Graceful default · Offer alternatives</text>
+    <!-- Regular Topics -->
+    <rect x="240" y="212" width="240" height="60" rx="8" fill="rgba(5,150,105,.12)" stroke="rgba(5,150,105,.35)" stroke-width="1.5"/>
+    <text x="360" y="234" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="11" font-weight="700">Regular Topics</text>
+    <text x="360" y="250" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="9">Appointments · Test results · Billing</text>
+    <text x="360" y="264" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="9">→ Handle → Resolve</text>
+    <!-- Escalation -->
+    <rect x="500" y="212" width="210" height="60" rx="8" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.4)" stroke-width="2"/>
+    <text x="605" y="230" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="11" font-weight="700">Escalation Topic</text>
+    <text x="605" y="246" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="9">"I need to speak to a nurse"</text>
+    <text x="605" y="260" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="9">→ Full transcript + context transfer</text>
+    <text x="605" y="274" text-anchor="middle" fill="#e11d48" font-family="DM Sans" font-size="9" font-weight="700">→ Live clinical queue</text>
+    <!-- Bottom note -->
+    <rect x="460" y="285" width="250" height="28" rx="6" fill="rgba(190,24,93,.08)" stroke="rgba(190,24,93,.2)" stroke-width="1"/>
+    <text x="585" y="303" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9">Customer Engagement Hub routes to on-call team</text>
+  </svg>
+</div>
+
+<h2><span class="hn">3.5</span> Computer Use<a class="cite" href="#ref-10" title="Computer Use in Copilot Studio — learn.microsoft.com/microsoft-copilot-studio/computer-use">10</a> &amp; MCP — Two Different Keys to Locked Rooms</h2>
+
+<div class="cc-grid">
+  <div class="ccard" style="border-top:3px solid var(--violet2)">
+    <div class="ccard-icon ci-violet">🖱️</div>
+    <h4>Computer Use in Copilot Studio<a class="cite" href="#ref-10" title="Use Computer Use in Copilot Studio — learn.microsoft.com/microsoft-copilot-studio/computer-use">10</a></h4>
+    <p><strong>The problem it solves:</strong> GovernGlobal's government practice submits documents to a legacy benefits portal with no API. The only interface is a web form.</p>
+    <p><strong>How it works:</strong> The AI model evaluates the page layout at runtime — not at design time. When the government portal updates its UI (which it does quarterly without notice), Computer Use re-identifies elements by context and purpose. The automation survives the update.</p>
+    <p style="color:var(--teal2);font-size:12px;margin-top:8px;font-weight:600">Use when: no API exists or UI changes frequently</p>
+  </div>
+  <div class="ccard" style="border-top:3px solid var(--sky2)">
+    <div class="ccard-icon ci-sky">🔌</div>
+    <h4>Model Context Protocol (MCP)</h4>
+    <p><strong>The problem it solves:</strong> GovernGlobal's legal team updates their jurisdiction compliance rules weekly. The AI agent needs these updates — but requiring the AI team to update the agent each time is unsustainable.</p>
+    <p><strong>How it works:</strong> An MCP server exposes the legal team's tools through a standardized protocol.<a class="cite" href="#ref-11" title="Model Context Protocol in Copilot Studio — learn.microsoft.com/microsoft-copilot-studio/agent-extend-action-mcp">11</a> At runtime, the agent queries the MCP server to discover what tools are currently available, then invokes them. New tools added by the legal team are immediately available to the agent — no redeployment.</p>
+    <p style="color:var(--sky2);font-size:12px;margin-top:8px;font-weight:600">Use when: tool catalog changes or is owned by another team</p>
+  </div>
+</div>
+
+<h2><span class="hn">3.6</span> Multi-Agent Architecture — Earn the Complexity</h2>
+<p>Abhi proposes a seven-agent architecture for GovernGlobal's government practice. Anir draws it on the whiteboard, then asks: "Which of these agents cannot be a topic in a single agent?" The answer is two. The seven-agent proposal becomes a two-agent architecture. Both requirements are met. The debugging surface is 70% smaller.</p>
+
+<div class="tw"><table>
+<tr><th>Signal</th><th>Single Agent</th><th>Multi-Agent</th></tr>
+<tr><td>Security boundary</td><td>All tasks use data the agent can uniformly access</td><td><strong>Tasks cross security boundaries</strong> — patient data vs operational data requires separate permission scopes</td></tr>
+<tr><td>Specialization value</td><td>General agent handles 80%+ of scenarios at acceptable quality</td><td>Specialized agents demonstrably outperform a generalist for their specific domain</td></tr>
+<tr><td>Team maturity</td><td>Team is new to AI agent development</td><td>Team has successfully operated single-agent systems in production</td></tr>
+<tr><td>Anir's rule</td><td colspan="2"><strong>Start with the minimum agent count that delivers core value. Add agents only when a single agent demonstrably fails to meet a specific requirement.</strong></td></tr>
+</table></div>
+
+</div>
+</div><!-- /ch3 -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 4 — DYNAMICS 365 AI
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch4">
+<div class="ch-header">
+  <div class="ch-num">04</div>
+  <div class="ch-kicker">Module Four · Abhi, Kutub &amp; NanaJee</div>
+  <div class="ch-title">Dynamics 365 AI Integration:<br><em>The Right Copilot for the Right Role</em></div>
+  <div class="ch-desc">Every GovernGlobal practice is asking Kutub for an AI agent. Most of what they want already exists — as prebuilt Copilot capabilities in the products they already use. Abhi's rule: configure before you build. This chapter maps every major D365 Copilot capability to the GovernGlobal use case it addresses.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">4.1</span> The First Question: Does It Already Exist?</h2>
+<p>Kutub is designing a Copilot Studio agent with Exchange connectors for email assistance when Abhi stops him. "Does this already exist in D365 Sales?" It does — Copilot email assist ships with the product<a class="cite" href="#ref-12" title="Copilot in Dynamics 365 Sales — learn.microsoft.com/dynamics365/sales/copilot-overview">12</a>. Kutub was about to spend three weeks building something Microsoft already built. Abhi's rule applies before any build decision is made.</p>
+
+<div class="callout c-gold"><div class="ci">🔑</div><div><strong>The architect's first question for every D365 requirement:</strong> Is there a prebuilt Copilot capability in this product for this scenario? If yes: configure it and assign the right security role. If no: build a custom agent in Copilot Studio. Building what is already prebuilt adds development time, maintenance burden, and version management overhead — all for a feature Microsoft updates automatically when you use the native version.</div></div>
+
+<h2><span class="hn">4.2</span> Copilot for Sales — Three Surfaces, Three Use Cases</h2>
+
+<div class="diagram">
+  <div class="diagram-title">GovernGlobal Sales Practice — Copilot Capability Map</div>
+  <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- Email Assist -->
+    <rect x="10" y="10" width="218" height="230" rx="12" fill="rgba(196,150,42,.07)" stroke="rgba(196,150,42,.3)" stroke-width="1.5"/>
+    <text x="119" y="40" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="14" font-weight="700">Copilot Email Assist</text>
+    <rect x="30" y="50" width="178" height="28" rx="6" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="119" y="69" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">LIVES IN: D365 Sales Hub</text>
+    <text x="119" y="100" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Drafts personalized</text>
+    <text x="119" y="115" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">email replies using</text>
+    <text x="119" y="130" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">open opportunity</text>
+    <text x="119" y="145" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">context + client history</text>
+    <rect x="30" y="164" width="178" height="60" rx="8" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.2)" stroke-width="1"/>
+    <text x="119" y="184" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="600">GovernGlobal Use</text>
+    <text x="119" y="200" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">Engagement managers draft</text>
+    <text x="119" y="214" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">follow-ups after client meetings</text>
+    <!-- M365 Copilot for Sales -->
+    <rect x="248" y="10" width="218" height="230" rx="12" fill="rgba(29,111,184,.07)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="357" y="38" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="13" font-weight="700">M365 Copilot for Sales</text>
+    <rect x="268" y="50" width="178" height="28" rx="6" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="357" y="69" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">LIVES IN: Outlook &amp; Teams</text>
+    <text x="357" y="100" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Email thread summaries</text>
+    <text x="357" y="115" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Suggested reply drafts</text>
+    <text x="357" y="130" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Meeting prep with CRM data</text>
+    <text x="357" y="145" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">from D365 Sales surfaced</text>
+    <rect x="268" y="164" width="178" height="60" rx="8" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.2)" stroke-width="1"/>
+    <text x="357" y="184" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="600">GovernGlobal Use</text>
+    <text x="357" y="200" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">Account leads prep for</text>
+    <text x="357" y="214" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">government client review calls</text>
+    <!-- Opportunity Summary -->
+    <rect x="486" y="10" width="224" height="230" rx="12" fill="rgba(5,150,105,.07)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="598" y="38" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="13" font-weight="700">Opportunity Summary</text>
+    <rect x="506" y="50" width="184" height="28" rx="6" fill="rgba(5,150,105,.15)" stroke="rgba(5,150,105,.3)" stroke-width="1"/>
+    <text x="598" y="69" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">LIVES IN: D365 Sales Hub</text>
+    <text x="598" y="100" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">AI-generated summary of</text>
+    <text x="598" y="115" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">open opportunity from</text>
+    <text x="598" y="130" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">configured fields + activity</text>
+    <rect x="506" y="148" width="184" height="46" rx="6" fill="rgba(5,150,105,.08)" stroke="rgba(5,150,105,.2)" stroke-width="1"/>
+    <text x="598" y="166" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="9" font-weight="600">Customization mechanism:</text>
+    <text x="598" y="182" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="9">Add fields to summary config</text>
+    <text x="598" y="196" text-anchor="middle" fill="#8a4040" font-family="DM Sans" font-size="9">NOT Power Automate flows</text>
+    <rect x="506" y="204" width="184" height="30" rx="6" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.2)" stroke-width="1"/>
+    <text x="598" y="218" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="9" font-weight="600">GovernGlobal: added</text>
+    <text x="598" y="232" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="9">"Regulatory Jurisdiction" field</text>
+  </svg>
+</div>
+
+<h2><span class="hn">4.3</span> Field Service — Two Users, Two Copilots</h2>
+<p>GovernGlobal's healthcare equipment maintenance practice has dispatchers who coordinate field engineers from an office (Outlook + Teams), and field engineers who visit hospitals to service medical equipment on site (Field Service mobile app)<a class="cite" href="#ref-14" title="Copilot in Dynamics 365 Field Service — learn.microsoft.com/dynamics365/field-service/copilot-in-field-service">14</a>. Same organization. Two different users. Two completely different Copilot integrations.</p>
+
+<div class="vs-grid">
+  <div class="vs-panel" style="border-top:3px solid var(--sky2)">
+    <h4 style="color:var(--sky2)">📧 Copilot in Outlook — For Dispatchers</h4>
+    <ul>
+      <li>Drafts service assignment communications</li>
+      <li>Summarizes correspondence threads from engineers and clients</li>
+      <li>Prioritizes work orders by urgency and location</li>
+      <li><strong>User:</strong> Back-office dispatcher with full screen access</li>
+    </ul>
+  </div>
+  <div class="vs-panel" style="border-top:3px solid var(--teal2)">
+    <h4 style="color:var(--teal2)">📱 Copilot in Field Service — For Engineers</h4>
+    <ul>
+      <li>Work-order summaries on mobile app before arriving on site</li>
+      <li>Suggested resolution steps based on fault code</li>
+      <li>Relevant knowledge articles for the specific equipment model</li>
+      <li><strong>User:</strong> Field engineer in a hospital — often hands-full, no desk access</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout c-rose"><div class="ci">⚠</div><div><strong>The anti-pattern Kutub almost made:</strong> He configured Copilot in Customer Service for the field engineers. Copilot in Customer Service supports back-office case agents working tickets in the Customer Service workspace — it does not extend to mobile field technicians. The deployment worked. The adoption failed. Engineers had no AI assistance on site. Gogol received three complaints in week one.</div></div>
+
+<h2><span class="hn">4.4</span> Finance Copilot — Three Distinct Capabilities</h2>
+
+<div class="tw"><table>
+<tr><th>Capability</th><th>What It Does</th><th>GovernGlobal Use Case</th><th>Prerequisite</th></tr>
+<tr><td><strong>Account Reconciliation Agent</strong></td><td>Automates matching of bank statements to vendor ledger and invoice records. Surfaces overdue invoices and outstanding balances.</td><td>AP team processes vendor invoices across 14 countries — 3 hours/day of manual statement matching eliminated</td><td>Finance and Operations AI security role<a class="cite" href="#ref-15" title="Copilot in finance and operations apps — learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/copilot/enable-copilot">15</a> assigned</td></tr>
+<tr><td><strong>Collections Coordinator Summary</strong></td><td>Generative AI aggregates payment histories, aging reports, and communication records into a concise narrative per account</td><td>Collections managers review 40 accounts/day — summary reduces per-account review from 25 minutes to 4</td><td>Finance and Operations AI security role assigned</td></tr>
+<tr><td><strong>Finance AI Security Role</strong></td><td>Grants permissions to access AP data, invoke AI models, write back results for prebuilt Finance Copilot capabilities</td><td>Supra assigns this role in Power Platform admin center before any Finance Copilot user can access the capabilities</td><td><span class="tag tr">This IS the prerequisite — must exist first</span></td></tr>
+</table></div>
+
+<h2><span class="hn">4.5</span> Supply Chain Management Copilot</h2>
+
+<div class="cc-grid">
+  <div class="ccard">
+    <div class="ccard-icon ci-teal">📊</div>
+    <h4>AI Summaries with Copilot</h4>
+    <p>Analyzes customer order data and generates natural language summaries of trends, purchasing patterns, and anomalies for operations managers. GovernGlobal's procurement directors receive a daily briefing paragraph instead of a Power BI dashboard to manually interpret.</p>
+  </div>
+  <div class="ccard">
+    <div class="ccard-icon ci-sky">🔮</div>
+    <h4>Generative Insights for Demand Planning</h4>
+    <p>AI-powered demand forecasts based on historical sales patterns, seasonal signals, and current order velocity. GovernGlobal's planners build 90-day procurement forecasts with AI augmentation — reducing planning cycle time and improving forecast accuracy.</p>
+  </div>
+  <div class="ccard">
+    <div class="ccard-icon ci-gold">🗂️</div>
+    <h4>Agent Management<a class="cite" href="#ref-16" title="Agent Management in D365 SCM — learn.microsoft.com/dynamics365/supply-chain/copilot/agent-management">16</a></h4>
+    <p>GovernGlobal's supply chain CTO wants to evaluate which prebuilt AI agents are available before committing to deployment. Agent Management in D365 SCM is the discovery catalog — descriptions, use cases, estimated value, and capability previews. This is where you go before Copilot Studio.</p>
+  </div>
+</div>
+
+<h2><span class="hn">4.6</span> Contact Center — The Live Agent Hand-Off Architecture</h2>
+<p>GovernGlobal's citizen services practice runs a contact center for a government client. Citizens call with benefits questions. Most are routine. Some are distressed. The agent must be able to help the first group and safely hand off the second. The hand-off architecture is not optional — it is the safety mechanism.</p>
+
+<div class="dflow">
+  <div class="df-step"><div class="df-line"><div class="df-dot">1</div><div class="df-connector"></div></div><div class="df-content"><h4>Citizen calls — NLU+ handles voice channel</h4><p>GovernGlobal's Contact Center agent uses NLU+ — required for voice channel integration with D365 Contact Center. Enhanced context awareness ensures multi-turn benefits conversations are handled correctly.</p></div></div>
+  <div class="df-step"><div class="df-line"><div class="df-dot">2</div><div class="df-connector"></div></div><div class="df-content"><h4>Agent handles routine queries from indexed knowledge</h4><p>Eligibility questions, document requirements, appointment scheduling — all handled by authored topics with deterministic responses. Supra has approved every authored response.</p></div></div>
+  <div class="df-step"><div class="df-line"><div class="df-dot">3</div><div class="df-connector"></div></div><div class="df-content"><h4>Escalation trigger: "I want to speak to someone"</h4><p>The Escalation Topic detects the intent. It ends the bot session. It invokes the built-in hand-off action — passing the full conversation transcript, citizen case number, query category, and session ID to the routing layer.</p></div></div>
+  <div class="df-step"><div class="df-line"><div class="df-dot">4</div><div class="df-connector"></div></div><div class="df-content"><h4>Customer Engagement Hub routes to correct queue<a class="cite" href="#ref-17" title="Integrate a Copilot Studio bot with Contact Center — learn.microsoft.com/microsoft-copilot-studio/configuration-hand-off-omnichannel">17</a></h4><p>The Hub receives the escalation with full context. It routes to the appropriate agent queue based on query category and citizen language preference. The live agent sees the complete transcript before saying hello.</p></div></div>
+  <div class="df-step"><div class="df-line"><div class="df-dot">5</div></div><div class="df-content"><h4>Gogol's ITSM record is created automatically</h4><p>Every escalation generates an ITSM ticket: escalation reason, session ID, citizen identifier (masked), timestamp, queue route. If the bot's escalation rate spikes, Gogol sees it in his dashboard before anyone else knows. That is the operational governance loop closed.</p></div></div>
+</div>
+
+</div>
+</div><!-- /ch4 -->
+
+<!-- ═══════════════════════════════════════════════════════
+     CHAPTER 5 — ALM & GOVERNANCE
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="ch5">
+<div class="ch-header">
+  <div class="ch-num">05</div>
+  <div class="ch-kicker">Module Five · Supra, Anir &amp; Gogol</div>
+  <div class="ch-title">ALM, Governance &amp; Responsible AI:<br><em>The Architecture Nobody Sees Until It Fails</em></div>
+  <div class="ch-desc">GovernGlobal is 90 days in. Three agents are live. Then Gogol raises a flag: a developer made a production change with no change record. Supra discovers it touched clinical data. This chapter is how GovernGlobal builds the architecture that prevents it permanently.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<h2><span class="hn">5.1</span> Managed vs Unmanaged — The Deployment Contract<a class="cite" href="#ref-19" title="ALM Accelerator for Power Platform<a class="cite" href="#ref-19" title="ALM Accelerator — learn.microsoft.com/power-platform/guidance/alm-accelerator/overview">19</a> — learn.microsoft.com/power-platform/guidance/alm-accelerator/overview">19</a></h2>
+<p>The incident that starts this chapter: a developer found a bug in a live agent, fixed it directly in the production environment because it was deployed as an unmanaged solution<a class="cite" href="#ref-18" title="Solution concepts in Power Platform — learn.microsoft.com/power-platform/alm/solution-concepts-alm">18</a>, and did not create a change record. Three days later, Supra's Purview alert fires — the modified component had accessed a Dataverse table containing patient health records. There is no audit trail for the modification. This is what unmanaged solutions in production environments enable.</p>
+
+<div class="diagram">
+  <div class="diagram-title">GovernGlobal ALM Pipeline — Managed Solution Deployment</div>
+  <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" style="padding:20px">
+    <defs><marker id="arr6" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a4d78"/></marker></defs>
+    <!-- Dev -->
+    <rect x="10" y="30" width="175" height="150" rx="12" fill="rgba(196,150,42,.08)" stroke="rgba(196,150,42,.3)" stroke-width="1.5"/>
+    <text x="97" y="56" text-anchor="middle" fill="#f0d070" font-family="Cormorant Garamond" font-size="15" font-weight="600">Development</text>
+    <rect x="28" y="66" width="140" height="24" rx="6" fill="rgba(196,150,42,.15)" stroke="rgba(196,150,42,.3)" stroke-width="1"/>
+    <text x="98" y="82" text-anchor="middle" fill="#f0d070" font-family="DM Sans" font-size="10" font-weight="700">UNMANAGED</text>
+    <text x="97" y="107" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">Sud &amp; Neon build</text>
+    <text x="97" y="122" text-anchor="middle" fill="#8a7040" font-family="DM Sans" font-size="10">and iterate freely</text>
+    <text x="97" y="143" text-anchor="middle" fill="#c8a84b" font-family="DM Sans" font-size="9" font-weight="600">Export as managed</text>
+    <text x="97" y="157" text-anchor="middle" fill="#c8a84b" font-family="DM Sans" font-size="9" font-weight="600">solution for promotion</text>
+    <!-- Arrow -->
+    <line x1="185" y1="105" x2="225" y2="105" stroke="#2a4d78" stroke-width="2" marker-end="url(#arr6)"/>
+    <text x="205" y="95" text-anchor="middle" fill="#5a7090" font-family="DM Sans" font-size="9">Managed</text>
+    <text x="205" y="108" text-anchor="middle" fill="#5a7090" font-family="DM Sans" font-size="9">export</text>
+    <!-- Test -->
+    <rect x="230" y="30" width="175" height="150" rx="12" fill="rgba(29,111,184,.08)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="317" y="56" text-anchor="middle" fill="#93c4f0" font-family="Cormorant Garamond" font-size="15" font-weight="600">Test / Staging</text>
+    <rect x="248" y="66" width="140" height="24" rx="6" fill="rgba(29,111,184,.15)" stroke="rgba(29,111,184,.3)" stroke-width="1"/>
+    <text x="318" y="82" text-anchor="middle" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="700">MANAGED IMPORT</text>
+    <text x="317" y="107" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Anir + Abhi validate</text>
+    <text x="317" y="122" text-anchor="middle" fill="#4a6080" font-family="DM Sans" font-size="10">Cannot be edited here</text>
+    <text x="317" y="143" text-anchor="middle" fill="#3b8fd4" font-family="DM Sans" font-size="9" font-weight="600">Approval required</text>
+    <text x="317" y="157" text-anchor="middle" fill="#3b8fd4" font-family="DM Sans" font-size="9" font-weight="600">to proceed</text>
+    <!-- Arrow -->
+    <line x1="405" y1="105" x2="445" y2="105" stroke="#2a4d78" stroke-width="2" marker-end="url(#arr6)"/>
+    <text x="425" y="95" text-anchor="middle" fill="#5a7090" font-family="DM Sans" font-size="9">Approved</text>
+    <text x="425" y="108" text-anchor="middle" fill="#5a7090" font-family="DM Sans" font-size="9">managed</text>
+    <!-- Production -->
+    <rect x="450" y="30" width="260" height="150" rx="12" fill="rgba(5,150,105,.08)" stroke="rgba(5,150,105,.35)" stroke-width="2"/>
+    <text x="580" y="56" text-anchor="middle" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="15" font-weight="600">Production</text>
+    <rect x="468" y="66" width="224" height="24" rx="6" fill="rgba(5,150,105,.2)" stroke="rgba(5,150,105,.4)" stroke-width="1.5"/>
+    <text x="580" y="82" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="700">MANAGED — IMMUTABLE</text>
+    <text x="580" y="107" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Supra + Gogol own it</text>
+    <text x="580" y="122" text-anchor="middle" fill="#2a6050" font-family="DM Sans" font-size="10">Zero direct edits permitted</text>
+    <rect x="468" y="140" width="224" height="32" rx="6" fill="rgba(190,24,93,.08)" stroke="rgba(190,24,93,.2)" stroke-width="1"/>
+    <text x="580" y="155" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="600">Every change: back to Dev → Test → here</text>
+    <text x="580" y="168" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="9">Gogol gets ITSM change record for every deployment</text>
+  </svg>
+</div>
+
+<h2><span class="hn">5.2</span> Microsoft Purview — GovernGlobal's AI Oversight Command Center<a class="cite" href="#ref-20" title="Microsoft Purview for AI — learn.microsoft.com/purview/ai-microsoft-purview">20</a></h2>
+<p>Purview is not one tool for one requirement. For GovernGlobal's AI program, it serves three distinct functions — each owned by a different role, each solving a different governance problem.</p>
+
+<div class="diagram">
+  <div class="diagram-title">Microsoft Purview — Three Functions, Three Owners at GovernGlobal</div>
+  <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- Function 1: AI Inventory -->
+    <rect x="10" y="10" width="220" height="210" rx="12" fill="rgba(190,24,93,.07)" stroke="rgba(190,24,93,.3)" stroke-width="1.5"/>
+    <text x="120" y="40" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="14" font-weight="700">AI Resource Inventory</text>
+    <circle cx="120" cy="95" r="34" fill="rgba(190,24,93,.12)" stroke="rgba(190,24,93,.3)" stroke-width="1.5"/>
+    <text x="120" y="91" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="20">🔍</text>
+    <text x="120" y="107" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="600">Supra's tool</text>
+    <text x="120" y="148" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">Discovers &amp; catalogs all</text>
+    <text x="120" y="163" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">AI models and agents</text>
+    <text x="120" y="178" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">across the tenant</text>
+    <text x="120" y="200" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="600">Monthly compliance audit starts here</text>
+    <!-- Function 2: Sensitive Data -->
+    <rect x="248" y="10" width="220" height="210" rx="12" fill="rgba(180,83,9,.07)" stroke="rgba(180,83,9,.3)" stroke-width="1.5"/>
+    <text x="358" y="38" text-anchor="middle" fill="#fed7aa" font-family="Cormorant Garamond" font-size="13" font-weight="700">Sensitive Data Tracking</text>
+    <circle cx="358" cy="95" r="34" fill="rgba(180,83,9,.12)" stroke="rgba(180,83,9,.3)" stroke-width="1.5"/>
+    <text x="358" y="91" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="20">📋</text>
+    <text x="358" y="107" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="9" font-weight="600">Supra's alert system</text>
+    <text x="358" y="148" text-anchor="middle" fill="#8a5030" font-family="DM Sans" font-size="10">Per-run, per-user record of</text>
+    <text x="358" y="163" text-anchor="middle" fill="#8a5030" font-family="DM Sans" font-size="10">which sensitivity-labeled</text>
+    <text x="358" y="178" text-anchor="middle" fill="#8a5030" font-family="DM Sans" font-size="10">data was accessed &amp; when</text>
+    <text x="358" y="200" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="9" font-weight="600">Anomaly → Gogol incident auto-created</text>
+    <!-- Function 3: Labels -->
+    <rect x="486" y="10" width="224" height="210" rx="12" fill="rgba(109,40,217,.07)" stroke="rgba(109,40,217,.3)" stroke-width="1.5"/>
+    <text x="598" y="38" text-anchor="middle" fill="#c4b5fd" font-family="Cormorant Garamond" font-size="13" font-weight="700">Sensitivity Label Admin</text>
+    <circle cx="598" cy="95" r="34" fill="rgba(109,40,217,.12)" stroke="rgba(109,40,217,.3)" stroke-width="1.5"/>
+    <text x="598" y="91" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="20">🏷️</text>
+    <text x="598" y="107" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="9" font-weight="600">CIO / Supra's domain</text>
+    <text x="598" y="148" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">Applies AIP labels to</text>
+    <text x="598" y="163" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">Dataverse + SharePoint</text>
+    <text x="598" y="178" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">Labels = enforcement,</text>
+    <text x="598" y="193" text-anchor="middle" fill="#6d3a9a" font-family="DM Sans" font-size="10">not just classification</text>
+    <text x="598" y="208" text-anchor="middle" fill="#c4b5fd" font-family="DM Sans" font-size="9" font-weight="600">Required before agent deployment</text>
+  </svg>
+</div>
+
+<h2><span class="hn">5.3</span> Responsible AI — Six Principles as Architectural Requirements</h2>
+<p>Microsoft's Responsible AI framework defines six principles<a class="cite" href="#ref-21" title="Microsoft Responsible AI principles — microsoft.com/ai/responsible-ai">21</a>. GovernGlobal's mistake in month three is treating them as a values statement to be completed at the deployment gate. Anir's correction: these are technical requirements with specific architectural implementations. Discovering them post-development creates expensive rework.</p>
+
+<div class="diagram">
+  <div class="diagram-title">GovernGlobal RAI Assessment — Patient Eligibility Agent Findings</div>
+  <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="padding:16px">
+    <!-- Fairness -->
+    <rect x="10" y="10" width="340" height="82" rx="10" fill="rgba(196,150,42,.07)" stroke="rgba(196,150,42,.3)" stroke-width="1.5"/>
+    <text x="28" y="34" fill="#f0d070" font-family="Cormorant Garamond" font-size="14" font-weight="700">⚖ Fairness</text>
+    <rect x="100" y="18" width="130" height="20" rx="10" fill="rgba(190,24,93,.2)" stroke="rgba(190,24,93,.4)" stroke-width="1"/>
+    <text x="165" y="32" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="700">FINDING: Violation</text>
+    <text x="28" y="55" fill="#8a7040" font-family="DM Sans" font-size="10">Non-English interactions: statistically lower quality outcomes vs English. 14-country org must serve all.</text>
+    <text x="28" y="70" fill="#f0d070" font-family="DM Sans" font-size="10" font-weight="600">Fix: Expand multilingual model coverage before scaling to affected regions.</text>
+    <!-- Transparency -->
+    <rect x="10" y="102" width="340" height="82" rx="10" fill="rgba(29,111,184,.07)" stroke="rgba(29,111,184,.3)" stroke-width="1.5"/>
+    <text x="28" y="126" fill="#93c4f0" font-family="Cormorant Garamond" font-size="14" font-weight="700">🔍 Transparency</text>
+    <rect x="140" y="110" width="130" height="20" rx="10" fill="rgba(190,24,93,.2)" stroke="rgba(190,24,93,.4)" stroke-width="1"/>
+    <text x="205" y="124" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="700">FINDING: Violation</text>
+    <text x="28" y="147" fill="#4a6080" font-family="DM Sans" font-size="10">Eligibility determinations made with no explanation to patient. Outcome given. Basis not given.</text>
+    <text x="28" y="162" fill="#93c4f0" font-family="DM Sans" font-size="10" font-weight="600">Fix: Add explanation to every determination: "Assessed based on coverage + procedure code."</text>
+    <!-- Accountability -->
+    <rect x="10" y="194" width="340" height="82" rx="10" fill="rgba(190,24,93,.07)" stroke="rgba(190,24,93,.3)" stroke-width="1.5"/>
+    <text x="28" y="218" fill="#fda4af" font-family="Cormorant Garamond" font-size="14" font-weight="700">👤 Accountability</text>
+    <rect x="168" y="202" width="130" height="20" rx="10" fill="rgba(190,24,93,.2)" stroke="rgba(190,24,93,.4)" stroke-width="1"/>
+    <text x="233" y="216" text-anchor="middle" fill="#fda4af" font-family="DM Sans" font-size="9" font-weight="700">FINDING: Violation</text>
+    <text x="28" y="239" fill="#804050" font-family="DM Sans" font-size="10">Human reviewer approves flagged cases without seeing the AI's flagging rationale. Rubber-stamp.</text>
+    <text x="28" y="254" fill="#fda4af" font-family="DM Sans" font-size="10" font-weight="600">Fix: Present AI reasoning with each flag. Require explicit approval with acknowledgment.</text>
+    <!-- Passed -->
+    <rect x="370" y="10" width="340" height="82" rx="10" fill="rgba(5,150,105,.07)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="388" y="34" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="14" font-weight="700">🛡 Reliability &amp; Safety</text>
+    <rect x="540" y="18" width="100" height="20" rx="10" fill="rgba(5,150,105,.25)" stroke="rgba(5,150,105,.4)" stroke-width="1"/>
+    <text x="590" y="32" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="9" font-weight="700">✓ PASSED</text>
+    <text x="388" y="55" fill="#2a6050" font-family="DM Sans" font-size="10">Authored dialog nodes for eligibility provide deterministic responses. Guardrails tested. Fallback designed.</text>
+    <text x="388" y="70" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">Anir's NLU architecture decision made this possible.</text>
+    <rect x="370" y="102" width="340" height="82" rx="10" fill="rgba(5,150,105,.07)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="388" y="126" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="14" font-weight="700">🔒 Privacy &amp; Security</text>
+    <rect x="544" y="110" width="100" height="20" rx="10" fill="rgba(5,150,105,.25)" stroke="rgba(5,150,105,.4)" stroke-width="1"/>
+    <text x="594" y="124" text-anchor="middle" fill="#6ee7b7" font-family="DM Sans" font-size="9" font-weight="700">✓ PASSED</text>
+    <text x="388" y="147" fill="#2a6050" font-family="DM Sans" font-size="10">Sensitivity labels applied by Supra. Row-level security in Dataverse. Cross-region movement governed.</text>
+    <text x="388" y="162" fill="#6ee7b7" font-family="DM Sans" font-size="10" font-weight="600">Supra's work in Module 2 protected this pillar.</text>
+    <rect x="370" y="194" width="340" height="82" rx="10" fill="rgba(5,150,105,.07)" stroke="rgba(5,150,105,.3)" stroke-width="1.5"/>
+    <text x="388" y="218" fill="#6ee7b7" font-family="Cormorant Garamond" font-size="14" font-weight="700">🌍 Inclusiveness</text>
+    <rect x="500" y="202" width="100" height="20" rx="10" fill="rgba(180,83,9,.2)" stroke="rgba(180,83,9,.4)" stroke-width="1"/>
+    <text x="550" y="216" text-anchor="middle" fill="#fed7aa" font-family="DM Sans" font-size="9" font-weight="700">IN PROGRESS</text>
+    <text x="388" y="239" fill="#2a6050" font-family="DM Sans" font-size="10">Accessibility standards met. Multi-language support in roadmap (tied to Fairness finding above).</text>
+    <text x="388" y="254" fill="#fed7aa" font-family="DM Sans" font-size="10" font-weight="600">Multilingual expansion prerequisite to full pass.</text>
+    <!-- Co-violation note -->
+    <rect x="10" y="290" width="700" height="70" rx="10" fill="rgba(190,24,93,.06)" stroke="rgba(190,24,93,.25)" stroke-width="1.5"/>
+    <text x="360" y="316" text-anchor="middle" fill="#fda4af" font-family="Cormorant Garamond" font-size="15" font-weight="600">The Co-Violation: Transparency + Accountability always fail together</text>
+    <text x="360" y="336" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">Any autonomous decision system where the affected person cannot understand the decision (Transparency) and no human can meaningfully</text>
+    <text x="360" y="350" text-anchor="middle" fill="#804050" font-family="DM Sans" font-size="10">review it because they lack the AI's reasoning (Accountability) violates both principles simultaneously. This is the most common failure pattern in enterprise AI.</text>
+  </svg>
+</div>
+
+<h2><span class="hn">5.4</span> Prompt Engineering as Governed Practice</h2>
+
+<div class="tw"><table>
+<tr><th>Problem</th><th>What Goes Wrong in Production</th><th>Correct Design</th></tr>
+<tr><td><strong>Vague instruction</strong><br><em>"Help the customer as best you can"</em></td><td>High-variance outputs. Some interactions work. Some don't. Variance is invisible until a high-stakes interaction fails.</td><td>Clear task-specific instruction: the task, constraints, scope, and format. Explicitly.</td></tr>
+<tr><td><strong>No source constraints</strong><br><em>General knowledge enabled</em></td><td>Agent blends validated internal policy with training-data general knowledge. Answers sound authoritative. Cannot be attributed. Compliance incident waiting.</td><td>Restrict to indexed reference sources only. Disable general model knowledge for compliance-sensitive agents.</td></tr>
+<tr><td><strong>Identical-phrasing test inputs</strong></td><td>Agent passes testing but fails when real users phrase questions the way real users do — colloquial, incomplete, ambiguous.</td><td>Test with varied phrasing: synonyms, informal expressions, partial sentences, different languages. Cover the real input distribution.</td></tr>
+<tr><td><strong>Wrong quality metrics</strong><br><em>Generation time, word count</em></td><td>Team optimizes for speed and brevity. Whether the AI actually helped is never measured.</td><td>Primary: response relevance + accuracy. Secondary: consistency. Generation time is performance. Word count is formatting. Neither measures value.</td></tr>
+</table></div>
+
+<h2><span class="hn">5.5</span> The Full GovernGlobal Architecture — What Was Built</h2>
+<p>At the end of this program, GovernGlobal has not just deployed agents. They have built a compounding system — one where the governance infrastructure strengthens every agent added to it, rather than one that accumulates technical and compliance debt with each deployment.</p>
+
+<div class="layer-diagram">
+  <div class="ld-row"><div class="ld-label">Governance</div><div class="ld-bar"><div class="ld-node n-rose">Purview AI Hub</div><div class="ld-node n-rose">Sensitivity Labels</div><div class="ld-node n-rose">RAI Quarterly Assessment</div><div class="ld-node n-rose">Gogol's ITSM Loop</div></div></div>
+  <div class="ld-connector"></div>
+  <div class="ld-row"><div class="ld-label">ALM Pipeline</div><div class="ld-bar"><div class="ld-node n-violet">Dev Environment</div><div class="ld-node n-violet">Managed Export</div><div class="ld-node n-violet">Test Approval Gate</div><div class="ld-node n-violet">Production Immutable</div></div></div>
+  <div class="ld-connector"></div>
+  <div class="ld-row"><div class="ld-label">D365 Copilots</div><div class="ld-bar"><div class="ld-node n-amber">Sales Email Assist</div><div class="ld-node n-amber">Field Service</div><div class="ld-node n-amber">Finance AI</div><div class="ld-node n-amber">SCM Summaries</div><div class="ld-node n-amber">Contact Center</div></div></div>
+  <div class="ld-connector"></div>
+  <div class="ld-row"><div class="ld-label">Agent Platform</div><div class="ld-bar"><div class="ld-node n-sky">Copilot Studio</div><div class="ld-node n-sky">NLU / NLU+ / Gen</div><div class="ld-node n-sky">Computer Use</div><div class="ld-node n-sky">MCP Protocol</div><div class="ld-node n-sky">Escalation Topics</div></div></div>
+  <div class="ld-connector"></div>
+  <div class="ld-row"><div class="ld-label">Data Layer</div><div class="ld-bar"><div class="ld-node n-teal">Dataverse SSOT</div><div class="ld-node n-teal">Azure AI Search</div><div class="ld-node n-teal">Power BI Endorsed</div><div class="ld-node n-teal">Cross-Region Governed</div></div></div>
+  <div class="ld-connector"></div>
+  <div class="ld-row"><div class="ld-label">Foundation</div><div class="ld-bar"><div class="ld-node n-gold">AI Adoption Strategy</div><div class="ld-node n-gold">CoE Operating Model</div><div class="ld-node n-gold">ROAI Framework</div><div class="ld-node n-gold">Use Case Governance</div></div></div>
+</div>
+
+<div class="pullquote">
+  <p>We did not build a technology project. We built an architecture. Technology projects end when the last agent is deployed. Architectures compound — every agent we add now is safer, faster to build, and easier to govern than the one before it. That is what the foundation work buys.</p>
+  <div class="pq-attr">— Bingo, presenting to GovernGlobal's board at Month 6</div>
+</div>
+
+<div class="callout c-teal"><div class="ci">✦</div><div><strong>What every team member now has:</strong> Bingo has proven ROAI with measured baselines. Anir has an architecture that holds under audit. Abhi delivered in sequence with every stakeholder signed off. Supra has labeled data, governed access, and a Purview dashboard. Neon ships inside the pipeline instead of around it. Sud has deployment rules and a prompt testing framework. NanaJee has a registered endpoint for every data flow. Kutub knows when Studio solves it and when to escalate. Gogol has an ITSM record for every change and every incident. The architecture is not finished. But it is sound.</div></div>
+
+</div>
+</div><!-- /ch5 -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     LEGAL, SOURCES & REFERENCES
+════════════════════════════════════════════════════════ -->
+<div class="chapter" id="legal">
+<div class="ch-header">
+  <div class="ch-num">§</div>
+  <div class="ch-kicker">Legal Notices · Sources · References</div>
+  <div class="ch-title">Sources, <em>Attributions</em><br>&amp; Legal Notices</div>
+  <div class="ch-desc">All sources cited in this book are publicly available Microsoft documentation. All Microsoft product names are trademarks of their respective owners. GovernGlobal is entirely fictional.</div>
+</div>
+<div class="ch-body">
+<div class="chapter-notice"><span class="cn-icon">📘</span><span>All product features, frameworks, tools, and technical concepts described in this chapter are the intellectual property of <strong style="color:var(--amber2)">Microsoft Corporation</strong>. This is independent educational commentary. Verify all details against current official documentation at <a href="https://learn.microsoft.com" target="_blank">learn.microsoft.com</a> before applying to any real project.</span></div>
+
+
+<!-- ── COPYRIGHT & LICENSE ── -->
+<h2><span class="hn">§1</span> Copyright, Ownership &amp; Intended Use</h2>
+
+<div class="callout c-amber" style="margin-bottom:20px"><div class="ci">⚠</div><div><strong>Important to read before using this material.</strong> The vast majority of the technical substance in this book — every product feature, every framework, every architectural capability, every tool name — belongs to <strong>Microsoft Corporation</strong>. This publication is a reading guide and educational commentary built entirely on Microsoft's publicly documented products. It does not own, invent, or independently create any of the technical concepts it describes.</div></div>
+
+<div class="legal-box">
+  <h3>What this book actually is</h3>
+  <p>This publication is an <strong>independent educational commentary</strong> on Microsoft's Agentic AI product stack — Copilot Studio, Dynamics 365 AI features, Power Platform, Azure AI services, Microsoft Purview, and related frameworks. It was written to help architects, developers, and practitioners understand these products in a structured, narrative-driven way.</p>
+  <p><strong>Every technical concept, feature name, framework, and capability described in this book is Microsoft's intellectual property.</strong> The Cloud Adoption Framework, Copilot Studio, Dataverse, Azure AI Search, NLU/NLU+ models, Computer Use, MCP integration, D365 Copilot features, ALM Accelerator, Microsoft Purview, Responsible AI principles — all of it belongs to Microsoft. This book explains those concepts; it does not own them.</p>
+  <p><strong>What is original here</strong> — and only this — is the fictional GovernGlobal narrative, the nine fictional characters, the specific teaching structure and chapter arrangement, and the original explanatory prose written to contextualise Microsoft's products. Those elements are the authors' original creative work and are released under CC BY 4.0.</p>
+</div>
+
+<div class="legal-box" style="border-left:3px solid var(--amber)">
+  <h3>⚠ For Reading &amp; Guidance Purposes Only</h3>
+  <p>This publication is intended for <strong>educational reading and general guidance only</strong>. It is not:</p>
+  <ul style="padding-left:18px;margin:8px 0;font-size:13.5px;color:var(--text2)">
+    <li style="margin-bottom:6px">Official Microsoft documentation — always defer to <a href="https://learn.microsoft.com" target="_blank" style="color:var(--sky2)">learn.microsoft.com</a> for authoritative, current feature documentation</li>
+    <li style="margin-bottom:6px">Legal, compliance, or regulatory advice — HIPAA, GDPR, and other regulatory references are illustrative only</li>
+    <li style="margin-bottom:6px">Microsoft-endorsed or Microsoft-affiliated — this is an independent publication with no relationship to Microsoft Corporation</li>
+    <li style="margin-bottom:6px">A substitute for professional architectural review — decisions based on this material should be validated by qualified architects against your organisation's specific requirements and current Microsoft documentation</li>
+    <li>A guarantee of accuracy — Microsoft products, features, pricing, and URLs change continuously. Content was accurate at time of writing (2025) but may be outdated by the time you read it</li>
+  </ul>
+</div>
+
+<div class="cc-badge">
+  <div class="cc-icon">🄯</div>
+  <div>
+    <p><strong>Licence for original elements only (the narrative, characters, and teaching structure):</strong> Creative Commons Attribution 4.0 International (CC BY 4.0). Free to share, adapt, and build upon with attribution: <em>"Building Intelligent Enterprises — The GovernGlobal Story, Govern Global Practice, 2025."</em></p>
+    <p style="margin-top:8px"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" style="color:var(--sky2)">creativecommons.org/licenses/by/4.0</a> — This licence applies only to the original creative elements, not to any Microsoft IP referenced within.</p>
+  </div>
+</div>
+
+<!-- ── FICTIONAL COMPANY DISCLAIMER ── -->
+<h2><span class="hn">§2</span> Fictional Company Disclaimer</h2>
+<div class="legal-box">
+  <h3>GovernGlobal is entirely fictional</h3>
+  <p><strong>GovernGlobal</strong>, and all characters associated with it — Bingo, Anir, Abhi, Supra, Neon, Sud, NanaJee, Kutub, and Gogol — are entirely fictional. They were created exclusively for educational purposes to illustrate architectural concepts, decision-making processes, and real-world design tensions that arise in enterprise AI programs.</p>
+  <p>Any resemblance to any real company, organisation, or individual — living or deceased — is entirely coincidental and unintended.</p>
+  <p>No real patient health records, client contracts, procurement data, or citizen information of any kind are represented in this publication. All scenarios are hypothetical constructs designed to teach architectural principles.</p>
+  <p><strong>HIPAA, GDPR, and other regulatory references</strong> appear for illustrative purposes to contextualise why specific architectural decisions matter in regulated industries. This document does not constitute legal, compliance, or regulatory advice. Organisations must obtain appropriate professional advice for their specific compliance obligations.</p>
+</div>
+
+<!-- ── TRADEMARK NOTICES ── -->
+<h2><span class="hn">§3</span> Microsoft Trademark Attributions</h2>
+<p>The following names, product names, and feature names are trademarks or registered trademarks of <strong>Microsoft Corporation</strong>. Their use in this educational publication is for descriptive and referential purposes only, consistent with nominative fair use. Govern Global Practice makes no claim to ownership of any of these marks.</p>
+<div class="trademark-grid">
+  <div class="tm-item"><strong>Microsoft®</strong>Registered trademark of Microsoft Corporation</div>
+  <div class="tm-item"><strong>Microsoft Copilot Studio™</strong>Conversational AI agent platform</div>
+  <div class="tm-item"><strong>Microsoft Dataverse™</strong>Data platform for Power Platform</div>
+  <div class="tm-item"><strong>Microsoft Azure®</strong>Cloud computing platform</div>
+  <div class="tm-item"><strong>Dynamics 365®</strong>Business applications suite</div>
+  <div class="tm-item"><strong>Microsoft 365®</strong>Productivity suite</div>
+  <div class="tm-item"><strong>Microsoft Purview™</strong>Data governance and compliance</div>
+  <div class="tm-item"><strong>Azure AI Search™</strong>Intelligent search service</div>
+  <div class="tm-item"><strong>Azure OpenAI Service™</strong>AI model hosting service</div>
+  <div class="tm-item"><strong>Power Platform™</strong>Low-code development platform</div>
+  <div class="tm-item"><strong>Power BI®</strong>Business intelligence platform</div>
+  <div class="tm-item"><strong>Power Automate™</strong>Workflow automation service</div>
+  <div class="tm-item"><strong>AI Builder™</strong>AI capabilities for Power Platform</div>
+  <div class="tm-item"><strong>Microsoft Teams®</strong>Collaboration platform</div>
+  <div class="tm-item"><strong>SharePoint®</strong>Collaboration and content platform</div>
+  <div class="tm-item"><strong>Microsoft Outlook®</strong>Email and calendar application</div>
+</div>
+<p style="font-size:12.5px;color:var(--text3);margin-top:12px">All other trademarks mentioned in this document are the property of their respective owners. The appearance of a trademark in this document does not constitute endorsement by or affiliation with the trademark owner.</p>
+
+<!-- ── REFERENCES ── -->
+<h2><span class="hn">§4</span> References &amp; Source Citations</h2>
+<p>All references below are to publicly available, freely accessible Microsoft documentation hosted at <strong>learn.microsoft.com</strong>, <strong>microsoft.com</strong>, and <strong>azure.microsoft.com</strong>. No paywalled, proprietary, or third-party sources have been used as the factual basis for content in this book.</p>
+<div class="callout c-teal"><div class="ci">ℹ</div><div>URLs were verified as active at time of publication (2025). Microsoft documentation URLs may change. If a URL returns a 404, search for the document title on <strong>learn.microsoft.com</strong> — the content is almost certainly still available at a current URL.</div></div>
+
+<ul class="ref-list">
+  <li class="ref-item" id="ref-1">
+    <div class="ref-num">1</div>
+    <div class="ref-body">
+      <strong>Microsoft Cloud Adoption Framework for Azure</strong>
+      <div class="ref-cat">Strategy · Methodology</div>
+      The end-to-end Microsoft-endorsed methodology for cloud and AI adoption: strategy, planning, readiness, migration, and governance phases.
+      <br><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/" target="_blank">learn.microsoft.com/azure/cloud-adoption-framework/</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-2">
+    <div class="ref-num">2</div>
+    <div class="ref-body">
+      <strong>Power Platform Business Value Toolkit</strong>
+      <div class="ref-cat">ROI · Measurement</div>
+      Microsoft's official tool for mapping Power Platform AI investments to measurable business outcomes using metadata and telemetry.
+      <br><a href="https://learn.microsoft.com/power-platform/guidance/adoption/business-value-toolkit" target="_blank">learn.microsoft.com/power-platform/guidance/adoption/business-value-toolkit</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-3">
+    <div class="ref-num">3</div>
+    <div class="ref-body">
+      <strong>Azure Total Cost of Ownership (TCO) Calculator</strong>
+      <div class="ref-cat">Cost Modelling · Pre-deployment</div>
+      Pre-deployment cost modelling tool for Azure workloads. Produces exportable business-case-ready cost estimates across compute, storage, AI services, and networking.
+      <br><a href="https://azure.microsoft.com/pricing/tco/calculator/" target="_blank">azure.microsoft.com/pricing/tco/calculator/</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-4">
+    <div class="ref-num">4</div>
+    <div class="ref-body">
+      <strong>Microsoft Dataverse Overview</strong>
+      <div class="ref-cat">Data Platform · Power Platform</div>
+      Introduction to Microsoft Dataverse — the unified data platform for Power Platform, Dynamics 365, and external AI integrations.
+      <br><a href="https://learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro" target="_blank">learn.microsoft.com/power-apps/maker/data-platform/data-platform-intro</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-5">
+    <div class="ref-num">5</div>
+    <div class="ref-body">
+      <strong>Azure AI Search — Indexer Concepts</strong>
+      <div class="ref-cat">Knowledge Architecture · Search</div>
+      Documentation covering Azure AI Search indexers, incremental indexing, change detection policies, and multi-source knowledge aggregation.
+      <br><a href="https://learn.microsoft.com/azure/search/search-indexer-overview" target="_blank">learn.microsoft.com/azure/search/search-indexer-overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-6">
+    <div class="ref-num">6</div>
+    <div class="ref-body">
+      <strong>Endorse Your Content in Power BI</strong>
+      <div class="ref-cat">Power BI · AI Grounding</div>
+      Microsoft documentation on promoting and endorsing Power BI semantic models to register them as AI-ready, trusted data sources.
+      <br><a href="https://learn.microsoft.com/power-bi/collaborate-share/service-endorsement-overview" target="_blank">learn.microsoft.com/power-bi/collaborate-share/service-endorsement-overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-7">
+    <div class="ref-num">7</div>
+    <div class="ref-body">
+      <strong>Power Platform — Data Residency and Regions</strong>
+      <div class="ref-cat">Governance · Data Residency</div>
+      Documentation covering Power Platform environment regions, cross-region data movement configuration, and data residency compliance.
+      <br><a href="https://learn.microsoft.com/power-platform/admin/regions-overview" target="_blank">learn.microsoft.com/power-platform/admin/regions-overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-8">
+    <div class="ref-num">8</div>
+    <div class="ref-body">
+      <strong>Microsoft Copilot Studio — Overview and Key Concepts</strong>
+      <div class="ref-cat">Agent Platform · Low-code</div>
+      Foundational documentation for Microsoft Copilot Studio: what it is, its architecture, capabilities, and integration patterns.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/fundamentals-what-is-copilot-studio" target="_blank">learn.microsoft.com/microsoft-copilot-studio/fundamentals-what-is-copilot-studio</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-9">
+    <div class="ref-num">9</div>
+    <div class="ref-body">
+      <strong>Copilot Studio — Natural Language Understanding and Generative AI</strong>
+      <div class="ref-cat">NLU Models · Orchestration</div>
+      Documentation covering NLU, NLU+, generative NLU model selection, orchestration modes, and intent recognition in Copilot Studio.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/nlu-boost-conversations" target="_blank">learn.microsoft.com/microsoft-copilot-studio/nlu-boost-conversations</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-10">
+    <div class="ref-num">10</div>
+    <div class="ref-body">
+      <strong>Use Computer Use in Microsoft Copilot Studio</strong>
+      <div class="ref-cat">Agent Capabilities · UI Automation</div>
+      Documentation for the Computer Use capability in Copilot Studio — enabling agents to interact with graphical user interfaces of third-party applications.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/computer-use" target="_blank">learn.microsoft.com/microsoft-copilot-studio/computer-use</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-11">
+    <div class="ref-num">11</div>
+    <div class="ref-body">
+      <strong>Extend Your Agent Using Model Context Protocol (MCP)</strong>
+      <div class="ref-cat">Agent Integration · Runtime Tools</div>
+      Documentation for connecting Copilot Studio agents to MCP servers for dynamic runtime tool discovery without agent redeployment.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/agent-extend-action-mcp" target="_blank">learn.microsoft.com/microsoft-copilot-studio/agent-extend-action-mcp</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-12">
+    <div class="ref-num">12</div>
+    <div class="ref-body">
+      <strong>Copilot in Dynamics 365 Sales — Overview</strong>
+      <div class="ref-cat">D365 Sales · Copilot Features</div>
+      Overview of Copilot capabilities in Dynamics 365 Sales, including email assist, opportunity summaries, and meeting preparation features.
+      <br><a href="https://learn.microsoft.com/dynamics365/sales/copilot-overview" target="_blank">learn.microsoft.com/dynamics365/sales/copilot-overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-13">
+    <div class="ref-num">13</div>
+    <div class="ref-body">
+      <strong>Microsoft 365 Copilot for Sales — Overview</strong>
+      <div class="ref-cat">M365 · Sales Intelligence</div>
+      Documentation for Microsoft 365 Copilot for Sales: capabilities in Outlook and Teams for email summaries, CRM-integrated meeting preparation, and suggested replies.
+      <br><a href="https://learn.microsoft.com/microsoft-sales-copilot/overview" target="_blank">learn.microsoft.com/microsoft-sales-copilot/overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-14">
+    <div class="ref-num">14</div>
+    <div class="ref-body">
+      <strong>Copilot in Dynamics 365 Field Service</strong>
+      <div class="ref-cat">D365 Field Service · Mobile AI</div>
+      Documentation covering Copilot capabilities in D365 Field Service, including mobile app AI guidance for field technicians and work-order summarisation.
+      <br><a href="https://learn.microsoft.com/dynamics365/field-service/copilot-in-field-service" target="_blank">learn.microsoft.com/dynamics365/field-service/copilot-in-field-service</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-15">
+    <div class="ref-num">15</div>
+    <div class="ref-body">
+      <strong>Enable Copilot Capabilities in Finance and Operations Apps</strong>
+      <div class="ref-cat">D365 Finance · Security Prerequisites</div>
+      Configuration guide including the Finance and Operations AI security role prerequisite for prebuilt Finance Copilot capabilities.
+      <br><a href="https://learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/copilot/enable-copilot" target="_blank">learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/copilot/enable-copilot</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-16">
+    <div class="ref-num">16</div>
+    <div class="ref-body">
+      <strong>Agent Management in Dynamics 365 Supply Chain Management</strong>
+      <div class="ref-cat">D365 SCM · Prebuilt Agent Discovery</div>
+      Documentation for the Agent Management capability in D365 SCM — browse, preview, and evaluate the prebuilt AI agent catalog.
+      <br><a href="https://learn.microsoft.com/dynamics365/supply-chain/copilot/agent-management" target="_blank">learn.microsoft.com/dynamics365/supply-chain/copilot/agent-management</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-17">
+    <div class="ref-num">17</div>
+    <div class="ref-body">
+      <strong>Configure Hand-off to Omnichannel for Customer Service</strong>
+      <div class="ref-cat">Copilot Studio · Contact Center</div>
+      Documentation for integrating Copilot Studio agents with Dynamics 365 Contact Center via Customer Engagement Hub, including the Escalation topic configuration and session context transfer.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/configuration-hand-off-omnichannel" target="_blank">learn.microsoft.com/microsoft-copilot-studio/configuration-hand-off-omnichannel</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-18">
+    <div class="ref-num">18</div>
+    <div class="ref-body">
+      <strong>Solution Concepts in Power Platform ALM</strong>
+      <div class="ref-cat">ALM · Solutions</div>
+      Foundational documentation for managed and unmanaged solutions in Power Platform: properties, differences, deployment behaviour, and ALM implications.
+      <br><a href="https://learn.microsoft.com/power-platform/alm/solution-concepts-alm" target="_blank">learn.microsoft.com/power-platform/alm/solution-concepts-alm</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-19">
+    <div class="ref-num">19</div>
+    <div class="ref-body">
+      <strong>ALM Accelerator for Microsoft Power Platform</strong>
+      <div class="ref-cat">ALM · Deployment Pipelines</div>
+      Documentation and overview for the ALM Accelerator — Microsoft's recommended tooling for automated Power Platform solution lifecycle management through DEV → TEST → PROD.
+      <br><a href="https://learn.microsoft.com/power-platform/guidance/alm-accelerator/overview" target="_blank">learn.microsoft.com/power-platform/guidance/alm-accelerator/overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-20">
+    <div class="ref-num">20</div>
+    <div class="ref-body">
+      <strong>Microsoft Purview for AI Governance</strong>
+      <div class="ref-cat">Governance · Compliance · AI Audit</div>
+      Documentation for Microsoft Purview capabilities for AI — including AI Hub for resource inventory, sensitivity data access tracking, and audit log capabilities for AI agents.
+      <br><a href="https://learn.microsoft.com/purview/ai-microsoft-purview" target="_blank">learn.microsoft.com/purview/ai-microsoft-purview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-21">
+    <div class="ref-num">21</div>
+    <div class="ref-body">
+      <strong>Microsoft Responsible AI Principles</strong>
+      <div class="ref-cat">Responsible AI · Ethics</div>
+      Microsoft's six Responsible AI principles — Fairness, Reliability &amp; Safety, Privacy &amp; Security, Inclusiveness, Transparency, and Accountability — and their architectural implementations.
+      <br><a href="https://www.microsoft.com/ai/responsible-ai" target="_blank">microsoft.com/ai/responsible-ai</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-22">
+    <div class="ref-num">22</div>
+    <div class="ref-body">
+      <strong>Power Platform Well-Architected Framework</strong>
+      <div class="ref-cat">Architecture · Design Quality</div>
+      Microsoft's framework for designing high-quality Power Platform solutions: reliability, security, performance efficiency, operational excellence, and experience optimisation.
+      <br><a href="https://learn.microsoft.com/power-platform/well-architected/" target="_blank">learn.microsoft.com/power-platform/well-architected/</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-23">
+    <div class="ref-num">23</div>
+    <div class="ref-body">
+      <strong>Power Platform Sensitivity Labels and Data Loss Prevention</strong>
+      <div class="ref-cat">Security · Data Classification</div>
+      Documentation for applying Microsoft Purview sensitivity labels to Power Platform and Dataverse data, and configuring data loss prevention policies.
+      <br><a href="https://learn.microsoft.com/power-platform/admin/wp-data-loss-prevention" target="_blank">learn.microsoft.com/power-platform/admin/wp-data-loss-prevention</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-24">
+    <div class="ref-num">24</div>
+    <div class="ref-body">
+      <strong>Copilot Studio — Voice and Telephony</strong>
+      <div class="ref-cat">Agent Platform · Voice</div>
+      Documentation for building voice-enabled Copilot Studio agents and integrating with Dynamics 365 Contact Center telephony channels.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/voice-overview" target="_blank">learn.microsoft.com/microsoft-copilot-studio/voice-overview</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-25">
+    <div class="ref-num">25</div>
+    <div class="ref-body">
+      <strong>Generative Orchestration in Copilot Studio</strong>
+      <div class="ref-cat">Agent Platform · Orchestration</div>
+      Documentation for generative AI orchestration in Copilot Studio — description-based topic routing, dynamic agent composition, and comparison with classic trigger-phrase orchestration.
+      <br><a href="https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions" target="_blank">learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions</a>
+    </div>
+  </li>
+  <li class="ref-item" id="ref-26">
+    <div class="ref-num">26</div>
+    <div class="ref-body">
+      <strong>Microsoft Cloud Adoption Framework — Responsible AI</strong>
+      <div class="ref-cat">Strategy · Responsible AI</div>
+      CAF guidance specific to Responsible AI adoption: assessment timing, governance integration, and the relationship between RAI principles and architecture decisions.
+      <br><a href="https://learn.microsoft.com/azure/cloud-adoption-framework/responsible-innovation/" target="_blank">learn.microsoft.com/azure/cloud-adoption-framework/responsible-innovation/</a>
+    </div>
+  </li>
+</ul>
+
+<!-- ── ABOUT THIS PUBLICATION ── -->
+<h2><span class="hn">§5</span> About This Publication</h2>
+<div class="legal-box">
+  <h3>Publication Details</h3>
+  <p style="padding:10px 14px;background:rgba(217,119,6,.07);border-radius:6px;border:1px solid rgba(217,119,6,.2);color:var(--amber3);font-size:13px;margin-bottom:16px"><strong>Plain language summary:</strong> This entire book is about Microsoft's products. Every feature, tool, and framework discussed belongs to Microsoft Corporation. We wrote a fictional story and teaching structure around those products to make them easier to understand. That story is ours. The products are Microsoft's.</p>
+    <p><strong>Title:</strong> Building Intelligent Enterprises — The GovernGlobal Story: An Architect's Field Guide</p>
+  <p><strong>Publisher:</strong> Govern Global Practice</p>
+  <p><strong>Year:</strong> 2025</p>
+  <p><strong>Version:</strong> 1.0</p>
+  <p><strong>Format:</strong> Interactive HTML — single-file, no external runtime dependencies beyond Google Fonts CDN</p>
+  <p><strong>Content scope:</strong> All technical product features, frameworks, and capabilities described are the intellectual property of Microsoft Corporation, referenced for educational commentary purposes only. Original narrative elements (GovernGlobal story, characters, teaching structure): CC BY 4.0.</p>
+  <p><strong>Suggested citation:</strong> Govern Global Practice. (2025). <em>Building Intelligent Enterprises — The GovernGlobal Story: An Architect's Field Guide</em>. Govern Global. CC BY 4.0.</p>
+  <p><strong>Scope of accuracy:</strong> Content reflects Microsoft product documentation available as of 2025. Microsoft products, features, and documentation URLs change over time. Verify all technical details against current official documentation at <a href="https://learn.microsoft.com" target="_blank" style="color:var(--sky2)">learn.microsoft.com</a> before making architectural decisions.</p>
+</div>
+
+</div>
+</div><!-- /legal -->
+
+</div><!-- /main -->
+
+<script>
+function sc(id){
+  document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('on'));
+  document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('on'));
+  const c=document.getElementById(id);
+  if(c)c.classList.add('on');
+  document.querySelectorAll('.sb-link').forEach(l=>{
+    if(l.getAttribute('onclick')&&l.getAttribute('onclick').includes("'"+id+"'"))l.classList.add('on');
+  });
+  document.getElementById('main').scrollTo(0,0);
+  window.scrollTo(0,0);
+}
+document.addEventListener('DOMContentLoaded',()=>sc('cover'));
+</script>
+</body></html>
