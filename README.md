@@ -32,7 +32,6 @@ The content is designed for:
 - Security & Risk Teams
 - Governance Practitioners
 - Technology Leaders
-- Public Sector Organisations
 - Delivery Teams
 
 ---
