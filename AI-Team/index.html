@@ -185,9 +185,59 @@
     body{background:#fff;color:#111}.page{max-width:none;padding:0}.hero,.card,.panel,.metric,.role,.usecase,.stack-card,.day-card,.footer,.workflow .step,.mindmap{box-shadow:none;background:#fff;color:#111;border-color:#ccc}
     p,td,li,.section-note,.mini,.node span{color:#333}.pill,.tag{color:#111;border-color:#ccc;background:#f7f7f7}.kicker{color:#066}h1,h2,h3,.node b,td strong{color:#111}.ag-logo,.site-logo{background:#f7f7f7}.node-center{background:#f3f3f3;color:#111}
   }
+
+
+/* ── AG / Australia AI Guide production banner ── */
+.ag-guide-banner{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:50px;padding:8px 24px;background:var(--ink, #040b16);color:var(--text, #dde8f5);border-bottom:1px solid rgba(196,150,42,.28);box-shadow:0 1px 0 rgba(255,255,255,.03);position:relative;z-index:50;flex-wrap:wrap}
+.ag-guide-brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;min-width:230px}
+.ag-guide-mark{width:36px;height:36px;border-radius:10px;display:block;object-fit:cover;flex:0 0 auto;background:#06101e;border:1px solid rgba(196,150,42,.38);box-shadow:0 0 0 1px rgba(255,255,255,.04),0 10px 26px rgba(196,150,42,.15)}
+.ag-guide-copy{display:flex;flex-direction:column;gap:1px;line-height:1.15}
+.ag-guide-title{font-size:15px;font-weight:800;letter-spacing:.01em;color:var(--text, #dde8f5);white-space:nowrap}
+.ag-guide-sub{font-size:9.5px;text-transform:uppercase;letter-spacing:1.1px;color:var(--gold2, #ddb84a);font-weight:800;white-space:nowrap}
+.ag-guide-disclaimer{font-size:10.5px;line-height:1.35;color:rgba(253,186,116,.78);flex:1 1 220px;max-width:420px}
+.ag-guide-nav{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+.ag-guide-nav a{color:rgba(221,232,245,.72);font-size:11.5px;line-height:1;text-decoration:none;padding:7px 9px;border-radius:999px;border:1px solid transparent;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
+.ag-guide-nav a:hover{color:var(--text, #dde8f5);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.ag-guide-nav a[aria-current="page"],.ag-guide-nav a.ag-guide-active{color:#07101d;background:var(--gold, #c4962a);border-color:rgba(196,150,42,.68);font-weight:800}
+@media(max-width:760px){.ag-guide-banner{align-items:flex-start;padding:10px 16px}.ag-guide-brand{min-width:0}.ag-guide-disclaimer{flex-basis:100%;max-width:none}.ag-guide-nav{justify-content:flex-start}.ag-guide-nav a{font-size:11px;padding:7px 8px}}
+
 </style>
 </head>
 <body>
+<div class="ag-guide-banner" role="banner" aria-label="AG Australia AI Guide banner">
+  <a class="ag-guide-brand" href="/Australia-AI-Guidance-Navigator/" aria-label="AG Australia AI Guide home">
+    <img class="ag-guide-mark" src="data:image/jpeg;base64,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" alt="AG logo">
+    <span class="ag-guide-copy">
+      <span class="ag-guide-title">AG · Australia AI Guide</span>
+      <span class="ag-guide-sub">Independent · Source-checked May 2026</span>
+    </span>
+  </a>
+  <div class="ag-guide-disclaimer">Educational &amp; Guidance Use Only. Verify implementation details against Sources.</div>
+  <nav class="ag-guide-nav" aria-label="Australia AI Guide sections">
+    <a href="/Australia-AI-Guidance-Navigator/GovernGlobalStory/" data-ag-page="story">GovernGlobal Story</a>
+    <a href="/Australia-AI-Guidance-Navigator/" data-ag-page="navigator">AU AI Navigator</a>
+    <a href="/Australia-AI-Guidance-Navigator/ai-architecture-principles/" data-ag-page="architecture">Architecture Principles</a>
+    <a href="/Australia-AI-Guidance-Navigator/MCP-Agentic-AI-Guidance-Framework/" data-ag-page="mcp">MCP &amp; Agentic AI</a>
+    <a href="#sources">Sources →</a>
+  </nav>
+</div>
+
+<script>
+(function(){
+  var path = window.location.pathname;
+  var current = 'navigator';
+  if (path.indexOf('/GovernGlobalStory/') !== -1) current = 'story';
+  else if (path.indexOf('/ai-architecture-principles/') !== -1) current = 'architecture';
+  else if (path.indexOf('/MCP-Agentic-AI-Guidance-Framework/') !== -1) current = 'mcp';
+  var selector = '.ag-guide-nav a[data-ag-page="' + current + '"]';
+  document.querySelectorAll('.ag-guide-nav a[data-ag-page]').forEach(function(link){
+    link.classList.toggle('ag-guide-active', link.matches(selector));
+    if (link.matches(selector)) link.setAttribute('aria-current','page');
+    else link.removeAttribute('aria-current');
+  });
+}());
+</script>
+
 <div class="page">
   <div class="topbar">
     <div class="brand">
@@ -496,5 +546,8 @@ function showToast(){
   setTimeout(()=>t.style.display='none',2200);
 }
 </script>
+<!-- Privacy-friendly analytics -->
+<script data-goatcounter="https://anir-ai.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
